@@ -1,7 +1,8 @@
 import React from 'react';
+import ToDoList from '../components/ToDoList';
 
 const IndexPage = () => {
-	return <div>IndexPage</div>;
+	return <ToDoList />;
 };
 
 export default IndexPage;

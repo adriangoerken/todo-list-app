@@ -8,7 +8,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false); // TODO: Change to true
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
