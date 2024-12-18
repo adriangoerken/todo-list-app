@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
 import Loader from '../components/Loader';
-import { getData } from '../api/api';
+import { getData, putData } from '../api/api';
 import { useAuth } from '../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
 
@@ -30,10 +30,10 @@ const ToDoList = () => {
 	const moveTask = (fromIndex, toIndex) => {
 		const updatedTasks = [...tasks];
 		const [movedTask] = updatedTasks.splice(fromIndex, 1);
-
 		updatedTasks.splice(toIndex, 0, movedTask);
+
 		setTasks(updatedTasks);
-		console.log(tasks);
+		updateTaskOrderInDB(updatedTasks);
 	};
 
 	const moveTaskUp = (index) => {
@@ -75,6 +75,25 @@ const ToDoList = () => {
 			}));
 			setTasks(response.data.tasks);
 			setLoading(false);
+		} else {
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
+
+	const updateTaskOrderInDB = async (tasks) => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetasksorder';
+		const response = await putData(url, { tasks });
+
+		if (response.success) {
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
 		} else {
 			setTimeout(() => {
 				toast.error(

@@ -11,13 +11,8 @@
     
         try {            
             $db = DB::getInstance();                                         
-            $result = $db->query('SELECT id, task, task_order, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY task_order ASC', [':user_id' => $userId]);
-    
-            foreach ($result as &$res) {
-                $res['body'] = deSanitizeQuill($res['body']);                
-            }
-
-            unset($res);                        
+            $result = $db->query('SELECT id, task, task_order, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY task_order ASC', [':user_id' => $userId]);  
+            
             sendResponse(true, 'none', 'none', 'none', 200, array('tasks' => $result, 'accessToken' => $accessToken));
         } catch (PDOException $e) {
             error_log($e->getMessage());

@@ -10,12 +10,12 @@ const Task = ({
 	moveTask,
 }) => {
 	const ref = useRef(null);
+	let initialIndex = index;
 
 	const [, drop] = useDrop({
 		accept: 'TASK',
 		hover(item) {
 			if (item.index !== index) {
-				moveTask(item.index, index);
 				item.index = index;
 			}
 		},
@@ -27,6 +27,11 @@ const Task = ({
 		collect: (monitor) => ({
 			isDragging: monitor.isDragging(),
 		}),
+		end: (item, _) => {
+			if (item.index !== initialIndex) {
+				moveTask(initialIndex, item.index);
+			}
+		},
 	});
 
 	drag(drop(ref));
