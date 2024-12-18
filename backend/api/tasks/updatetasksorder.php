@@ -27,7 +27,7 @@
             $db = DB::getInstance();                                         
             $db->query($updateOrderQuery, $params);                      
             
-            sendResponse(true, 'none', 'none', 'none', 200, array('accessToken' => $accessToken));            
+            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
         } catch (PDOException $e) {
             error_log($e->getMessage());
             sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);

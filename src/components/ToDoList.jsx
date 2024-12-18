@@ -1,24 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
 import Loader from '../components/Loader';
-import { getData, putData } from '../api/api';
+import { getData, putData, postData } from '../api/api';
 import { useAuth } from '../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
+import Button from './Button';
 
 const ToDoList = () => {
 	const { user, setUser } = useAuth();
 	const [loading, setLoading] = useState(true);
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
+	const [validTask, setValidTask] = useState(false);
 
 	const handleInputChange = (e) => {
 		setNewTask(e.target.value);
 	};
 
-	const addTask = () => {
+	const addTask = async () => {
 		if (newTask.trim() !== '') {
-			setTasks((t) => [...t, newTask]);
-			setNewTask('');
+			setLoading(true);
+			const url =
+				'http://localhost/projects/todo-list-app/backend/api/tasks/addtask';
+			const response = await postData(
+				url,
+				{ task: newTask },
+				user.accessToken
+			);
+
+			if (response.success) {
+				setNewTask('');
+				setUser((prevUser) => ({
+					...prevUser,
+					accessToken: response.data.accessToken,
+				}));
+
+				fetchTasks();
+			} else {
+				setTimeout(() => {
+					setLoading(false);
+					toast.error(
+						response.error ||
+							'Something went wrong. Please try again.'
+					);
+				}, 1);
+			}
 		}
 	};
 
@@ -36,30 +62,6 @@ const ToDoList = () => {
 		updateTaskOrderInDB(updatedTasks);
 	};
 
-	const moveTaskUp = (index) => {
-		if (index > 0 && index < tasks.length) {
-			const updatedTasks = [...tasks];
-			[updatedTasks[index], updatedTasks[index - 1]] = [
-				updatedTasks[index - 1],
-				updatedTasks[index],
-			];
-
-			setTasks(updatedTasks);
-		}
-	};
-
-	const moveTaskDown = (index) => {
-		if (index < tasks.length - 1) {
-			const updatedTasks = [...tasks];
-			[updatedTasks[index], updatedTasks[index + 1]] = [
-				updatedTasks[index + 1],
-				updatedTasks[index],
-			];
-
-			setTasks(updatedTasks);
-		}
-	};
-
 	const fetchTasks = async () => {
 		setLoading(true);
 
@@ -73,6 +75,7 @@ const ToDoList = () => {
 				...prevUser,
 				accessToken: response.data.accessToken,
 			}));
+
 			setTasks(response.data.tasks);
 			setLoading(false);
 		} else {
@@ -107,26 +110,27 @@ const ToDoList = () => {
 		fetchTasks();
 	}, []);
 
+	useEffect(() => {
+		setValidTask(!!newTask);
+	}, [newTask]);
+
 	if (loading) {
 		return <Loader />;
 	}
 
 	return (
 		<section>
-			<h1>ToDo-List</h1>
 			<div>
 				<input
 					type="text"
 					placeholder="Enter a task..."
 					value={newTask}
 					onChange={handleInputChange}
-					className="text-black"
+					required
 				/>
-				<button onClick={addTask} className="btn-add">
-					Add
-				</button>
+				<Button value="Add" onclick={addTask} disabled={!validTask} />
 			</div>
-			<ol>
+			<section>
 				{tasks.map((task, index) => (
 					<Task
 						key={index}
@@ -134,11 +138,9 @@ const ToDoList = () => {
 						index={index}
 						deleteTask={deleteTask}
 						moveTask={moveTask}
-						moveTaskUp={moveTaskUp}
-						moveTaskDown={moveTaskDown}
 					/>
 				))}
-			</ol>
+			</section>
 		</section>
 	);
 };

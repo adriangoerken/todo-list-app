@@ -13,7 +13,7 @@
             $db = DB::getInstance();                                         
             $result = $db->query('SELECT id, task, task_order, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY task_order ASC', [':user_id' => $userId]);  
             
-            sendResponse(true, 'none', 'none', 'none', 200, array('tasks' => $result, 'accessToken' => $accessToken));
+            sendResponse(true, 'none', 'none', 'none', 200, ['tasks' => $result, 'accessToken' => $accessToken]);
         } catch (PDOException $e) {
             error_log($e->getMessage());
             sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);

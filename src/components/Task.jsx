@@ -1,14 +1,7 @@
 import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
-const Task = ({
-	task,
-	index,
-	deleteTask,
-	moveTaskUp,
-	moveTaskDown,
-	moveTask,
-}) => {
+const Task = ({ task, index, deleteTask, moveTask }) => {
 	const ref = useRef(null);
 	let initialIndex = index;
 
@@ -37,7 +30,7 @@ const Task = ({
 	drag(drop(ref));
 
 	return (
-		<li
+		<div
 			ref={ref}
 			style={{ opacity: isDragging ? 0.5 : 1 }}
 			className="py-4 border-2 rounded-lg border-green-900 hover:cursor-pointer"
@@ -46,16 +39,7 @@ const Task = ({
 			<button onClick={() => deleteTask(index)} className="btn-delete">
 				Delete
 			</button>
-			<button onClick={() => moveTaskUp(index)} className="btn-move-up">
-				MoveUp
-			</button>
-			<button
-				onClick={() => moveTaskDown(index)}
-				className="btn-move-down"
-			>
-				MoveDown
-			</button>
-		</li>
+		</div>
 	);
 };
 

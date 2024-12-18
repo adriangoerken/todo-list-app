@@ -1,55 +1,44 @@
 <?php
-include_once 'db.php'; // Include your database connection file
-include_once 'auth.php'; // Include your authentication file
+    require_once '../_helpers.php';
+    require_once '../_auth_helpers.php'; 
 
-// Ensure the user is authenticated
-$user = authenticate_user();
-if (!$user) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'error' => 'Unauthorized']);
-    exit;
-}
-
-// Get the JSON payload
-$data = json_decode(file_get_contents('php://input'), true);
-
-if (!isset($data['task']) || trim($data['task']) === '') {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Invalid payload']);
-    exit;
-}
-
-$db = DB::getInstance();
-
-// Start a transaction to ensure data integrity
-$db->query('START TRANSACTION');
-
-try {
-    // Fetch the highest task_order for the user
-    $highestOrder = $db->query('SELECT MAX(task_order) as max_order FROM tasks WHERE user_id = :user_id', [':user_id' => $user['id']]);
+    use \Firebase\JWT\JWT;     
+    use \Firebase\JWT\Key;       
     
-    // Calculate the new task_order
-    $newTaskOrder = $highestOrder[0]['max_order'] + 1;
+    function addTask() {
+        list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
+        $userId = $decoded->sub;               
 
-    // Insert the new task
-    $insertTaskQuery = 'INSERT INTO tasks (user_id, task, task_order, is_done, created_at) VALUES (:user_id, :task, :task_order, 0, NOW())';
-    $params = [
-        ':user_id' => $user['id'],
-        ':task' => trim($data['task']),
-        ':task_order' => $newTaskOrder
-    ];
-    $result = $db->query($insertTaskQuery, $params);
+        try {            
+            $db = DB::getInstance();                             
 
-    if ($result) {
-        $db->query('COMMIT');
-        echo json_encode(['success' => true, 'data' => ['task_id' => $db->lastInsertId()]]);
-    } else {
-        throw new Exception('Failed to add new task');
+            $highestOrder = $db->query('SELECT MAX(task_order) as max_order FROM tasks WHERE user_id = :user_id', [':user_id' => $userId]);   
+            $taskOrder = $highestOrder[0]['max_order'] + 1;           
+
+            $postData = json_decode(file_get_contents("php://input"), true);
+            $task = sanitizeInput($postData['task']);                       
+            
+            $db->query('INSERT INTO tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
+
+            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);
+        } catch (Exception $e) {            
+            error_log($e->getMessage());            
+            sendResponse(false, "unknown_exception", "An unexpected error occurred. Please try again.", $e->getMessage(), 500);
+        }   
     }
-} catch (Exception $e) {
-    // Rollback the transaction in case of an error
-    $db->query('ROLLBACK');
-    http_response_code(500);
-    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
-}
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {                
+        $postData = json_decode(file_get_contents("php://input"), true);
+        
+        if (isset($postData['task'])) {            
+            addTask();
+        } else {            
+            sendResponse(false, 'data_not_set', 'An unexpected error occurred. Please try again.', 'No data was passed with POST.', 500);
+        }
+    } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {             
+        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'The data was sent using the wrong method, use POST.', 500);
+    }
 ?>

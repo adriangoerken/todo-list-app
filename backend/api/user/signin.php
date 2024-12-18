@@ -13,7 +13,7 @@
             $password = $postData['password'];
     
             $db = DB::getInstance();
-            $result = $db->query("SELECT id, email, password, role FROM users WHERE email = :email", array(':email' => $email));            
+            $result = $db->query("SELECT id, email, password, role FROM users WHERE email = :email", [':email' => $email]);            
     
             if (count($result) === 1) {                
                 if (password_verify($password, $result[0]['password'])) {                    
@@ -36,7 +36,7 @@
                     ], $privateKey, 'RS256');                    
 
                     $expiresAt = date('Y-m-d H:i:s', time() + (90 * 24 * 60 *60));
-                    $db->query("INSERT INTO refresh_tokens (user_id, token, expires_at) VALUES (:user_id, :token, :expires_at)", array(':user_id' => $userId, ':token' => $refreshToken, ':expires_at' => $expiresAt));                    
+                    $db->query("INSERT INTO refresh_tokens (user_id, token, expires_at) VALUES (:user_id, :token, :expires_at)", [':user_id' => $userId, ':token' => $refreshToken, ':expires_at' => $expiresAt]);                    
                     setcookie(
                         'refreshToken', 
                         $refreshToken, 
