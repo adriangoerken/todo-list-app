@@ -8,20 +8,104 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
-	const [loading, setLoading] = useState(false); // TODO: Change to true
+	const [loading, setLoading] = useState(true);
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
 		checkUserStatus();
 	}, []);
 
-	const signUp = async (newUser) => {};
+	const signUp = async (newUser) => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/signup';
+		setLoading(true);
 
-	const signIn = async ({ userInput }) => {};
+		const response = await postData(url, newUser);
 
-	const signOut = async () => {};
+		if (response.success) {
+			setLoading(false);
+			toast.success('Account created successfully!');
+			navigate('/signin');
+		} else {
+			setLoading(false);
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
 
-	const checkUserStatus = async () => {};
+	const signIn = async ({ userInput }) => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/signin';
+		setLoading(true);
+
+		const response = await postData(url, userInput);
+
+		if (response.success) {
+			setUser(response.data.userInfo);
+			setLoading(false);
+		} else {
+			setUser(null);
+			setLoading(false);
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
+
+	const signOut = async () => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/signout';
+		setLoading(true);
+		const response = await deleteData(url, { action: 'signout' });
+
+		if (response.success) {
+			setTimeout(() => {
+				toast.success('Signed out successfully!');
+			}, 1);
+			setUser(null);
+			setLoading(false);
+		} else {
+			setLoading(false);
+
+			if (response.errorType !== 'invalid_refresh_token') {
+				setTimeout(() => {
+					toast.error(
+						response.error ||
+							'Something went wrong. Please try again.'
+					);
+				}, 1);
+			}
+		}
+	};
+
+	const checkUserStatus = async () => {
+		setLoading(true);
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/signinstate';
+		const response = await postData(url);
+
+		if (response.success) {
+			setUser(response.data.userInfo);
+			setLoading(false);
+		} else {
+			setUser(null);
+			setLoading(false);
+
+			if (response.errorType !== 'invalid_refresh_token') {
+				setTimeout(() => {
+					toast.error(
+						response.error ||
+							'Something went wrong. Please try again.'
+					);
+				}, 1);
+			}
+		}
+	};
 
 	const contextData = {
 		user,

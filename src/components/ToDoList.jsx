@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Task from './Task';
+import Loader from '../components/Loader';
+import { getData } from '../api/api';
+import { useAuth } from '../providers/AuthContextProvider';
+import { toast } from 'react-toastify';
 
 const ToDoList = () => {
-	const [tasks, setTasks] = useState([
-		'Eat Breakfast',
-		'Take a shower',
-		'Walk the dog',
-	]);
+	const { user, setUser } = useAuth();
+	const [loading, setLoading] = useState(true);
+	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
 
 	const handleInputChange = (e) => {
@@ -22,6 +25,15 @@ const ToDoList = () => {
 	const deleteTask = (index) => {
 		const updatedTasks = tasks.filter((_, i) => i !== index);
 		setTasks(updatedTasks);
+	};
+
+	const moveTask = (fromIndex, toIndex) => {
+		const updatedTasks = [...tasks];
+		const [movedTask] = updatedTasks.splice(fromIndex, 1);
+
+		updatedTasks.splice(toIndex, 0, movedTask);
+		setTasks(updatedTasks);
+		console.log(tasks);
 	};
 
 	const moveTaskUp = (index) => {
@@ -48,6 +60,38 @@ const ToDoList = () => {
 		}
 	};
 
+	const fetchTasks = async () => {
+		setLoading(true);
+
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/tasks/gettasks';
+
+		const response = await getData(url, user.accessToken);
+
+		if (response.success) {
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
+			setTasks(response.data.tasks);
+			setLoading(false);
+		} else {
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
+
+	useEffect(() => {
+		fetchTasks();
+	}, []);
+
+	if (loading) {
+		return <Loader />;
+	}
+
 	return (
 		<section>
 			<h1>ToDo-List</h1>
@@ -65,27 +109,15 @@ const ToDoList = () => {
 			</div>
 			<ol>
 				{tasks.map((task, index) => (
-					<li key={index}>
-						<span className="text">{task}</span>
-						<button
-							onClick={() => deleteTask(index)}
-							className="btn-delete"
-						>
-							Delete
-						</button>
-						<button
-							onClick={() => moveTaskUp(index)}
-							className="btn-move-up"
-						>
-							MoveUp
-						</button>
-						<button
-							onClick={() => moveTaskDown(index)}
-							className="btn-move-down"
-						>
-							MoveDown
-						</button>
-					</li>
+					<Task
+						key={index}
+						task={task.task}
+						index={index}
+						deleteTask={deleteTask}
+						moveTask={moveTask}
+						moveTaskUp={moveTaskUp}
+						moveTaskDown={moveTaskDown}
+					/>
 				))}
 			</ol>
 		</section>
