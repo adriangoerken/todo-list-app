@@ -136,6 +136,25 @@ const ToDoList = () => {
 		}
 	};
 
+	const updateTaskStatus = async (id, isDone) => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetaskstatus';
+		const response = await putData(url, { id, isDone });
+
+		if (response.success) {
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
+		} else {
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
+
 	useEffect(() => {
 		fetchTasks();
 	}, []);
@@ -165,11 +184,13 @@ const ToDoList = () => {
 					<Task
 						key={task.id}
 						task={task.task}
-						task_id={task.id}
-						task_order={task.task_order}
+						taskId={task.id}
+						taskOrder={task.task_order}
+						isDone={task.is_done === 0 ? false : true}
 						index={index}
 						deleteTask={deleteTask}
 						moveTask={moveTask}
+						updateStatus={updateTaskStatus}
 					/>
 				))}
 			</section>

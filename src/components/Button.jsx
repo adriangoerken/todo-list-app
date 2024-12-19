@@ -1,5 +1,5 @@
-// import React from 'react';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ disabled = false, value, className = '', onclick }) => {
 	const baseClasses =
@@ -14,6 +14,13 @@ const Button = ({ disabled = false, value, className = '', onclick }) => {
 			{value}
 		</button>
 	);
+};
+
+Button.propTypes = {
+	disabled: PropTypes.bool,
+	value: PropTypes.string.isRequired,
+	className: PropTypes.string,
+	onclick: PropTypes.func.isRequired,
 };
 
 export default Button;
