@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
+import { MdDeleteForever } from 'react-icons/md';
 
-const Task = ({ task, index, deleteTask, moveTask }) => {
+const Task = ({ task, task_id, task_order, index, deleteTask, moveTask }) => {
 	const ref = useRef(null);
 	let initialIndex = index;
 
@@ -36,8 +37,11 @@ const Task = ({ task, index, deleteTask, moveTask }) => {
 			className="py-4 border-2 rounded-lg border-green-900 hover:cursor-pointer"
 		>
 			<span className="text">{task}</span>{' '}
-			<button onClick={() => deleteTask(index)} className="btn-delete">
-				Delete
+			<button
+				onClick={() => deleteTask(task_id, task_order)}
+				className="btn-delete"
+			>
+				<MdDeleteForever />
 			</button>
 		</div>
 	);

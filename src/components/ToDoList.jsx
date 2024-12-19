@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
 import Loader from '../components/Loader';
-import { getData, putData, postData } from '../api/api';
+import { getData, putData, postData, deleteData } from '../api/api';
 import { useAuth } from '../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
 import Button from './Button';
@@ -35,6 +35,7 @@ const ToDoList = () => {
 					accessToken: response.data.accessToken,
 				}));
 
+				toast.success('New task added successfully!');
 				fetchTasks();
 			} else {
 				setTimeout(() => {
@@ -48,15 +49,44 @@ const ToDoList = () => {
 		}
 	};
 
-	const deleteTask = (index) => {
-		const updatedTasks = tasks.filter((_, i) => i !== index);
-		setTasks(updatedTasks);
+	const deleteTask = async (id, task_order) => {
+		// TODO: Implement logic for is_done
+		// TODO: Implement priority/favorite; add db column(bool)
+
+		setLoading(true);
+
+		const url = `http://localhost/projects/todo-list-app/backend/api/tasks/deletetask?id=${id}&task_order=${task_order}`;
+		const response = await deleteData(url, user.accessToken);
+
+		if (response.success) {
+			setNewTask('');
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
+
+			toast.success('Task deleted successfully!');
+			fetchTasks();
+		} else {
+			setTimeout(() => {
+				setLoading(false);
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
 	};
 
 	const moveTask = (fromIndex, toIndex) => {
 		const updatedTasks = [...tasks];
 		const [movedTask] = updatedTasks.splice(fromIndex, 1);
+
 		updatedTasks.splice(toIndex, 0, movedTask);
+
+		// Update task_order for each task
+		updatedTasks.forEach((task, index) => {
+			task.task_order = index + 1;
+		});
 
 		setTasks(updatedTasks);
 		updateTaskOrderInDB(updatedTasks);
@@ -133,8 +163,10 @@ const ToDoList = () => {
 			<section>
 				{tasks.map((task, index) => (
 					<Task
-						key={index}
+						key={task.id}
 						task={task.task}
+						task_id={task.id}
+						task_order={task.task_order}
 						index={index}
 						deleteTask={deleteTask}
 						moveTask={moveTask}
