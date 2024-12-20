@@ -5,17 +5,17 @@
     use \Firebase\JWT\JWT;     
     use \Firebase\JWT\Key;        
     
-    function updateStatus() {                
+    function updatePriority() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
         $userId = $decoded->sub;               
 
         try {
             $putData = json_decode(file_get_contents("php://input"), true);           
             $id = $putData['id'];
-            $isDone = $putData['isDone'] === true ? 1 : 0;                            
+            $priority = $putData['priority'];                            
 
             $db = DB::getInstance();                                         
-            $db->query('UPDATE tasks SET is_done = :isDone WHERE id = :id AND user_id = :userId', [':isDone' => $isDone, ':id' => $id, ':userId' => $userId]);                      
+            $db->query('UPDATE tasks SET priority = :priority WHERE id = :id AND user_id = :userId', [':priority' => $priority, ':id' => $id, ':userId' => $userId]);                      
             
             sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
         } catch (PDOException $e) {
@@ -30,8 +30,8 @@
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                
         $putData = json_decode(file_get_contents("php://input"), true);
         
-        if (isset($putData['id']) && isset($putData['isDone'])) {            
-            updateStatus();
+        if (isset($putData['id']) && isset($putData['priority'])) {            
+            updatePriority();
         } else {            
             sendResponse(false, 'data_not_set', 'An unexpected error occurred. Please try again.', 'No data was passed with PUT.', 500);
         }

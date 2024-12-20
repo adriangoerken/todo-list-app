@@ -7,14 +7,17 @@ const Task = ({
 	task,
 	taskId,
 	taskOrder,
+	priority,
 	isDone,
 	index,
 	deleteTask,
 	moveTask,
 	updateStatus,
+	updatePriority,
 }) => {
 	const ref = useRef(null);
 	const [checked, setChecked] = useState(isDone);
+	const [selectValue, setSelectValue] = useState(priority);
 	let initialIndex = index;
 
 	const [, drop] = useDrop({
@@ -44,6 +47,15 @@ const Task = ({
 		updateStatus(taskId, e.target.checked);
 	};
 
+	const handleDeleteTask = () => {
+		deleteTask(taskId, taskOrder);
+	};
+
+	const handlePriorityChange = (e) => {
+		setSelectValue(e.target.value);
+		updatePriority(taskId, parseInt(e.target.value));
+	};
+
 	drag(drop(ref));
 
 	return (
@@ -58,7 +70,14 @@ const Task = ({
 				onChange={handleCheckboxChange}
 			/>
 			<span className={checked ? 'line-through' : ''}>{task}</span>
-			<button onClick={() => deleteTask(taskId, taskOrder)}>
+			<select onChange={handlePriorityChange} value={selectValue}>
+				<option value={1}>High</option>
+				<option value={2}>Normal</option>
+				<option value={3}>Low</option>
+			</select>
+			{/* TODO: Implement priority/favorite; add db column(bool) //
+			Dropdown with priority from 1-3. Default = 2. 1 = Urgent 3 = Not */}
+			<button onClick={handleDeleteTask}>
 				<MdDeleteForever />
 			</button>
 		</div>
@@ -69,11 +88,13 @@ Task.propTypes = {
 	task: PropTypes.string.isRequired,
 	taskId: PropTypes.number.isRequired,
 	taskOrder: PropTypes.number.isRequired,
+	priority: PropTypes.number.isRequired,
 	isDone: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
 	deleteTask: PropTypes.func.isRequired,
 	moveTask: PropTypes.func.isRequired,
 	updateStatus: PropTypes.func.isRequired,
+	updatePriority: PropTypes.func.isRequired,
 };
 
 export default Task;

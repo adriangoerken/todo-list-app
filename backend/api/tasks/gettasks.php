@@ -11,7 +11,7 @@
     
         try {            
             $db = DB::getInstance();                                         
-            $result = $db->query('SELECT id, task, task_order, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY task_order ASC', [':user_id' => $userId]);  
+            $result = $db->query('SELECT id, task, task_order, priority, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY priority ASC, task_order ASC', [':user_id' => $userId]);  
             
             sendResponse(true, 'none', 'none', 'none', 200, ['tasks' => $result, 'accessToken' => $accessToken]);
         } catch (PDOException $e) {

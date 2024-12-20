@@ -50,9 +50,6 @@ const ToDoList = () => {
 	};
 
 	const deleteTask = async (id, task_order) => {
-		// TODO: Implement logic for is_done
-		// TODO: Implement priority/favorite; add db column(bool)
-
 		setLoading(true);
 
 		const url = `http://localhost/projects/todo-list-app/backend/api/tasks/deletetask?id=${id}&task_order=${task_order}`;
@@ -83,7 +80,6 @@ const ToDoList = () => {
 
 		updatedTasks.splice(toIndex, 0, movedTask);
 
-		// Update task_order for each task
 		updatedTasks.forEach((task, index) => {
 			task.task_order = index + 1;
 		});
@@ -155,6 +151,42 @@ const ToDoList = () => {
 		}
 	};
 
+	const updatePriority = async (id, priority) => {
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetaskpriority';
+		const response = await putData(url, { id, priority });
+
+		if (response.success) {
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
+
+			setTasks((prevTasks) => {
+				// Update the priority of the task
+				const updatedTasks = prevTasks.map((task) =>
+					task.id === id ? { ...task, priority } : task
+				);
+
+				// Sort by priority (ascending) and then by task_order (ascending)
+				updatedTasks.sort((a, b) => {
+					if (a.priority === b.priority) {
+						return a.task_order - b.task_order;
+					}
+					return a.priority - b.priority;
+				});
+
+				return updatedTasks;
+			});
+		} else {
+			setTimeout(() => {
+				toast.error(
+					response.error || 'Something went wrong. Please try again.'
+				);
+			}, 1);
+		}
+	};
+
 	useEffect(() => {
 		fetchTasks();
 	}, []);
@@ -186,11 +218,13 @@ const ToDoList = () => {
 						task={task.task}
 						taskId={task.id}
 						taskOrder={task.task_order}
+						priority={task.priority}
 						isDone={task.is_done === 0 ? false : true}
 						index={index}
 						deleteTask={deleteTask}
 						moveTask={moveTask}
 						updateStatus={updateTaskStatus}
+						updatePriority={updatePriority}
 					/>
 				))}
 			</section>
