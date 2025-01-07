@@ -80,8 +80,17 @@ const ToDoList = () => {
 
 		updatedTasks.splice(toIndex, 0, movedTask);
 
+		// Update the task_order for each task
 		updatedTasks.forEach((task, index) => {
 			task.task_order = index + 1;
+		});
+
+		// Sort the tasks by priority and then by task_order
+		updatedTasks.sort((a, b) => {
+			if (a.priority === b.priority) {
+				return a.task_order - b.task_order;
+			}
+			return a.priority - b.priority;
 		});
 
 		setTasks(updatedTasks);

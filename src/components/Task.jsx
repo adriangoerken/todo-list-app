@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
-import { MdDeleteForever } from 'react-icons/md';
+import Select from './Select';
+import DeleteButton from './DeleteButton';
 
 const Task = ({
 	task,
@@ -18,6 +19,11 @@ const Task = ({
 	const ref = useRef(null);
 	const [checked, setChecked] = useState(isDone);
 	const [selectValue, setSelectValue] = useState(priority);
+	const priorityOptions = [
+		{ value: 1, label: 'High' },
+		{ value: 2, label: 'Normal' },
+		{ value: 3, label: 'Low' },
+	];
 	let initialIndex = index;
 
 	const [, drop] = useDrop({
@@ -57,6 +63,7 @@ const Task = ({
 	};
 
 	drag(drop(ref));
+	// TODO: Styling for entire site; also specifically for this component
 
 	return (
 		<div
@@ -70,16 +77,12 @@ const Task = ({
 				onChange={handleCheckboxChange}
 			/>
 			<span className={checked ? 'line-through' : ''}>{task}</span>
-			<select onChange={handlePriorityChange} value={selectValue}>
-				<option value={1}>High</option>
-				<option value={2}>Normal</option>
-				<option value={3}>Low</option>
-			</select>
-			{/* TODO: Implement priority/favorite; add db column(bool) //
-			Dropdown with priority from 1-3. Default = 2. 1 = Urgent 3 = Not */}
-			<button onClick={handleDeleteTask}>
-				<MdDeleteForever />
-			</button>
+			<Select
+				onchange={handlePriorityChange}
+				value={selectValue}
+				options={priorityOptions}
+			/>
+			<DeleteButton onclick={handleDeleteTask} />
 		</div>
 	);
 };
