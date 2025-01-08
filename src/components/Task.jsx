@@ -69,7 +69,7 @@ const Task = ({
 		<div
 			ref={ref}
 			style={{ opacity: isDragging ? 0.5 : 1 }}
-			className="py-4 border-2 rounded-lg border-green-900 hover:cursor-pointer"
+			className="py-4 sborder-2 srounded-lg sborder-green-900 hover:cursor-pointer"
 		>
 			<input
 				type="checkbox"

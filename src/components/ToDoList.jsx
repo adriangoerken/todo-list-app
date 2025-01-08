@@ -5,6 +5,7 @@ import { getData, putData, postData, deleteData } from '../api/api';
 import { useAuth } from '../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
 import Button from './Button';
+import TextField from './TextField';
 
 const ToDoList = () => {
 	const { user, setUser } = useAuth();
@@ -209,16 +210,19 @@ const ToDoList = () => {
 	}
 
 	return (
-		<section>
-			<div>
-				<input
-					type="text"
+		<section className="flex flex-col gap-10">
+			<div className="flex gap-2 w-[90%] self-center">
+				<TextField
 					placeholder="Enter a task..."
 					value={newTask}
-					onChange={handleInputChange}
-					required
+					onchange={handleInputChange}
 				/>
-				<Button value="Add" onclick={addTask} disabled={!validTask} />
+				<Button
+					value="Add"
+					onclick={addTask}
+					disabled={!validTask}
+					className="max-w-fit px-6 cursor-pointer"
+				/>
 			</div>
 			<section>
 				{tasks.map((task, index) => (
