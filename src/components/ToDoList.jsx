@@ -9,8 +9,7 @@ import TextField from './TextField';
 
 const ToDoList = () => {
 	/* TODO: 
-		- Code refactoring
-		- Design for sign in/up page (maybe sign in popup like stepstone?)		
+		- Code refactoring		
 		- Design + implementation header/footer
 		- cloud save indicator on change (MdCloudDone, MdCloudSync)
 		- Implement settings pages
