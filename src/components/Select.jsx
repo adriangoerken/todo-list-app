@@ -3,9 +3,17 @@ import PropTypes from 'prop-types';
 
 const Select = ({ onchange, value, options }) => {
 	return (
-		<select onChange={onchange} value={value}>
+		<select
+			onChange={onchange}
+			value={value}
+			className="border-2 border-gray-600 rounded-lg bg-transparent p-1 cursor-pointer"
+		>
 			{options.map((option) => (
-				<option key={option.value} value={option.value}>
+				<option
+					key={option.value}
+					value={option.value}
+					className="bg-gray-900"
+				>
 					{option.label}
 				</option>
 			))}

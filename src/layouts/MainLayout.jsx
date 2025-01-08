@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const MainLayout = () => {
 	return (
 		<div className="flex flex-col min-h-screen">
-			<div className="flex-grow">
+			<div className="flex flex-grow">
 				<Outlet />
 			</div>
 			<ToastContainer theme="colored" />

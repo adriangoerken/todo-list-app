@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 import Select from './Select';
 import DeleteButton from './DeleteButton';
+import { MdDragHandle } from 'react-icons/md';
+import Checkbox from './Checkbox';
 
 const Task = ({
 	task,
@@ -54,7 +56,9 @@ const Task = ({
 	};
 
 	const handleDeleteTask = () => {
-		deleteTask(taskId, taskOrder);
+		if (confirm('Are you sure you want to delete this task?')) {
+			deleteTask(taskId, taskOrder);
+		}
 	};
 
 	const handlePriorityChange = (e) => {
@@ -63,26 +67,30 @@ const Task = ({
 	};
 
 	drag(drop(ref));
-	// TODO: Styling for entire site; also specifically for this component
 
 	return (
 		<div
 			ref={ref}
 			style={{ opacity: isDragging ? 0.5 : 1 }}
-			className="py-4 sborder-2 srounded-lg sborder-green-900 hover:cursor-pointer"
+			className="flex items-center justify-between p-4 border-2 rounded-lg font-bold border-gray-600 cursor-move"
 		>
-			<input
-				type="checkbox"
-				checked={checked}
-				onChange={handleCheckboxChange}
-			/>
-			<span className={checked ? 'line-through' : ''}>{task}</span>
-			<Select
-				onchange={handlePriorityChange}
-				value={selectValue}
-				options={priorityOptions}
-			/>
-			<DeleteButton onclick={handleDeleteTask} />
+			<div className="flex w-full gap-2">
+				<Checkbox checked={checked} onchange={handleCheckboxChange} />
+				<div className="flex items-center w-full">
+					<span className={checked ? 'line-through opacity-50' : ''}>
+						{task}
+					</span>
+				</div>
+				<div className="flex items-center justify-end w-full gap-2 mr-3">
+					<Select
+						onchange={handlePriorityChange}
+						value={selectValue}
+						options={priorityOptions}
+					/>
+					<DeleteButton onclick={handleDeleteTask} />
+				</div>
+			</div>
+			<MdDragHandle className="cursor-pointer text-xl" />
 		</div>
 	);
 };

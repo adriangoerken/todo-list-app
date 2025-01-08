@@ -8,6 +8,14 @@ import Button from './Button';
 import TextField from './TextField';
 
 const ToDoList = () => {
+	/* TODO: 
+		- Code refactoring
+		- Design for sign in/up page (maybe sign in popup like stepstone?)		
+		- Design + implementation header/footer
+		- cloud save indicator on change (MdCloudDone, MdCloudSync)
+		- Implement settings pages
+		- Implement sign out
+	*/
 	const { user, setUser } = useAuth();
 	const [loading, setLoading] = useState(true);
 	const [tasks, setTasks] = useState([]);
@@ -211,7 +219,7 @@ const ToDoList = () => {
 
 	return (
 		<section className="flex flex-col gap-10">
-			<div className="flex gap-2 w-[90%] self-center">
+			<form className="flex gap-2 w-[90%] self-center">
 				<TextField
 					placeholder="Enter a task..."
 					value={newTask}
@@ -223,8 +231,8 @@ const ToDoList = () => {
 					disabled={!validTask}
 					className="max-w-fit px-6 cursor-pointer"
 				/>
-			</div>
-			<section>
+			</form>
+			<section className="flex flex-col gap-2">
 				{tasks.map((task, index) => (
 					<Task
 						key={task.id}
