@@ -6,11 +6,12 @@ const TextField = ({
 	onchange,
 	value,
 	className,
+	type = 'text',
 	isRequired = true,
 }) => {
 	return (
 		<input
-			type="text"
+			type={type}
 			placeholder={placeholder}
 			value={value}
 			onChange={onchange}
@@ -25,6 +26,7 @@ TextField.propTypes = {
 	onchange: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired,
 	className: PropTypes.string,
+	type: PropTypes.string,
 	isRequired: PropTypes.bool,
 };
 
