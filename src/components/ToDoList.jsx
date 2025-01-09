@@ -6,16 +6,17 @@ import { useAuth } from '../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
 import Button from './Button';
 import TextField from './TextField';
+import { useSaveStatus } from '../providers/SaveStatusContextProvider';
 
 const ToDoList = () => {
 	/* TODO: 
-		- Code refactoring		
-		- Design + implementation header/footer
-		- cloud save indicator on change (MdCloudDone, MdCloudSync)
+		- Code refactoring						
 		- Implement settings pages
 		- Implement sign out
+		- Implement multilang
 	*/
 	const { user, setUser } = useAuth();
+	const { setIsSaving } = useSaveStatus();
 	const [loading, setLoading] = useState(true);
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
@@ -28,6 +29,8 @@ const ToDoList = () => {
 	const addTask = async () => {
 		if (newTask.trim() !== '') {
 			setLoading(true);
+			setIsSaving(true);
+
 			const url =
 				'http://localhost/projects/todo-list-app/backend/api/tasks/addtask';
 			const response = await postData(
@@ -48,6 +51,7 @@ const ToDoList = () => {
 			} else {
 				setTimeout(() => {
 					setLoading(false);
+					setIsSaving(false);
 					toast.error(
 						response.error ||
 							'Something went wrong. Please try again.'
@@ -59,6 +63,7 @@ const ToDoList = () => {
 
 	const deleteTask = async (id, task_order) => {
 		setLoading(true);
+		setIsSaving(true);
 
 		const url = `http://localhost/projects/todo-list-app/backend/api/tasks/deletetask?id=${id}&task_order=${task_order}`;
 		const response = await deleteData(url, user.accessToken);
@@ -75,6 +80,7 @@ const ToDoList = () => {
 		} else {
 			setTimeout(() => {
 				setLoading(false);
+				setIsSaving(false);
 				toast.error(
 					response.error || 'Something went wrong. Please try again.'
 				);
@@ -107,6 +113,7 @@ const ToDoList = () => {
 
 	const fetchTasks = async () => {
 		setLoading(true);
+		setIsSaving(true);
 
 		const url =
 			'http://localhost/projects/todo-list-app/backend/api/tasks/gettasks';
@@ -121,6 +128,7 @@ const ToDoList = () => {
 
 			setTasks(response.data.tasks);
 			setLoading(false);
+			setIsSaving(false);
 		} else {
 			setTimeout(() => {
 				toast.error(
@@ -131,6 +139,8 @@ const ToDoList = () => {
 	};
 
 	const updateTaskOrderInDB = async (tasks) => {
+		setIsSaving(true);
+
 		const url =
 			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetasksorder';
 		const response = await putData(url, { tasks });
@@ -140,6 +150,8 @@ const ToDoList = () => {
 				...prevUser,
 				accessToken: response.data.accessToken,
 			}));
+
+			setIsSaving(false);
 		} else {
 			setTimeout(() => {
 				toast.error(

@@ -1,42 +1,110 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdMenu, MdClose } from 'react-icons/md';
+import { MdMenu, MdClose, MdCloudDone, MdSync } from 'react-icons/md';
 import { useAuth } from '../providers/AuthContextProvider';
 import Container from './Container';
+import { useSaveStatus } from '../providers/SaveStatusContextProvider';
 
 const NavBar = () => {
 	const { user, signOut } = useAuth();
+	const { isSaving } = useSaveStatus();
 	const [menuOpen, setMenuOpen] = useState(false);
 	const location = useLocation();
 	const currentPath = location.pathname;
-
-	const getTitle = () => {
-		switch (currentPath) {
-			case '/home':
-				return 'Journal';
-			case '/templates':
-				return 'Templates';
-			default:
-				return '';
-		}
-	};
 
 	const toggleMenu = () => {
 		setMenuOpen(!menuOpen);
 	};
 
+	const renderMenuItems = () => (
+		<>
+			{user ? (
+				<>
+					<li>
+						<Link
+							to="/home"
+							onClick={menuOpen ? toggleMenu : undefined}
+						>
+							Home
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/settings"
+							onClick={menuOpen ? toggleMenu : undefined}
+						>
+							Settings
+						</Link>
+					</li>
+					<li>
+						<button
+							onClick={() => {
+								signOut();
+								if (menuOpen) toggleMenu();
+							}}
+							className="text-white"
+						>
+							Sign Out
+						</button>
+					</li>
+				</>
+			) : (
+				<>
+					<li>
+						<Link
+							to="/"
+							onClick={menuOpen ? toggleMenu : undefined}
+						>
+							Home
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/signin"
+							onClick={menuOpen ? toggleMenu : undefined}
+						>
+							Sign In
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/signup"
+							onClick={menuOpen ? toggleMenu : undefined}
+						>
+							Sign Up
+						</Link>
+					</li>
+				</>
+			)}
+		</>
+	);
+
+	const renderSaveStatus = () => {
+		if (currentPath !== '/home') return null;
+
+		return isSaving ? (
+			<MdSync className="text-white" />
+		) : (
+			<MdCloudDone className="text-white" />
+		);
+	};
+
 	return (
-		<section className="bg-gray-800 sticky top-0">
+		<section>
 			<Container>
 				<nav className="flex justify-between items-center">
 					<div className="flex items-center">
-						<span className="text-white text-xl font-bold">
-							{getTitle()}
-						</span>
+						<Link
+							to="/"
+							className="text-white text-xl font-bold mr-2"
+						>
+							WorkingTitle
+						</Link>
+						{renderSaveStatus()}
 					</div>
 					<div
 						onClick={toggleMenu}
-						className="md:hidden ml-auto text-white"
+						className="md:hidden ml-auto text-white cursor-pointer"
 					>
 						{menuOpen ? (
 							<MdClose size={24} />
@@ -49,30 +117,7 @@ const NavBar = () => {
 							menuOpen ? 'hidden' : 'hidden md:flex'
 						}`}
 					>
-						<li className={user ? '' : 'hidden'}>
-							<Link to="/home">Home</Link>
-						</li>
-						<li className={user ? '' : 'hidden'}>
-							<Link to="/templates">Templates</Link>
-						</li>
-						<li className={user ? 'hidden' : ''}>
-							<Link to="/signin">Sign In</Link>
-						</li>
-						<li className={user ? 'hidden' : ''}>
-							<Link to="/signup">Sign Up</Link>
-						</li>
-						<li
-							className={
-								user && user.role === '0' ? '' : 'hidden'
-							}
-						>
-							<Link to="/admin">Admin</Link>
-						</li>
-						<li className={`ml-auto ${user ? '' : 'hidden'}`}>
-							<button onClick={signOut} className="text-white">
-								Sign Out
-							</button>
-						</li>
+						{renderMenuItems()}
 					</ul>
 				</nav>
 				{/* Mobile Menu */}
@@ -81,40 +126,7 @@ const NavBar = () => {
 						menuOpen ? 'block' : 'hidden'
 					}`}
 				>
-					<li className={user ? '' : 'hidden'}>
-						<Link to="/home" onClick={toggleMenu}>
-							Home
-						</Link>
-					</li>
-					<li className={user ? '' : 'hidden'}>
-						<Link to="/templates">Templates</Link>
-					</li>
-					<li className={user ? 'hidden' : ''}>
-						<Link to="/signin" onClick={toggleMenu}>
-							Sign In
-						</Link>
-					</li>
-					<li className={user ? 'hidden' : ''}>
-						<Link to="/signup" onClick={toggleMenu}>
-							Sign Up
-						</Link>
-					</li>
-					<li className={user && user.role === '0' ? '' : 'hidden'}>
-						<Link to="/admin" onClick={toggleMenu}>
-							Admin
-						</Link>
-					</li>
-					<li className={user ? '' : 'hidden'}>
-						<button
-							onClick={() => {
-								signOut();
-								toggleMenu();
-							}}
-							className="text-white"
-						>
-							Sign Out
-						</button>
-					</li>
+					{renderMenuItems()}
 				</ul>
 			</Container>
 		</section>
