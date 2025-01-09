@@ -218,7 +218,7 @@ const ToDoList = () => {
 
 	return (
 		<section className="flex flex-col gap-10">
-			<form className="flex gap-2 w-[90%] self-center">
+			<form className="flex gap-2 w-[100%] self-center">
 				<TextField
 					placeholder="Enter a task..."
 					value={newTask}

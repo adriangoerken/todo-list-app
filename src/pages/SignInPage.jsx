@@ -27,8 +27,8 @@ const SignInPage = () => {
 	};
 
 	return (
-		<Container classNames="flex">
-			<section className="flex flex-col self-center mx-auto w-full max-w-lg p-6">
+		<Container classNames="flex flex-grow justify-center">
+			<section className="flex flex-col self-center w-full max-w-lg p-6 justify-center">
 				<h1 className="text-3xl font-bold mb-8 text-center">Sign In</h1>
 				<CredentialsForm
 					title="Sign In"

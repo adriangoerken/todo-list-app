@@ -14,8 +14,8 @@ const IndexPage = () => {
 	}, [user, navigate]);
 
 	return (
-		<Container classNames="flex">
-			<div className="flex flex-col flex-grow self-center max-w-screen-md mx-auto text-center px-4">
+		<Container classNames="flex flex-grow justify-center">
+			<section className="flex flex-col flex-grow self-center max-w-screen-md mx-auto text-center px-4">
 				{/* Hero Section */}
 				<h1 className="text-4xl md:text-5xl font-bold mb-6">
 					Welcome to
@@ -79,7 +79,7 @@ const IndexPage = () => {
 						Sign Up
 					</Link>
 				</div>
-			</div>
+			</section>
 		</Container>
 	);
 };

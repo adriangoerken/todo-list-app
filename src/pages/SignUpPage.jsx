@@ -39,9 +39,38 @@ const SignUpPage = () => {
 		await signUp(newUser);
 	};
 
+	// return (
+	// 	<Container classNames="flex">
+	// 		<section className="flex flex-col self-center mx-auto w-full max-w-lg p-6">
+	// 			<h1 className="text-3xl font-bold mb-8 text-center">Sign Up</h1>
+	// 			<CredentialsForm
+	// 				title="Sign Up"
+	// 				email={email}
+	// 				onEmailChange={handleEmailChange}
+	// 				password={password}
+	// 				onPasswordChange={handlePasswordChange}
+	// 				onSubmit={handleSubmit}
+	// 				buttonLabel="Sign Up"
+	// 				isEmailValid={validEmail}
+	// 				isPasswordValid={validPassword}
+	// 				showError={true}
+	// 			/>
+	// 			<p className="mt-6 text-center">
+	// 				Already have an account?
+	// 				<br />
+	// 				<Link
+	// 					to="/signin"
+	// 					className="text-blue-400 hover:underline"
+	// 				>
+	// 					Sign In
+	// 				</Link>
+	// 			</p>
+	// 		</section>
+	// 	</Container>
+	// );
 	return (
-		<Container classNames="flex">
-			<section className="flex flex-col self-center mx-auto w-full max-w-lg p-6">
+		<Container classNames="flex flex-grow justify-center">
+			<section className="flex flex-col self-center w-full max-w-lg p-6 justify-center">
 				<h1 className="text-3xl font-bold mb-8 text-center">Sign Up</h1>
 				<CredentialsForm
 					title="Sign Up"
@@ -56,14 +85,10 @@ const SignUpPage = () => {
 					showError={true}
 				/>
 				<p className="mt-6 text-center">
-					Already have an account?
-					<br />
-					<Link
-						to="/signin"
-						className="text-blue-400 hover:underline"
-					>
-						Sign In
-					</Link>
+					Already have an account? <br />
+					<span className="inline-block text-blue-400 hover:underline">
+						<Link to="/signin">Sign In</Link>
+					</span>
 				</p>
 			</section>
 		</Container>

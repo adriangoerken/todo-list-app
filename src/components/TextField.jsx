@@ -16,7 +16,7 @@ const TextField = ({
 			value={value}
 			onChange={onchange}
 			{...(isRequired && { required: true })}
-			className={`w-full px-4 pt-3 pb-3 bg-transparent outline-none border-2 rounded-lg border-gray-600 focus:border-blue-700 ${className}`}
+			className={`w-full px-4 pt-3 pb-3 p-4 bg-transparent outline-none border-2 rounded-lg border-gray-600 focus:border-blue-700 ${className}`}
 		/>
 	);
 };
