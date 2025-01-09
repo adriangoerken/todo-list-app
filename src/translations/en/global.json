@@ -1,0 +1,12 @@
+{
+	"heroSection": {
+		"heading": "Welcome to <1 /> <2>WorkingTitle</2>!",
+		"subHeading": "Organize your tasks with ease. Create multiple lists, prioritize, mark as done, and drag-and-drop to reorder your tasks seamlessly."
+	},
+	"featureCard": {
+		"cardOne": {
+			"title": "Organize by Priority",
+			"body": "Sort tasks by priority to focus on what matters most."
+		}
+	}
+}

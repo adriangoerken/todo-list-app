@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import Button from '../atoms/Button';
 import TextField from '../atoms/TextField';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
+import { useTranslation } from 'react-i18next';
 
 const ToDoList = () => {
 	/* TODO: 
@@ -21,6 +22,7 @@ const ToDoList = () => {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
 	const [validTask, setValidTask] = useState(false);
+	const { t } = useTranslation();
 
 	const handleInputChange = (e) => {
 		setNewTask(e.target.value);

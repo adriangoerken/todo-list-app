@@ -1,8 +1,14 @@
 import React from 'react';
 import Container from './Container';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
 	const year = new Date().getFullYear();
+	const [t, i18n] = useTranslation('global');
+
+	const handleChangeLanguage = (lang) => {
+		i18n.changeLanguage(lang);
+	};
 
 	return (
 		<footer className="bg-gdray-800 bg-elevation-100 text-white py-6">
@@ -32,6 +38,15 @@ const Footer = () => {
 					</div>
 					{/* Socials */}
 					<div className="flex justify-center space-x-4 mt-4 md:mt-0"></div>
+					<button onClick={() => handleChangeLanguage('en')}>
+						EN
+					</button>
+					<button onClick={() => handleChangeLanguage('de')}>
+						DE
+					</button>
+					<button onClick={() => handleChangeLanguage('cn')}>
+						CN
+					</button>
 				</div>
 			</Container>
 		</footer>
