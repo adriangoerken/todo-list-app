@@ -1,12 +1,90 @@
 {
-	"heroSection": {
+	"GLOBAL": {
+		"errDefault": "Something went wrong. Please try again."
+	},
+	"NavBar": {
+		"linkHome": "Home",
+		"linkSignIn": "Sign In",
+		"linkSignUp": "Sign Up",
+		"linkSettings": "Settings",
+		"linkSignOut": "Sign Out"
+	},
+	"HeroSection": {
 		"heading": "Welcome to <1 /> <2>WorkingTitle</2>!",
 		"subHeading": "Organize your tasks with ease. Create multiple lists, prioritize, mark as done, and drag-and-drop to reorder your tasks seamlessly."
 	},
-	"featureCard": {
+	"FeatureCard": {
 		"cardOne": {
 			"title": "Organize by Priority",
 			"body": "Sort tasks by priority to focus on what matters most."
+		},
+		"cardTwo": {
+			"title": "Drag-and-Drop",
+			"body": "Reorder tasks quickly and intuitively with drag-and-drop."
+		},
+		"cardThree": {
+			"title": "Multiple Lists",
+			"body": "Manage multiple lists for personal, work, and more."
+		},
+		"cardFour": {
+			"title": "Mark as Done",
+			"body": "Keep track of completed tasks effortlessly."
 		}
+	},
+	"CTAButtons": {
+		"btnSignIn": "Sign In",
+		"btnSignUp": "Sign Up"
+	},
+	"CredentialsForm": {
+		"email": "Email",
+		"password": "Password",
+		"errEmail": "Please enter a valid email.",
+		"errPassword": "Password must be at least 12 characters long and include at least one uppercase letter, one number, and one special character: @$!%*?&."
+	},
+	"ToDoList": {
+		"form": {
+			"formPlaceholder": "Enter a task...",
+			"formBtnAdd": "Add"
+		},
+		"addTaskSuccess": "New task added successfully!",
+		"delTaskSuccess": "Task deleted successfully!"
+	},
+	"Task": {
+		"selectOpts": {
+			"optHigh": "High",
+			"optNormal": "Normal",
+			"optLow": "Low"
+		},
+		"delTaskConf": "Are you sure you want to delete this task?"
+	},
+	"Footer": {
+		"copyright": "All rights reserved.",
+		"links": {
+			"linkImprint": "Imprint",
+			"linkPrivacy": "Privacy Policy",
+			"linkTerms": "Terms of Service",
+			"linkCookies": "Cookie Policy",
+			"linkContact": "Contact"
+		}
+	},
+	"AuthContextProvider": {
+		"signUpSuccess": "Account created successfully!",
+		"signOutSuccess": "Signed out successfully!"
+	},
+	"SignUpPage": {
+		"header": "Sign Up",
+		"question": "Already have an account?",
+		"questionButton": "Sign In",
+		"btnSignUp": "Sign Up"
+	},
+	"SignInPage": {
+		"header": "Sign In",
+		"question": "Don't have an account?",
+		"questionButton": "Sign Up",
+		"btnSignIn": "Sign In"
+	},
+	"NotFoundPage": {
+		"message": "404 Not Found",
+		"btnBack": "Go Back"
 	}
 }

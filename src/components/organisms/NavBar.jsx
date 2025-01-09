@@ -4,11 +4,14 @@ import { MdMenu, MdClose, MdCloudDone, MdSync } from 'react-icons/md';
 import { useAuth } from '../../providers/AuthContextProvider';
 import Container from './Container';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
+import { useTranslation } from 'react-i18next';
 
 const NavBar = () => {
 	const { user, signOut } = useAuth();
 	const { isSaving } = useSaveStatus();
+	const [t, i18n] = useTranslation('global');
 	const [menuOpen, setMenuOpen] = useState(false);
+
 	const location = useLocation();
 	const currentPath = location.pathname;
 
@@ -25,7 +28,7 @@ const NavBar = () => {
 							to="/home"
 							onClick={menuOpen ? toggleMenu : undefined}
 						>
-							Home
+							{t('NavBar.linkHome')}
 						</Link>
 					</li>
 					<li>
@@ -33,7 +36,7 @@ const NavBar = () => {
 							to="/settings"
 							onClick={menuOpen ? toggleMenu : undefined}
 						>
-							Settings
+							{t('NavBar.linkSettings')}
 						</Link>
 					</li>
 					<li>
@@ -44,7 +47,7 @@ const NavBar = () => {
 							}}
 							className="text-white"
 						>
-							Sign Out
+							{t('NavBar.linkSignOut')}
 						</button>
 					</li>
 				</>
@@ -55,7 +58,7 @@ const NavBar = () => {
 							to="/"
 							onClick={menuOpen ? toggleMenu : undefined}
 						>
-							Home
+							{t('NavBar.linkHome')}
 						</Link>
 					</li>
 					<li>
@@ -63,7 +66,7 @@ const NavBar = () => {
 							to="/signin"
 							onClick={menuOpen ? toggleMenu : undefined}
 						>
-							Sign In
+							{t('NavBar.linkSignIn')}
 						</Link>
 					</li>
 					<li>
@@ -71,7 +74,7 @@ const NavBar = () => {
 							to="/signup"
 							onClick={menuOpen ? toggleMenu : undefined}
 						>
-							Sign Up
+							{t('NavBar.linkSignUp')}
 						</Link>
 					</li>
 				</>

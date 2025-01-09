@@ -27,21 +27,20 @@ const IndexPage = () => {
 				{/* Feature Highlights */}
 				<div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
 					<FeatureCard
-						title={t('featureCard.cardOne.title')}
-						body={t('featureCard.cardOne.body')}
+						title={t('FeatureCard.cardOne.title')}
+						body={t('FeatureCard.cardOne.body')}
 					/>
 					<FeatureCard
-						title="Drag-and-Drop"
-						body="Reorder tasks quickly and intuitively with
-							drag-and-drop."
+						title={t('FeatureCard.cardTwo.title')}
+						body={t('FeatureCard.cardTwo.body')}
 					/>
 					<FeatureCard
-						title="Multiple Lists"
-						body="Manage multiple lists for personal, work, and more."
+						title={t('FeatureCard.cardThree.title')}
+						body={t('FeatureCard.cardThree.body')}
 					/>
 					<FeatureCard
-						title="Mark as Done"
-						body="Keep track of completed tasks effortlessly."
+						title={t('FeatureCard.cardFour.title')}
+						body={t('FeatureCard.cardFour.body')}
 					/>
 				</div>
 

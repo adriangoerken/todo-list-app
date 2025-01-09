@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TextField from '../atoms/TextField';
 import PasswordField from '../molecules/PasswordField';
 import Button from '../atoms/Button';
+import { useTranslation } from 'react-i18next';
 
 const CredentialsForm = ({
 	email,
@@ -15,14 +16,16 @@ const CredentialsForm = ({
 	isPasswordValid,
 	showError,
 }) => {
+	const [t, n18i] = useTranslation('global');
+
 	return (
 		<form onSubmit={onSubmit} className="space-y-6">
 			<div className="flex flex-col">
 				<label htmlFor="email" className="mb-2 text-sm font-medium">
-					Email
+					{t('CredentialsForm.email')}
 				</label>
 				<TextField
-					placeholder="Email"
+					placeholder={t('CredentialsForm.email')}
 					onchange={onEmailChange}
 					value={email}
 					className={`${
@@ -33,16 +36,16 @@ const CredentialsForm = ({
 				/>
 				{showError && email && !isEmailValid && (
 					<span className="text-sm text-red-500 mt-1">
-						Please enter a valid email.
+						{t('CredentialsForm.errEmail')}
 					</span>
 				)}
 			</div>
 			<div className="flex flex-col">
 				<label htmlFor="password" className="mb-2 text-sm font-medium">
-					Password
+					{t('CredentialsForm.password')}
 				</label>
 				<PasswordField
-					placeholder="Password"
+					placeholder={t('CredentialsForm.password')}
 					onchange={onPasswordChange}
 					value={password}
 					className={`${
@@ -53,9 +56,7 @@ const CredentialsForm = ({
 				/>
 				{showError && password && !isPasswordValid && (
 					<span className="text-sm text-red-500 mt-1">
-						Password must be at least 12 characters long and include
-						at least one uppercase letter, one number, and one
-						special character: @$!%*?&.
+						{t('CredentialsForm.errPassword')}
 					</span>
 				)}
 			</div>

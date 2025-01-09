@@ -5,6 +5,7 @@ import Select from '../atoms/Select';
 import DeleteButton from '../atoms/DeleteButton';
 import { MdDragHandle } from 'react-icons/md';
 import Checkbox from '../atoms/Checkbox';
+import { useTranslation } from 'react-i18next';
 
 const Task = ({
 	task,
@@ -21,10 +22,11 @@ const Task = ({
 	const ref = useRef(null);
 	const [checked, setChecked] = useState(isDone);
 	const [selectValue, setSelectValue] = useState(priority);
+	const [t, n18i] = useTranslation('global');
 	const priorityOptions = [
-		{ value: 1, label: 'High' },
-		{ value: 2, label: 'Normal' },
-		{ value: 3, label: 'Low' },
+		{ value: 1, label: t('Task.selectOpts.optHigh') },
+		{ value: 2, label: t('Task.selectOpts.optNormal') },
+		{ value: 3, label: t('Task.selectOpts.optLow') },
 	];
 	let initialIndex = index;
 
@@ -56,7 +58,7 @@ const Task = ({
 	};
 
 	const handleDeleteTask = () => {
-		if (confirm('Are you sure you want to delete this task?')) {
+		if (confirm(t('Task.delTaskConf'))) {
 			deleteTask(taskId, taskOrder);
 		}
 	};

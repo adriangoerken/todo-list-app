@@ -3,6 +3,7 @@ import { deleteData, postData } from '../api/api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/atoms/Loader';
+import { useTranslation } from 'react-i18next';
 
 const AuthContext = createContext();
 
@@ -10,6 +11,7 @@ export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
 	const [user, setUser] = useState(null);
+	const [t, i18n] = useTranslation('global');
 
 	useEffect(() => {
 		checkUserStatus();
@@ -24,14 +26,12 @@ export const AuthProvider = ({ children }) => {
 
 		if (response.success) {
 			setLoading(false);
-			toast.success('Account created successfully!');
+			toast.success(t('AuthContextProvider.signUpSuccess'));
 			navigate('/signin');
 		} else {
 			setLoading(false);
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -50,9 +50,7 @@ export const AuthProvider = ({ children }) => {
 			setUser(null);
 			setLoading(false);
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -65,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
 		if (response.success) {
 			setTimeout(() => {
-				toast.success('Signed out successfully!');
+				toast.success(t('AuthContextProvider.signOutSuccess'));
 			}, 1);
 			setUser(null);
 			setLoading(false);
@@ -74,10 +72,7 @@ export const AuthProvider = ({ children }) => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(
-						response.error ||
-							'Something went wrong. Please try again.'
-					);
+					toast.error(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -98,10 +93,7 @@ export const AuthProvider = ({ children }) => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(
-						response.error ||
-							'Something went wrong. Please try again.'
-					);
+					toast.error(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}

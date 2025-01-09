@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../components/organisms/Container';
+import { useTranslation } from 'react-i18next';
 
 const NotFoundPage = () => {
+	const [t, i18n] = useTranslation('global');
+
 	return (
 		<Container classNames="flex flex-grow justify-center">
 			<section className="text-center flex flex-col justify-center items center h96">
-				<h1 className="text-6xl font-bold mb-4">404 Not Found</h1>
-				<Link to="/">Go Back</Link>
+				<h1 className="text-6xl font-bold mb-4">
+					{t('NotFoundPage.message')}
+				</h1>
+				<Link to="/" className="hover:underline">
+					{t('NotFoundPage.btnBack')}
+				</Link>
 			</section>
 		</Container>
 	);

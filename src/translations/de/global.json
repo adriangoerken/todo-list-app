@@ -1,9 +1,9 @@
 {
-	"heroSection": {
+	"HeroSection": {
 		"heading": "Willkommen bei <1 /> <2>WorkingTitle</2>!",
 		"subHeading": "Organisiere deine Aufgaben Mühelos. Erstelle verschiedene Listen, priorisiere, markiere als erledigt und sortiere deine Aufgaben via drag-and-drop."
 	},
-	"featureCard": {
+	"FeatureCard": {
 		"cardOne": {
 			"title": "Organisiere nach Priorität!",
 			"body": "Sortiere deine Aufgaben nach Priorität um dich auf das wichtigste zu fokussieren."

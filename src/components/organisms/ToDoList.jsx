@@ -13,8 +13,10 @@ const ToDoList = () => {
 	/* TODO: 
 		- Code refactoring						
 		- Implement settings pages
-		- Implement sign out
-		- Implement multilang
+		- Implement sign out		
+		- Task text not using entire width
+		- Prio option when creating
+		- Nav Link instead of list
 	*/
 	const { user, setUser } = useAuth();
 	const { setIsSaving } = useSaveStatus();
@@ -22,7 +24,7 @@ const ToDoList = () => {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState('');
 	const [validTask, setValidTask] = useState(false);
-	const { t } = useTranslation();
+	const [t, n18i] = useTranslation('global');
 
 	const handleInputChange = (e) => {
 		setNewTask(e.target.value);
@@ -48,16 +50,13 @@ const ToDoList = () => {
 					accessToken: response.data.accessToken,
 				}));
 
-				toast.success('New task added successfully!');
+				toast.success(t('ToDoList.addTaskSuccess'));
 				fetchTasks();
 			} else {
 				setTimeout(() => {
 					setLoading(false);
 					setIsSaving(false);
-					toast.error(
-						response.error ||
-							'Something went wrong. Please try again.'
-					);
+					toast.error(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -77,15 +76,13 @@ const ToDoList = () => {
 				accessToken: response.data.accessToken,
 			}));
 
-			toast.success('Task deleted successfully!');
+			toast.success(t('ToDoList.delTaskSuccess'));
 			fetchTasks();
 		} else {
 			setTimeout(() => {
 				setLoading(false);
 				setIsSaving(false);
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -133,9 +130,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -156,9 +151,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -175,9 +168,7 @@ const ToDoList = () => {
 			}));
 		} else {
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -211,9 +202,7 @@ const ToDoList = () => {
 			});
 		} else {
 			setTimeout(() => {
-				toast.error(
-					response.error || 'Something went wrong. Please try again.'
-				);
+				toast.error(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -234,12 +223,12 @@ const ToDoList = () => {
 		<section className="flex flex-col gap-10">
 			<form className="flex gap-2 w-[100%] self-center">
 				<TextField
-					placeholder="Enter a task..."
+					placeholder={t('ToDoList.form.formPlaceholder')}
 					value={newTask}
 					onchange={handleInputChange}
 				/>
 				<Button
-					value="Add"
+					value={t('ToDoList.form.formBtnAdd')}
 					onclick={addTask}
 					disabled={!validTask}
 					className="max-w-fit px-6 cursor-pointer"

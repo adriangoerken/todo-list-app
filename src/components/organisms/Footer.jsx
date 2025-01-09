@@ -11,29 +11,31 @@ const Footer = () => {
 	};
 
 	return (
-		<footer className="bg-gdray-800 bg-elevation-100 text-white py-6">
+		<footer className="bg-elevation-100 text-white py-6">
 			<Container>
 				<div className="flex flex-col md:flex-row justify-between items-center md:space-x-4">
 					<div className="mb-4 md:mb-0 text-center md:text-left">
 						<h3 className="text-lg font-bold">WorkingTitle</h3>
-						<p>&copy; {year}, All rights reserved.</p>
+						<p>
+							&copy; {year}, {t('Footer.copyright')}
+						</p>
 					</div>
 					{/* Legal stuff */}
 					<div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-center md:text-left">
 						<a href="/imprint" className="hover:underline">
-							Imprint
+							{t('Footer.links.linkImprint')}
 						</a>
 						<a href="/privacy-policy" className="hover:underline">
-							Privacy Policy
+							{t('Footer.links.linkPrivacy')}
 						</a>
 						<a href="/terms-of-service" className="hover:underline">
-							Terms of Service
+							{t('Footer.links.linkTerms')}
 						</a>
 						<a href="/cookie-policy" className="hover:underline">
-							Cookie Policy
+							{t('Footer.links.linkCookies')}
 						</a>
 						<a href="/contact" className="hover:underline">
-							Contact
+							{t('Footer.links.linkContact')}
 						</a>
 					</div>
 					{/* Socials */}
