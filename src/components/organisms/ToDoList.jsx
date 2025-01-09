@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Task from './Task';
-import Loader from '../components/Loader';
-import { getData, putData, postData, deleteData } from '../api/api';
-import { useAuth } from '../providers/AuthContextProvider';
+import Task from '../molecules/Task';
+import Loader from '../atoms/Loader';
+import { getData, putData, postData, deleteData } from '../../api/api';
+import { useAuth } from '../../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
-import Button from './Button';
-import TextField from './TextField';
-import { useSaveStatus } from '../providers/SaveStatusContextProvider';
+import Button from '../atoms/Button';
+import TextField from '../atoms/TextField';
+import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 
 const ToDoList = () => {
 	/* TODO: 

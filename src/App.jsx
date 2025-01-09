@@ -5,7 +5,7 @@ import MainLayout from './layouts/MainLayout';
 import IndexPage from './pages/IndexPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
-import PrivateRoutes from './components/PrivateRoutes';
+import PrivateRoutes from './components/organisms/PrivateRoutes';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 

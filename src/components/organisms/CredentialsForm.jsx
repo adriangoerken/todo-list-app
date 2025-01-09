@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextField from './TextField';
-import PasswordField from './PasswordField';
-import Button from './Button';
+import TextField from '../atoms/TextField';
+import PasswordField from '../molecules/PasswordField';
+import Button from '../atoms/Button';
 
 const CredentialsForm = ({
 	email,

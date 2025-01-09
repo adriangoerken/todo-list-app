@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MdMenu, MdClose, MdCloudDone, MdSync } from 'react-icons/md';
-import { useAuth } from '../providers/AuthContextProvider';
+import { useAuth } from '../../providers/AuthContextProvider';
 import Container from './Container';
-import { useSaveStatus } from '../providers/SaveStatusContextProvider';
+import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 
 const NavBar = () => {
 	const { user, signOut } = useAuth();

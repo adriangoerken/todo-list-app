@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
-import Select from './Select';
-import DeleteButton from './DeleteButton';
+import Select from '../atoms/Select';
+import DeleteButton from '../atoms/DeleteButton';
 import { MdDragHandle } from 'react-icons/md';
-import Checkbox from './Checkbox';
+import Checkbox from '../atoms/Checkbox';
 
 const Task = ({
 	task,

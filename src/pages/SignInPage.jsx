@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/AuthContextProvider';
-import Container from '../components/Container';
-import CredentialsForm from '../components/CredentialsForm';
+import Container from '../components/organisms/Container';
+import CredentialsForm from '../components/organisms/CredentialsForm';
 
 const SignInPage = () => {
 	const navigate = useNavigate();

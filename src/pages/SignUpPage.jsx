@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../providers/AuthContextProvider';
-import Container from '../components/Container';
-import CredentialsForm from '../components/CredentialsForm';
+import Container from '../components/organisms/Container';
+import CredentialsForm from '../components/organisms/CredentialsForm';
 
 const SignUpPage = () => {
 	const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

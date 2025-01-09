@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import TextField from './TextField';
+import TextField from '../atoms/TextField';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
 const PasswordField = ({
