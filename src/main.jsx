@@ -7,9 +7,13 @@ import global_de from './translations/de/global.json';
 import global_zh from './translations/zh/global.json';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
+import { initLanguage } from './utils/utils.js';
+
+const initialLanguage = initLanguage().substring(0, 2);
 
 i18next.init({
 	interpolation: { encapsulation: true },
+	lng: initialLanguage,
 	fallbackLng: 'en',
 	resources: {
 		en: {

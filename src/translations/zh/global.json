@@ -65,6 +65,13 @@
 			"linkTerms": "服务条款",
 			"linkCookies": "Cookie 政策",
 			"linkContact": "联系"
+		},
+		"select": {
+			"selectOpts": {
+				"optZH": "简体中文",
+				"optDE": "德语",
+				"optEN": "英语"
+			}
 		}
 	},
 	"AuthContextProvider": {

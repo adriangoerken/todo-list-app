@@ -65,6 +65,13 @@
 			"linkTerms": "Nutzungsbedingungen",
 			"linkCookies": "Cookie-Richtlinie",
 			"linkContact": "Kontakt"
+		},
+		"select": {
+			"selectOpts": {
+				"optZH": "Chinesisch (Vereinfacht)",
+				"optDE": "Deutsch",
+				"optEN": "Englisch"
+			}
 		}
 	},
 	"AuthContextProvider": {

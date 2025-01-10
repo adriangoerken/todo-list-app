@@ -65,6 +65,13 @@
 			"linkTerms": "Terms of Service",
 			"linkCookies": "Cookie Policy",
 			"linkContact": "Contact"
+		},
+		"select": {
+			"selectOpts": {
+				"optZH": "Chinese (Simplified)",
+				"optDE": "German",
+				"optEN": "English"
+			}
 		}
 	},
 	"AuthContextProvider": {

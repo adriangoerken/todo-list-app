@@ -1,8 +1,12 @@
 import axios from 'axios';
+import { getCookie } from '../utils/utils';
 
 const requestData = async (method, url, data = null, accessToken = null) => {
 	try {
-		const browserLanguage = navigator.language || navigator.userLanguage;
+		const cookieLang = getCookie('language');
+		const browserLanguage =
+			cookieLang || navigator.language || navigator.userLanguage;
+
 		const response = await axios({
 			method: method,
 			url: url,
@@ -14,6 +18,7 @@ const requestData = async (method, url, data = null, accessToken = null) => {
 				...(accessToken && { Authorization: `Bearer ${accessToken}` }),
 			},
 		});
+
 		return response.data;
 	} catch (error) {
 		if (error.response) {

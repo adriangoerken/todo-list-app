@@ -17,14 +17,8 @@ const ToDoList = () => {
 		- Task text not using entire width
 		- Prio option when creating
 		- Nav Link instead of list
-		- Currently only using the browser language. Need to store the user choice from Footer
-		  and keep it in a cookie or something like that.	
-		Check if cookie:
-		YES: set select value to cookie value.
-		NO: Get browser lang. Set cookie with browser lang. Then cont with LANGLOGIC.
-
-		LANGLOGIC: Set select value to browser lang. Get lang for displaying from select.
-		Change API file so that the lang comes from select.
+		- CSS needs adjustments for different langs
+		- footer styling for german bad
 
 	*/
 	const { user, setUser } = useAuth();

@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from './Container';
 import { useTranslation } from 'react-i18next';
+import { setCookie } from '../../utils/utils';
+import Select from '../atoms/Select';
 
 const Footer = () => {
 	const year = new Date().getFullYear();
@@ -8,7 +10,14 @@ const Footer = () => {
 
 	const handleChangeLanguage = (lang) => {
 		i18n.changeLanguage(lang);
+		setCookie('language', lang, 365);
 	};
+
+	const languageOptions = [
+		{ value: 'en', label: t('Footer.select.selectOpts.optEN') },
+		{ value: 'de', label: t('Footer.select.selectOpts.optDE') },
+		{ value: 'zh', label: t('Footer.select.selectOpts.optZH') },
+	];
 
 	return (
 		<footer className="bg-elevation-100 text-white py-6">
@@ -38,17 +47,13 @@ const Footer = () => {
 							{t('Footer.links.linkContact')}
 						</a>
 					</div>
-					{/* Socials */}
+					{/* Language */}
 					<div className="flex justify-center space-x-4 mt-4 md:mt-0"></div>
-					<button onClick={() => handleChangeLanguage('en')}>
-						EN
-					</button>
-					<button onClick={() => handleChangeLanguage('de')}>
-						DE
-					</button>
-					<button onClick={() => handleChangeLanguage('zh')}>
-						CN (zh)
-					</button>
+					<Select
+						onchange={(e) => handleChangeLanguage(e.target.value)}
+						value={i18n.language}
+						options={languageOptions}
+					/>
 				</div>
 			</Container>
 		</footer>
