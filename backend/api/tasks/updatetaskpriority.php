@@ -20,10 +20,10 @@
             sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
         } catch (PDOException $e) {
             error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);
+            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
         } catch (Exception $e) {            
             error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", "An unexpected error occurred. Please try again.", $e->getMessage(), 500);
+            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
         }   
     }
 
@@ -33,9 +33,9 @@
         if (isset($putData['id']) && isset($putData['priority'])) {            
             updatePriority();
         } else {            
-            sendResponse(false, 'data_not_set', 'An unexpected error occurred. Please try again.', 'No data was passed with PUT.', 500);
+            sendResponse(false, 'data_not_set', getLocalizedString('GLOBAL.data_not_set'), 'No data was passed with PUT.', 500);
         }
     } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {             
-        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'The data was sent using the wrong method, use PUT.', 500);
+        sendResponse(false, 'invalid_request_method', getLocalizedString('GLOBAL.invalid_request_method'), 'The data was sent using the wrong method, use PUT.', 500);
     }
 ?>

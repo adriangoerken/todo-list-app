@@ -1,0 +1,90 @@
+{
+	"GLOBAL": {
+		"errDefault": "出了些问题。请再试一次。"
+	},
+	"NavBar": {
+		"linkHome": "主页",
+		"linkSignIn": "登录",
+		"linkSignUp": "注册",
+		"linkSettings": "设置",
+		"linkSignOut": "登出"
+	},
+	"HeroSection": {
+		"heading": "欢迎来到 <1 /> <2>WorkingTitle</2>!",
+		"subHeading": "轻松组织您的任务。创建多个列表，设定优先级，标记完成，并通过拖放轻松重新排列任务。"
+	},
+	"FeatureCard": {
+		"cardOne": {
+			"title": "按优先级组织",
+			"body": "按优先级排序任务，以专注于重要事项。"
+		},
+		"cardTwo": {
+			"title": "拖放",
+			"body": "通过拖放快速直观地重新排列任务。"
+		},
+		"cardThree": {
+			"title": "多个列表",
+			"body": "管理个人、工作等多个列表。"
+		},
+		"cardFour": {
+			"title": "标记完成",
+			"body": "轻松跟踪已完成的任务。"
+		}
+	},
+	"CTAButtons": {
+		"btnSignIn": "登录",
+		"btnSignUp": "注册"
+	},
+	"CredentialsForm": {
+		"email": "电子邮件",
+		"password": "密码",
+		"errEmail": "请输入有效的电子邮件地址。",
+		"errPassword": "密码必须至少包含12个字符，包括至少一个大写字母、一个数字和一个特殊字符：@$!%*?&。"
+	},
+	"ToDoList": {
+		"form": {
+			"formPlaceholder": "输入任务...",
+			"formBtnAdd": "添加"
+		},
+		"addTaskSuccess": "新任务添加成功！",
+		"delTaskSuccess": "任务删除成功！"
+	},
+	"Task": {
+		"selectOpts": {
+			"optHigh": "高",
+			"optNormal": "中",
+			"optLow": "低"
+		},
+		"delTaskConf": "您确定要删除此任务吗？"
+	},
+	"Footer": {
+		"copyright": "版权所有。",
+		"links": {
+			"linkImprint": "版本说明",
+			"linkPrivacy": "隐私政策",
+			"linkTerms": "服务条款",
+			"linkCookies": "Cookie 政策",
+			"linkContact": "联系"
+		}
+	},
+	"AuthContextProvider": {
+		"signUpSuccess": "帐户创建成功！",
+		"signOutSuccess": "登出成功！"
+	},
+	"SignUpPage": {
+		"header": "注册",
+		"question": "已经有帐户？",
+		"questionButton": "登录",
+		"btnSignUp": "注册"
+	},
+	"SignInPage": {
+		"header": "登录",
+		"question": "还没有帐户？",
+		"questionButton": "注册",
+		"btnSignIn": "登录"
+	},
+	"NotFoundPage": {
+		"message": "404 未找到",
+		"btnBack": "返回"
+	}
+}

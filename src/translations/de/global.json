@@ -1,12 +1,90 @@
 {
+	"GLOBAL": {
+		"errDefault": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+	},
+	"NavBar": {
+		"linkHome": "Startseite",
+		"linkSignIn": "Anmelden",
+		"linkSignUp": "Registrieren",
+		"linkSettings": "Einstellungen",
+		"linkSignOut": "Abmelden"
+	},
 	"HeroSection": {
 		"heading": "Willkommen bei <1 /> <2>WorkingTitle</2>!",
-		"subHeading": "Organisiere deine Aufgaben Mühelos. Erstelle verschiedene Listen, priorisiere, markiere als erledigt und sortiere deine Aufgaben via drag-and-drop."
+		"subHeading": "Organisieren Sie Ihre Aufgaben mit Leichtigkeit. Erstellen Sie mehrere Listen, priorisieren Sie, markieren Sie als erledigt und ziehen Sie Aufgaben zur Umsortierung per Drag-and-Drop."
 	},
 	"FeatureCard": {
 		"cardOne": {
-			"title": "Organisiere nach Priorität!",
-			"body": "Sortiere deine Aufgaben nach Priorität um dich auf das wichtigste zu fokussieren."
+			"title": "Nach Priorität organisieren",
+			"body": "Sortieren Sie Aufgaben nach Priorität, um sich auf das Wesentliche zu konzentrieren."
+		},
+		"cardTwo": {
+			"title": "Drag-and-Drop",
+			"body": "Ordnen Sie Aufgaben schnell und intuitiv per Drag-and-Drop neu."
+		},
+		"cardThree": {
+			"title": "Mehrere Listen",
+			"body": "Verwalten Sie mehrere Listen für Persönliches, Arbeit und mehr."
+		},
+		"cardFour": {
+			"title": "Als erledigt markieren",
+			"body": "Behalten Sie den Überblick über erledigte Aufgaben mühelos."
 		}
+	},
+	"CTAButtons": {
+		"btnSignIn": "Anmelden",
+		"btnSignUp": "Registrieren"
+	},
+	"CredentialsForm": {
+		"email": "E-Mail",
+		"password": "Passwort",
+		"errEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+		"errPassword": "Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten: @$!%*?&."
+	},
+	"ToDoList": {
+		"form": {
+			"formPlaceholder": "Geben Sie eine Aufgabe ein...",
+			"formBtnAdd": "Hinzufügen"
+		},
+		"addTaskSuccess": "Neue Aufgabe erfolgreich hinzugefügt!",
+		"delTaskSuccess": "Aufgabe erfolgreich gelöscht!"
+	},
+	"Task": {
+		"selectOpts": {
+			"optHigh": "Hoch",
+			"optNormal": "Normal",
+			"optLow": "Niedrig"
+		},
+		"delTaskConf": "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?"
+	},
+	"Footer": {
+		"copyright": "Alle Rechte vorbehalten.",
+		"links": {
+			"linkImprint": "Impressum",
+			"linkPrivacy": "Datenschutzrichtlinie",
+			"linkTerms": "Nutzungsbedingungen",
+			"linkCookies": "Cookie-Richtlinie",
+			"linkContact": "Kontakt"
+		}
+	},
+	"AuthContextProvider": {
+		"signUpSuccess": "Konto erfolgreich erstellt!",
+		"signOutSuccess": "Erfolgreich abgemeldet!"
+	},
+	"SignUpPage": {
+		"header": "Registrieren",
+		"question": "Haben Sie bereits ein Konto?",
+		"questionButton": "Anmelden",
+		"btnSignUp": "Registrieren"
+	},
+	"SignInPage": {
+		"header": "Anmelden",
+		"question": "Haben Sie noch kein Konto?",
+		"questionButton": "Registrieren",
+		"btnSignIn": "Anmelden"
+	},
+	"NotFoundPage": {
+		"message": "404 Nicht gefunden",
+		"btnBack": "Zurück"
 	}
 }

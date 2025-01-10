@@ -59,17 +59,17 @@
                             "accessToken" => $accessToken
                     ]]);                    
                 } else {                    
-                    sendResponse(false, "wrong_password", "The email and password don't match.", "The user entered a password that does not match the email address provided.", 401);                    
+                    sendResponse(false, "wrong_password", getLocalizedString('user.signin.wrong_password'), "The user entered a password that does not match the email address provided.", 401);                    
                 }
             } else {
-                sendResponse(false, "email_not_found", "The email address could not be found.", "The provided email does not exist in the database.", 404);                                    
+                sendResponse(false, "email_not_found", getLocalizedString('user.signin.email_not_found'), "The provided email does not exist in the database.", 404);                                    
             }
         } catch (PDOException $e) {
             error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);
+            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
         } catch (Exception $e) {            
             error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", "An unexpected error occurred. Please try again.", $e->getMessage(), 500);
+            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
         }
     }    
 
@@ -79,9 +79,9 @@
         if (isset($postData['email']) && isset($postData['password'])) {            
             signIn();            
         } else {            
-            sendResponse(false, 'data_not_set', 'An unexpected error occurred. Please try again.', 'No email and/or password were passed with POST.', 500);
+            sendResponse(false, 'data_not_set', getLocalizedString('GLOBAL.data_not_set'), 'No email and/or password were passed with POST.', 500);
         }
     } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {             
-        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'The data was sent using the wrong method, use POST.', 500);
+        sendResponse(false, 'invalid_request_method', getLocalizedString('GLOBAL.invalid_request_method'), 'The data was sent using the wrong method, use POST.', 500);
     }
 ?>

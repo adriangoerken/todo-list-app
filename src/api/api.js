@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const requestData = async (method, url, data = null, accessToken = null) => {
 	try {
+		const browserLanguage = navigator.language || navigator.userLanguage;
 		const response = await axios({
 			method: method,
 			url: url,
@@ -9,6 +10,7 @@ const requestData = async (method, url, data = null, accessToken = null) => {
 			withCredentials: true,
 			headers: {
 				'Content-Type': 'application/json',
+				'Accept-Language': browserLanguage.substring(0, 2),
 				...(accessToken && { Authorization: `Bearer ${accessToken}` }),
 			},
 		});

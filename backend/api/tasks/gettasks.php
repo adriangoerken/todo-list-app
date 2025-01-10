@@ -16,10 +16,10 @@
             sendResponse(true, 'none', 'none', 'none', 200, ['tasks' => $result, 'accessToken' => $accessToken]);
         } catch (PDOException $e) {
             error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.",$e->getMessage(), 500);
+            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
         } catch (Exception $e) {            
             error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", "An unexpected error occurred. Please try again.", $e->getMessage(), 500);
+            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
         }           
     }
     
@@ -27,6 +27,6 @@
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {                       
         getTasks();        
     } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {             
-        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'The data was sent using the wrong method, use POST.', 500);
+        sendResponse(false, 'invalid_request_method', getLocalizedString('GLOBAL.invalid_request_method'), 'The data was sent using the wrong method, use POST.', 500);
     }
 ?>

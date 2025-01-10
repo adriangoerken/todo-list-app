@@ -1,0 +1,28 @@
+{
+	"GLOBAL": {
+		"unknown_exception": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+		"pdo_exception": "Bei der Verarbeitung Ihrer Anfrage ist ein Serverfehler aufgetreten. Bitte versuchen Sie es erneut.",
+		"data_not_set": "Bei der Verarbeitung Ihrer Anfrage ist ein Serverfehler aufgetreten. Bitte versuchen Sie es erneut.",
+		"invalid_request_method": "Bei der Verarbeitung Ihrer Anfrage ist ein Serverfehler aufgetreten. Bitte versuchen Sie es erneut.",
+		"invalid_refresh_token": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+		"invalid_access_token": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
+	},
+	"tasks": {
+		"deletetask": {
+			"id_mismatch": "Sie können nicht den Eintrag eines anderen löschen."
+		}
+	},
+	"user": {
+		"signup": {
+			"invalid_user_input": "Ungültiges E-Mail- oder Passwortformat. Bitte versuchen Sie es erneut.",
+			"duplicate_entry": "Die E-Mail-Adresse wird bereits verwendet."
+		},
+		"signin": {
+			"wrong_password": "Die E-Mail und das Passwort stimmen nicht überein.",
+			"email_not_found": "Die E-Mail-Adresse konnte nicht gefunden werden."
+		},
+		"signout": {
+			"invalid_refresh_token": "Beim Abmelden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+		}
+	}
+}

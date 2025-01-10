@@ -22,14 +22,14 @@
                 // Respond to the client
                 sendResponse(true, 'none', 'none', 'none');
             } else {
-                sendResponse(false, 'invalid_refresh_token', 'No refresh token found.', 'The user tried to sign out, but no refresh token was found in the cookies.', 400);
+                sendResponse(false, 'invalid_refresh_token', getLocalizedString('signout.invalid_refresh_token'), 'The user tried to sign out, but no refresh token was found in the cookies.', 400);
             }
         } catch (PDOException $e) {
             error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", "A server error occurred while processing your request. Please try again.", $e->getMessage(), 500);
+            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'), $e->getMessage(), 500);
         } catch (Exception $e) {
             error_log($e->getMessage());
-            sendResponse(false, "unknown_exception", "An unexpected error occurred. Please try again.", $e->getMessage(), 500);
+            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
         }
     }
 
@@ -37,7 +37,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         signOut();
     } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {
-        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'The data was sent using the wrong method, use DELETE.', 500);
+        sendResponse(false, 'invalid_request_method', getLocalizedString('GLOBAL.invalid_request_method'), 'The data was sent using the wrong method, use DELETE.', 500);
     }
 
 ?>

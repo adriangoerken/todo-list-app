@@ -1,20 +1,20 @@
 <?php
     require_once '../_helpers.php';
-    require_once '../_auth_helpers.php';
+    require_once '../_auth_helpers.php';       
 
-    function checkRefreshToken() {        
+    function checkRefreshToken() {                   
         // Check if a refresh token is stored
         $refreshToken = retrieveRefreshToken();
 
         if (!$refreshToken) {                            
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'No refreshToken was provided.');
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'No refreshToken was provided.');
             exit();
         }
 
         // Check if the refresh token is valid and not expired in the database       
         if (!verifyRefreshTokenDB($refreshToken)) {            
             resetTokenCookie();
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'RefreshToken is not in the database or has expired.');
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'RefreshToken is not in the database or has expired.');
             exit();
         }
 
@@ -22,7 +22,7 @@
         $decoded = verifyToken($refreshToken);
 
         if (!$decoded) {            
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'Invalid refresh token signature.');
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'Invalid refresh token signature.');
             exit();
         }
 
@@ -30,7 +30,7 @@
         $newAccessToken = refreshAccessToken($refreshToken);
 
         if (!$newAccessToken) {                                
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'RefreshToken is invalid, Access Denied.');
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'RefreshToken is invalid, Access Denied.');
             exit();
         }
 
@@ -39,7 +39,7 @@
         $userInfo = retrieveUserInfo($userId);
 
         if (count($userInfo) !== 1) {            
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'User not found.');
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'User not found.');
             exit();
         }
 
@@ -59,6 +59,6 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {                        
         checkRefreshToken();
     } else if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {             
-        sendResponse(false, 'invalid_request_method', 'An unexpected error occurred. Please try again.', 'Wrong method used, use POST.', 500);
+        sendResponse(false, 'invalid_request_method', getLocalizedString('GLOBAL.invalid_request_method'), 'Wrong method used, use POST.', 500);
     }
 ?>

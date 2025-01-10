@@ -1,0 +1,28 @@
+{
+	"GLOBAL": {
+		"unknown_exception": "发生意外错误。请再试一次。",
+		"pdo_exception": "处理您的请求时发生服务器错误。请再试一次。",
+		"data_not_set": "处理您的请求时发生服务器错误。请再试一次。",
+		"invalid_request_method": "处理您的请求时发生服务器错误。请再试一次。",
+		"invalid_refresh_token": "您的会话已过期。请重新登录。",
+		"invalid_access_token": "您的会话已过期。请重新登录。"
+	},
+	"tasks": {
+		"deletetask": {
+			"id_mismatch": "您不能删除他人的条目。"
+		}
+	},
+	"user": {
+		"signup": {
+			"invalid_user_input": "电子邮件或密码格式无效。请再试一次。",
+			"duplicate_entry": "该电子邮件地址已被使用。"
+		},
+		"signin": {
+			"wrong_password": "电子邮件和密码不匹配。",
+			"email_not_found": "找不到该电子邮件地址。"
+		},
+		"signout": {
+			"invalid_refresh_token": "注销时发生错误。请再试一次。"
+		}
+	}
+}

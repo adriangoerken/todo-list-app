@@ -2,7 +2,7 @@
     // Set CORS headers
     header("Access-Control-Allow-Origin: http://localhost:5173");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, Accept-Language");
     header("Access-Control-Allow-Credentials: true");
     header("Content-Type: application/json");
     
@@ -13,9 +13,41 @@
     require_once '../../libs/JWT.php';    
     require_once '../../libs/Key.php';       
 
-    // Store request method for convenience
     $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+    // Load localized strings    
+    function getLocalizedString($identifier) {
+        $language = $_SERVER['HTTP_ACCEPT_LANGUAGE'];    
+        $jsonFilePath = "../translations/$language/global.json";
+        $fallbackFilePath = "../translations/en/global.json";
+        
+        if (!file_exists($jsonFilePath)) {
+            $jsonFilePath = $fallbackFilePath;
+        }
+        
+        $jsonContent = file_get_contents($jsonFilePath);        
+        $localizedStrings = json_decode($jsonContent, true);
+    
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            die('Error decoding JSON: ' . json_last_error_msg());
+        }
+    
+        if (!$localizedStrings) {
+            die('Failed to load localized strings from: ' . $jsonFilePath);
+        }
+    
+        // Split the identifier by dots to access nested keys
+        $keys = explode('.', $identifier);
+        $string = $localizedStrings;
+    
+        foreach ($keys as $key) {
+            if (isset($string[$key])) {
+                $string = $string[$key];                
+            }
+        }
+    
+        return $string;
+    }    
 
     function validEmail($email) {
         $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);

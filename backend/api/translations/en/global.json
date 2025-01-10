@@ -1,0 +1,28 @@
+{
+	"GLOBAL": {
+		"unknown_exception": "An unexpected error occurred. Please try again.",
+		"pdo_exception": "A server error occurred while processing your request. Please try again.",
+		"data_not_set": "A server error occurred while processing your request. Please try again.",
+		"invalid_request_method": "A server error occurred while processing your request. Please try again.",
+		"invalid_refresh_token": "Your session has expired. Please sign in again.",
+		"invalid_access_token": "Your session has expired. Please sign in again."
+	},
+	"tasks": {
+		"deletetask": {
+			"id_mismatch": "You can't delete someone else's entry."
+		}
+	},
+	"user": {
+		"signup": {
+			"invalid_user_input": "Invalid email or password format. Please try again.",
+			"duplicate_entry": "The email address is already in use."
+		},
+		"signin": {
+			"wrong_password": "The email and password don't match.",
+			"email_not_found": "The email address could not be found."
+		},
+		"signout": {
+			"invalid_refresh_token": "There was an error while signing you out. Please try again."
+		}
+	}
+}

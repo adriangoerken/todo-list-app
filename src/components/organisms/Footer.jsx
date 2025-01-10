@@ -46,8 +46,8 @@ const Footer = () => {
 					<button onClick={() => handleChangeLanguage('de')}>
 						DE
 					</button>
-					<button onClick={() => handleChangeLanguage('cn')}>
-						CN
+					<button onClick={() => handleChangeLanguage('zh')}>
+						CN (zh)
 					</button>
 				</div>
 			</Container>

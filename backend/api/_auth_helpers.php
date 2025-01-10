@@ -52,7 +52,7 @@
         $decoded = verifyToken($refreshToken);
 
         if (!$decoded) {
-            sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'The refreshToken was invalid when tried to generate a new accessToken from it.', 401);            
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'The refreshToken was invalid when tried to generate a new accessToken from it.', 401);            
             exit();
         }
 
@@ -86,11 +86,11 @@
                 $decoded = verifyToken($newAccessToken);
     
                 if (!$decoded) {
-                    sendResponse(false, 'invalid_access_token', 'Your session has expired. Please sign in again.', 'The refreshed accessToken was invalid.', 401);
+                    sendResponse(false, 'invalid_access_token', getLocalizedString('GLOBAL.invalid_access_token'), 'The refreshed accessToken was invalid.', 401);
                     exit();
                 }
             } else {
-                sendResponse(false, 'invalid_refresh_token', 'Your session has expired. Please sign in again.', 'The refreshToken was invalid and a new accessToken could not be generated.', 401);
+                sendResponse(false, 'invalid_refresh_token', getLocalizedString('GLOBAL.invalid_refresh_token'), 'The refreshToken was invalid and a new accessToken could not be generated.', 401);
                 exit();
             }
         }
