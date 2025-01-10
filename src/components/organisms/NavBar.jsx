@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const NavBar = () => {
 	const { user, signOut } = useAuth();
 	const { isSaving } = useSaveStatus();
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const location = useLocation();
@@ -19,65 +19,38 @@ const NavBar = () => {
 		setMenuOpen(!menuOpen);
 	};
 
+	const menuLinks = user
+		? [
+				{ to: '/home', label: t('NavBar.linkHome') },
+				{ to: '/settings', label: t('NavBar.linkSettings') },
+		  ]
+		: [
+				{ to: '/', label: t('NavBar.linkHome') },
+				{ to: '/signin', label: t('NavBar.linkSignIn') },
+				{ to: '/signup', label: t('NavBar.linkSignUp') },
+		  ];
+
 	const renderMenuItems = () => (
 		<>
-			{user ? (
-				<>
-					<li>
-						<Link
-							to="/home"
-							onClick={menuOpen ? toggleMenu : undefined}
-						>
-							{t('NavBar.linkHome')}
-						</Link>
-					</li>
-					<li>
-						<Link
-							to="/settings"
-							onClick={menuOpen ? toggleMenu : undefined}
-						>
-							{t('NavBar.linkSettings')}
-						</Link>
-					</li>
-					<li>
-						<button
-							onClick={() => {
-								signOut();
-								if (menuOpen) toggleMenu();
-							}}
-							className="text-white"
-						>
-							{t('NavBar.linkSignOut')}
-						</button>
-					</li>
-				</>
-			) : (
-				<>
-					<li>
-						<Link
-							to="/"
-							onClick={menuOpen ? toggleMenu : undefined}
-						>
-							{t('NavBar.linkHome')}
-						</Link>
-					</li>
-					<li>
-						<Link
-							to="/signin"
-							onClick={menuOpen ? toggleMenu : undefined}
-						>
-							{t('NavBar.linkSignIn')}
-						</Link>
-					</li>
-					<li>
-						<Link
-							to="/signup"
-							onClick={menuOpen ? toggleMenu : undefined}
-						>
-							{t('NavBar.linkSignUp')}
-						</Link>
-					</li>
-				</>
+			{menuLinks.map(({ to, label }) => (
+				<li key={to}>
+					<Link to={to} onClick={menuOpen ? toggleMenu : undefined}>
+						{label}
+					</Link>
+				</li>
+			))}
+			{user && (
+				<li>
+					<button
+						onClick={() => {
+							signOut();
+							if (menuOpen) toggleMenu();
+						}}
+						className="text-white"
+					>
+						{t('NavBar.linkSignOut')}
+					</button>
+				</li>
 			)}
 		</>
 	);
@@ -93,8 +66,8 @@ const NavBar = () => {
 	};
 
 	return (
-		<section>
-			<Container>
+		<Container>
+			<section>
 				<nav className="flex justify-between items-center">
 					<div className="flex items-center">
 						<Link
@@ -105,6 +78,7 @@ const NavBar = () => {
 						</Link>
 						{renderSaveStatus()}
 					</div>
+					{/* Mobile Menu Icon */}
 					<div
 						onClick={toggleMenu}
 						className="md:hidden ml-auto text-white cursor-pointer"
@@ -115,24 +89,21 @@ const NavBar = () => {
 							<MdMenu size={24} />
 						)}
 					</div>
-					<ul
-						className={`flex gap-5 ${
-							menuOpen ? 'hidden' : 'hidden md:flex'
-						}`}
-					>
+					{/* Desktop Menu */}
+					<ul className={`hidden md:flex gap-5 items-center`}>
 						{renderMenuItems()}
 					</ul>
 				</nav>
 				{/* Mobile Menu */}
 				<ul
-					className={`flex flex-col gap-5 mt-4 items-end md:hidden ${
+					className={`md:hidden flex flex-col gap-5 mt-4 items-end ${
 						menuOpen ? 'block' : 'hidden'
 					}`}
 				>
 					{renderMenuItems()}
 				</ul>
-			</Container>
-		</section>
+			</section>
+		</Container>
 	);
 };
 

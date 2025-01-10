@@ -76,23 +76,25 @@ const Task = ({
 			style={{ opacity: isDragging ? 0.5 : 1 }}
 			className="flex items-center justify-between p-4 border-2 rounded-lg font-bold border-gray-600 cursor-move"
 		>
-			<div className="flex w-full gap-2">
+			<div className="flex items-center flex-grow gap-2 min-w-0">
 				<Checkbox checked={checked} onchange={handleCheckboxChange} />
-				<div className="flex items-center w-full">
-					<span className={checked ? 'line-through opacity-50' : ''}>
-						{task}
-					</span>
-				</div>
-				<div className="flex items-center justify-end w-full gap-2 mr-3">
-					<Select
-						onchange={handlePriorityChange}
-						value={selectValue}
-						options={priorityOptions}
-					/>
-					<DeleteButton onclick={handleDeleteTask} />
-				</div>
+				<span
+					className={`break-words flex-grow ${
+						checked ? 'line-through opacity-50' : ''
+					}`}
+				>
+					{task}
+				</span>
 			</div>
-			<MdDragHandle className="cursor-pointer text-xl" />
+			<div className="flex items-center gap-2 ml-4">
+				<Select
+					onchange={handlePriorityChange}
+					value={selectValue}
+					options={priorityOptions}
+				/>
+				<DeleteButton onclick={handleDeleteTask} />
+				<MdDragHandle className="cursor-pointer text-xl" />
+			</div>
 		</div>
 	);
 };

@@ -8,18 +8,15 @@ import Button from '../atoms/Button';
 import TextField from '../atoms/TextField';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 import { useTranslation } from 'react-i18next';
+import Select from '../atoms/Select';
 
 const ToDoList = () => {
 	/* TODO: 
 		- Code refactoring						
-		- Implement settings pages
-		- Implement sign out		
-		- Task text not using entire width
-		- Prio option when creating
-		- Nav Link instead of list
-		- CSS needs adjustments for different langs
-		- footer styling for german bad
-
+		- Implement settings page (change email, password and delete acc)						
+		- Imprint, Privacy Policy, Terms of Service, Cookie Policy,
+		- Cookie banner
+		- Contact form		
 	*/
 	const { user, setUser } = useAuth();
 	const { setIsSaving } = useSaveStatus();

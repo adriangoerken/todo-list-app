@@ -43,7 +43,7 @@
 	},
 	"ToDoList": {
 		"form": {
-			"formPlaceholder": "Geben Sie eine Aufgabe ein...",
+			"formPlaceholder": "Neue Aufgabe...",
 			"formBtnAdd": "Hinzufügen"
 		},
 		"addTaskSuccess": "Neue Aufgabe erfolgreich hinzugefügt!",

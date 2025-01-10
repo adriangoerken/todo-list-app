@@ -44,7 +44,9 @@ const SignUpPage = () => {
 	return (
 		<Container classNames="flex flex-grow justify-center">
 			<section className="flex flex-col self-center w-full max-w-lg p-6 justify-center">
-				<h1 className="text-3xl font-bold mb-8 text-center">Sign Up</h1>
+				<h1 className="text-3xl font-bold mb-8 text-center">
+					{t('SignUpPage.header')}
+				</h1>
 				<CredentialsForm
 					email={email}
 					onEmailChange={handleEmailChange}

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Select = ({ onchange, value, options }) => {
+const Select = ({ onchange, value, options, className }) => {
 	return (
 		<select
 			onChange={onchange}
 			value={value}
-			className="border-2 border-gray-600 rounded-lg bg-transparent p-1 cursor-pointer"
+			className={`border-2 border-gray-600 rounded-lg bg-transparent p-1 cursor-pointer ${className}`}
 		>
 			{options.map((option) => (
 				<option
@@ -31,6 +31,7 @@ Select.propTypes = {
 			label: PropTypes.string.isRequired,
 		})
 	).isRequired,
+	className: PropTypes.string,
 };
 
 export default Select;
