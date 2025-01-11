@@ -28,6 +28,7 @@ const CredentialsForm = ({
 					placeholder={t('CredentialsForm.email')}
 					onchange={onEmailChange}
 					value={email}
+					autoComplete="email"
 					className={`${
 						email && !isEmailValid
 							? 'border-red-500 focus:border-red-500'
@@ -48,6 +49,9 @@ const CredentialsForm = ({
 					placeholder={t('CredentialsForm.password')}
 					onchange={onPasswordChange}
 					value={password}
+					autoComplete={
+						showError ? 'new-password' : 'current-password'
+					}
 					className={`${
 						password && !isPasswordValid
 							? 'border-red-500 focus:border-red-500'

@@ -9,9 +9,10 @@ a {
 }
 
 hr {
-	@apply mt-4;
-	@apply mb-4;
+	@apply my-4;
 	@apply border-white;
+	@apply h-[1px];
+	@apply w-full;
 }
 
 @media only screen and (min-width: 768px) {

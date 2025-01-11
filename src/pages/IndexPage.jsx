@@ -19,7 +19,7 @@ const IndexPage = () => {
 	}, [user, navigate]);
 
 	return (
-		<Container classNames="flex flex-grow justify-center">
+		<Container className="flex flex-grow justify-center">
 			<section className="flex flex-col flex-grow self-center max-w-screen-md mx-auto text-center px-4">
 				{/* Hero Section */}
 				<HeroSection />

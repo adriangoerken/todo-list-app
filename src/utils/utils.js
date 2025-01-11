@@ -21,3 +21,14 @@ export const initLanguage = () => {
 		return browserLang;
 	}
 };
+
+export const validateEmail = (email) => {
+	const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+	return emailRegex.test(email);
+};
+
+export const validatePassword = (password) => {
+	const passwordRegex =
+		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,128}$/;
+	return passwordRegex.test(password);
+};

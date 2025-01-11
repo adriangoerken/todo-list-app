@@ -78,6 +78,30 @@ export const AuthProvider = ({ children }) => {
 		}
 	};
 
+	const deleteAccount = async () => {
+		setLoading(true);
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/deleteaccount';
+		const response = await deleteData(url);
+
+		if (response.success) {
+			setUser(null);
+			setLoading(false);
+
+			setTimeout(() => {
+				toast.success(t('AuthContextProvider.delAccSuccess'));
+			}, 1);
+		} else {
+			setLoading(false);
+
+			if (response.errorType !== 'invalid_refresh_token') {
+				setTimeout(() => {
+					toast.error(response.error || t('GLOBAL.errDefault'));
+				}, 1);
+			}
+		}
+	};
+
 	const checkUserStatus = async () => {
 		setLoading(true);
 		const url =
@@ -105,6 +129,7 @@ export const AuthProvider = ({ children }) => {
 		signIn,
 		signOut,
 		signUp,
+		deleteAccount,
 		loading,
 	};
 

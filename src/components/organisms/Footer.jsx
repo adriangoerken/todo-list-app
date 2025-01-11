@@ -15,9 +15,9 @@ const Footer = () => {
 	};
 
 	const languageOptions = [
-		{ value: 'zh', label: t('Footer.select.selectOpts.optZH') },
-		{ value: 'de', label: t('Footer.select.selectOpts.optDE') },
 		{ value: 'en', label: t('Footer.select.selectOpts.optEN') },
+		{ value: 'de', label: t('Footer.select.selectOpts.optDE') },
+		{ value: 'zh', label: t('Footer.select.selectOpts.optZH') },
 	];
 
 	return (

@@ -4,11 +4,9 @@ import { useAuth } from '../providers/AuthContextProvider';
 import Container from '../components/organisms/Container';
 import CredentialsForm from '../components/organisms/CredentialsForm';
 import { useTranslation } from 'react-i18next';
+import { validateEmail, validatePassword } from '../utils/utils';
 
 const SignUpPage = () => {
-	const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-	const passwordRegex =
-		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,128}$/;
 	const navigate = useNavigate();
 	const [t, n18i] = useTranslation('global');
 	const { user, signUp } = useAuth();
@@ -24,11 +22,11 @@ const SignUpPage = () => {
 	}, [user, navigate]);
 
 	useEffect(() => {
-		setValidEmail(emailRegex.test(email));
+		setValidEmail(validateEmail(email));
 	}, [email]);
 
 	useEffect(() => {
-		setValidPassword(passwordRegex.test(password));
+		setValidPassword(validatePassword(password));
 	}, [password]);
 
 	const handleEmailChange = (e) => setEmail(e.target.value);
@@ -42,7 +40,7 @@ const SignUpPage = () => {
 	};
 
 	return (
-		<Container classNames="flex flex-grow justify-center">
+		<Container className="flex flex-grow justify-center">
 			<section className="flex flex-col self-center w-full max-w-lg p-6 justify-center">
 				<h1 className="text-3xl font-bold mb-8 text-center">
 					{t('SignUpPage.header')}

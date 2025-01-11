@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import PrivateRoutes from './components/organisms/PrivateRoutes';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import SettingsPage from './pages/SettingsPage';
 
 const RouterWrapper = () => {
 	return (
@@ -22,6 +23,7 @@ const RouterWrapper = () => {
 					{/* Private routes */}
 					<Route element={<PrivateRoutes />}>
 						<Route path="/home" element={<HomePage />} />
+						<Route path="/settings" element={<SettingsPage />} />
 					</Route>
 
 					{/* 404 page */}

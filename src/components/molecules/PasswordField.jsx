@@ -7,6 +7,7 @@ const PasswordField = ({
 	placeholder,
 	onchange,
 	value,
+	autoComplete,
 	className,
 	isRequired,
 }) => {
@@ -20,6 +21,7 @@ const PasswordField = ({
 				placeholder={placeholder}
 				onchange={onchange}
 				value={value}
+				autoComplete={autoComplete}
 				className={`pr-10 ${className}`}
 				isRequired={isRequired}
 			/>
@@ -38,6 +40,7 @@ PasswordField.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	onchange: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired,
+	autoComplete: PropTypes.string.isRequired,
 	className: PropTypes.string,
 	isRequired: PropTypes.bool,
 };

@@ -76,7 +76,8 @@
 	},
 	"AuthContextProvider": {
 		"signUpSuccess": "Konto erfolgreich erstellt!",
-		"signOutSuccess": "Erfolgreich abgemeldet!"
+		"signOutSuccess": "Erfolgreich abgemeldet!",
+		"delAccSuccess": "Benutzerkonto Erfolgreich gelöscht!"
 	},
 	"SignUpPage": {
 		"header": "Registrieren",

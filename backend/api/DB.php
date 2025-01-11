@@ -36,7 +36,7 @@
 
             return self::$instance;
         }
-        
+
         public function query($query, $params = array()) {
             $statement = $this->pdo->prepare($query);            
             $statement->execute($params);
@@ -48,6 +48,18 @@
 
             // Return rowCount for non-SELECT queries (INSERT, UPDATE, DELETE)
             return $statement->rowCount();
+        }
+
+        public function beginTransaction() {
+            $this->pdo->beginTransaction();
+        }
+
+        public function commit() {
+            $this->pdo->commit();
+        }
+
+        public function rollBack() {
+            $this->pdo->rollBack();
         }
     }
 ?>

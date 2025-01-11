@@ -12,8 +12,7 @@ import Select from '../atoms/Select';
 
 const ToDoList = () => {
 	/* TODO: 
-		- Code refactoring						
-		- Implement settings page (change email, password and delete acc)						
+		- Code refactoring								
 		- Imprint, Privacy Policy, Terms of Service, Cookie Policy,
 		- Cookie banner
 		- Contact form		
@@ -225,6 +224,7 @@ const ToDoList = () => {
 				<TextField
 					placeholder={t('ToDoList.form.formPlaceholder')}
 					value={newTask}
+					autoComplete="off"
 					onchange={handleInputChange}
 				/>
 				<Button

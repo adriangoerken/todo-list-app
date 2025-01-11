@@ -7,7 +7,7 @@ const NotFoundPage = () => {
 	const [t, i18n] = useTranslation('global');
 
 	return (
-		<Container classNames="flex flex-grow justify-center">
+		<Container className="flex flex-grow justify-center">
 			<section className="text-center flex flex-col justify-center items center h96">
 				<h1 className="text-6xl font-bold mb-4">
 					{t('NotFoundPage.message')}

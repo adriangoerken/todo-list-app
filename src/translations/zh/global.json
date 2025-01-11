@@ -76,7 +76,8 @@
 	},
 	"AuthContextProvider": {
 		"signUpSuccess": "帐户创建成功！",
-		"signOutSuccess": "登出成功！"
+		"signOutSuccess": "登出成功！",
+		"delAccSuccess": "账户删除成功！"
 	},
 	"SignUpPage": {
 		"header": "注册",

@@ -76,7 +76,8 @@
 	},
 	"AuthContextProvider": {
 		"signUpSuccess": "Account created successfully!",
-		"signOutSuccess": "Signed out successfully!"
+		"signOutSuccess": "Signed out successfully!",
+		"delAccSuccess": "Account deleted successfully!"
 	},
 	"SignUpPage": {
 		"header": "Sign Up",
