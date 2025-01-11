@@ -91,6 +91,25 @@
 		"questionButton": "Sign Up",
 		"btnSignIn": "Sign In"
 	},
+	"SettingsPage": {
+		"email": {
+			"headerEmail": "Change Email",
+			"inputEmailPlaceholder": "New email",
+			"btnSaveEmail": "Change Email",
+			"changeEmailSuccess": "Email changed successfully!"
+		},
+		"password": {
+			"headerPassword": "Change Password",
+			"inputPasswordPlaceholder": "New password",
+			"btnSavePassword": "Change Password",
+			"changePasswordSuccess": "Password changed successfully!"
+		},
+		"account": {
+			"headerDelAccount": "Delete Account",
+			"btnDelAcc": "Delete Account",
+			"delAccConfirm": "Are you sure you want to delete your account?"
+		}
+	},
 	"NotFoundPage": {
 		"message": "404 Not Found",
 		"btnBack": "Go Back"

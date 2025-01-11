@@ -23,6 +23,12 @@
 		},
 		"signout": {
 			"invalid_refresh_token": "注销时发生错误。请再试一次。"
+		},
+		"updateemail": {
+			"invalid_user_input": "无效的电子邮件格式。请再试一次。"
+		},
+		"updatepassword": {
+			"invalid_user_input": "无效的密码格式。请再试一次。"
 		}
 	}
 }

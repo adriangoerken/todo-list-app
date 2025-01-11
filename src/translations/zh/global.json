@@ -91,6 +91,25 @@
 		"questionButton": "注册",
 		"btnSignIn": "登录"
 	},
+	"SettingsPage": {
+		"email": {
+			"headerEmail": "更改电子邮件",
+			"inputEmailPlaceholder": "新电子邮件",
+			"btnSaveEmail": "更改电子邮件",
+			"changeEmailSuccess": "电子邮件更改成功！"
+		},
+		"password": {
+			"headerPassword": "更改密码",
+			"inputPasswordPlaceholder": "新密码",
+			"btnSavePassword": "更改密码",
+			"changePasswordSuccess": "密码更改成功！"
+		},
+		"account": {
+			"headerDelAccount": "删除账户",
+			"btnDelAcc": "删除账户",
+			"delAccConfirm": "您确定要删除您的账户吗？"
+		}
+	},
 	"NotFoundPage": {
 		"message": "404 未找到",
 		"btnBack": "返回"

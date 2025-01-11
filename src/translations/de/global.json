@@ -91,6 +91,26 @@
 		"questionButton": "Registrieren",
 		"btnSignIn": "Anmelden"
 	},
+	"SettingsPage": {
+		"email": {
+			"headerEmail": "E-Mail ändern",
+			"inputEmailPlaceholder": "Neue E-Mail",
+			"btnSaveEmail": "E-Mail ändern",
+			"changeEmailSuccess": "E-Mail erfolgreich geändert!"
+		},
+		"password": {
+			"headerPassword": "Passwort ändern",
+			"inputPasswordPlaceholder": "Neues Passwort",
+			"btnSavePassword": "Passwort ändern",
+			"changePasswordSuccess": "Passwort erfolgreich geändert!"
+		},
+		"account": {
+			"headerDelAccount": "Konto löschen",
+			"btnDelAcc": "Konto löschen",
+			"delAccConfirm": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?"
+		}
+	},
+
 	"NotFoundPage": {
 		"message": "404 Nicht gefunden",
 		"btnBack": "Zurück"

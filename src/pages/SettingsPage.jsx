@@ -9,6 +9,7 @@ import H2 from '../components/atoms/H2';
 import { useAuth } from '../providers/AuthContextProvider';
 import { putData } from '../api/api';
 import Loader from '../components/atoms/Loader';
+import { toast } from 'react-toastify';
 
 const SettingsPage = () => {
 	const [loading, setLoading] = useState(false);
@@ -37,6 +38,34 @@ const SettingsPage = () => {
 				accessToken: response.data.accessToken,
 				email,
 			}));
+			toast.success(t('SettingsPage.email.changeEmailSuccess'));
+			setLoading(false);
+		} else {
+			setLoading(false);
+
+			if (response.errorType !== 'invalid_refresh_token') {
+				setTimeout(() => {
+					toast.error(response.error || t('GLOBAL.errDefault'));
+				}, 1);
+			}
+		}
+	};
+
+	const handleSubmitPasswordChange = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/updatepassword';
+		const response = await putData(url, { password }, user.accessToken);
+
+		if (response.success) {
+			setPassword('');
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+			}));
+			toast.success(t('SettingsPage.password.changePasswordSuccess'));
 			setLoading(false);
 		} else {
 			setLoading(false);
@@ -50,7 +79,7 @@ const SettingsPage = () => {
 	};
 
 	const handleSubmitDeleteAccount = async () => {
-		if (confirm('Are you sure you want to delete your account?')) {
+		if (confirm(t('SettingsPage.delAccConfirm'))) {
 			deleteAccount();
 		}
 	};
@@ -72,10 +101,12 @@ const SettingsPage = () => {
 			<Container className="flex flex-col gap-8 items-center justify-center max-w-lg">
 				{/* Form Change Email */}
 				<form className="flex flex-col gap-4 w-full">
-					<H2 text="Change Email" />
+					<H2 text={t('SettingsPage.email.headerEmail')} />
 					<div>
 						<TextField
-							placeholder="Enter new email"
+							placeholder={t(
+								'SettingsPage.email.inputEmailPlaceholder'
+							)}
 							onchange={handleEmailChange}
 							value={email}
 							autoComplete="email"
@@ -92,7 +123,7 @@ const SettingsPage = () => {
 						)}
 					</div>
 					<Button
-						value="Change Email"
+						value={t('SettingsPage.email.btnSaveEmail')}
 						onclick={handleSubmitEmailChange}
 						disabled={!validEmail}
 					/>
@@ -100,10 +131,12 @@ const SettingsPage = () => {
 				<hr className="my-0" />
 				{/* Form Change Password */}
 				<form className="flex flex-col gap-4 w-full">
-					<H2 text="Change Password" />
+					<H2 text={t('SettingsPage.password.headerPassword')} />
 					<div>
 						<PasswordField
-							placeholder="Enter new password"
+							placeholder={t(
+								'SettingsPage.password.inputPasswordPlaceholder'
+							)}
 							onchange={handlePasswordChange}
 							value={password}
 							autoComplete="new-password"
@@ -120,17 +153,17 @@ const SettingsPage = () => {
 						)}
 					</div>
 					<Button
-						value="Change Password"
-						onclick={handlePasswordChange}
+						value={t('SettingsPage.password.btnSavePassword')}
+						onclick={handleSubmitPasswordChange}
 						disabled={!validPassword}
 					/>
 				</form>
 				<hr className="my-0" />
 				{/* Button delete account */}
 				<div className="flex flex-col gap-4 w-full">
-					<H2 text="Delete Account and Data" />
+					<H2 text={t('SettingsPage.account.headerDelAccount')} />
 					<Button
-						value="Delete Account"
+						value={t('SettingsPage.account.btnDelAcc')}
 						onclick={handleSubmitDeleteAccount}
 						className="bg-red-700 hover:bg-red-800"
 					/>

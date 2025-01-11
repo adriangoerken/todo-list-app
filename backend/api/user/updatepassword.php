@@ -5,21 +5,23 @@
     use \Firebase\JWT\JWT;     
     use \Firebase\JWT\Key;        
     
-    function updateEmail() {                
+    function updatePassword() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
         $userId = $decoded->sub;               
 
         try {
             $putData = json_decode(file_get_contents("php://input"), true);                       
-            $email = sanitizeInput($putData['email']);
+            $password = $putData['password'];            
 
-            if (!validEmail($email)) {                
-                echo sendResponse(false, 'invalid_user_input', getLocalizedString('updateemail.invalid_user_input'), 'Invalid input patterns: Email did not match regex pattern.');
+            if (!validPassword($password)) {                
+                echo sendResponse(false, 'invalid_user_input', getLocalizedString('updatepassword.invalid_user_input'), 'Invalid input patterns: Password did not match regex pattern.');
                 return;
             }
 
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
             $db = DB::getInstance();                                         
-            $db->query('UPDATE users SET email = :email WHERE id = :id', [':email' => $email, ':id' => $userId]);                      
+            $db->query('UPDATE users SET password = :password WHERE id = :id', [':password' => $hashedPassword, ':id' => $userId]);                      
             
             sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
         } catch (PDOException $e) {
@@ -34,8 +36,8 @@
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                
         $putData = json_decode(file_get_contents("php://input"), true);
         
-        if (isset($putData['email'])) {            
-            updateEmail();
+        if (isset($putData['password'])) {            
+            updatePassword();
         } else {            
             sendResponse(false, 'data_not_set', getLocalizedString('GLOBAL.data_not_set'), 'No data was passed with PUT.', 500);
         }

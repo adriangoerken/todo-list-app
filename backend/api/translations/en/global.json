@@ -26,6 +26,9 @@
 		},
 		"updateemail": {
 			"invalid_user_input": "Invalid email format. Please try again."
+		},
+		"updatepassword": {
+			"invalid_user_input": "Invalid password format. Please try again."
 		}
 	}
 }

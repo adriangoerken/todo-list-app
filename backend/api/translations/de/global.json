@@ -23,6 +23,12 @@
 		},
 		"signout": {
 			"invalid_refresh_token": "Beim Abmelden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+		},
+		"updateemail": {
+			"invalid_user_input": "Ungültiges E-Mailformat. Bitte versuchen Sie es erneut."
+		},
+		"updatepassword": {
+			"invalid_user_input": "Ungültiges Passwortformat. Bitte versuchen Sie es erneut."
 		}
 	}
 }
