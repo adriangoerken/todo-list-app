@@ -7,9 +7,12 @@ import { useTranslation } from 'react-i18next';
 import { validateEmail, validatePassword } from '../utils/utils';
 import H2 from '../components/atoms/H2';
 import { useAuth } from '../providers/AuthContextProvider';
+import { putData } from '../api/api';
+import Loader from '../components/atoms/Loader';
 
 const SettingsPage = () => {
-	const { user, deleteAccount } = useAuth();
+	const [loading, setLoading] = useState(false);
+	const { user, setUser, deleteAccount } = useAuth();
 	const [t, i18n] = useTranslation('global');
 	const [email, setEmail] = useState('');
 	const [validEmail, setValidEmail] = useState(false);
@@ -19,6 +22,33 @@ const SettingsPage = () => {
 	const handleEmailChange = (e) => setEmail(e.target.value);
 	const handlePasswordChange = (e) => setPassword(e.target.value);
 
+	const handleSubmitEmailChange = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+
+		const url =
+			'http://localhost/projects/todo-list-app/backend/api/user/updateemail';
+		const response = await putData(url, { email }, user.accessToken);
+
+		if (response.success) {
+			setEmail('');
+			setUser((prevUser) => ({
+				...prevUser,
+				accessToken: response.data.accessToken,
+				email,
+			}));
+			setLoading(false);
+		} else {
+			setLoading(false);
+
+			if (response.errorType !== 'invalid_refresh_token') {
+				setTimeout(() => {
+					toast.error(response.error || t('GLOBAL.errDefault'));
+				}, 1);
+			}
+		}
+	};
+
 	const handleSubmitDeleteAccount = async () => {
 		if (confirm('Are you sure you want to delete your account?')) {
 			deleteAccount();
@@ -26,12 +56,16 @@ const SettingsPage = () => {
 	};
 
 	useEffect(() => {
-		setValidEmail(validateEmail(email));
+		setValidEmail(validateEmail(email) && email !== user.email);
 	}, [email]);
 
 	useEffect(() => {
 		setValidPassword(validatePassword(password));
 	}, [password]);
+
+	if (loading) {
+		return <Loader />;
+	}
 
 	return (
 		<section>
@@ -59,7 +93,7 @@ const SettingsPage = () => {
 					</div>
 					<Button
 						value="Change Email"
-						onclick={handleEmailChange}
+						onclick={handleSubmitEmailChange}
 						disabled={!validEmail}
 					/>
 				</form>

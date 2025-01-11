@@ -23,6 +23,9 @@
 		},
 		"signout": {
 			"invalid_refresh_token": "There was an error while signing you out. Please try again."
+		},
+		"updateemail": {
+			"invalid_user_input": "Invalid email format. Please try again."
 		}
 	}
 }
