@@ -12,8 +12,7 @@ import { useTranslation } from 'react-i18next';
 const ToDoList = () => {
 	/* TODO: 
 		- Code refactoring								
-		- Imprint, Privacy Policy, Terms of Service, Cookie Policy,
-		- Contact form		
+		- Imprint
 		- Simple AdminPanel
 	*/
 	const { user, setUser } = useAuth();

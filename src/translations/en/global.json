@@ -66,8 +66,7 @@
 		"links": {
 			"linkImprint": "Imprint",
 			"linkPrivacy": "Privacy Policy",
-			"linkTerms": "Terms of Service",
-			"linkContact": "Contact"
+			"linkTerms": "Terms of Service"
 		},
 		"select": {
 			"selectOpts": {
@@ -189,6 +188,57 @@
 		"section11": {
 			"title": "11. Contact Us",
 			"description": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:",
+			"contactInfo": {
+				"companyName": "[Your Company Name]",
+				"address": "[Your Address]",
+				"email": "[Your Email Address]",
+				"phone": "[Your Phone Number]"
+			}
+		}
+	},
+	"TermsOfServicePage": {
+		"headerTitle": "Terms of Service",
+		"introText": "Welcome to [Your App Name]! These Terms of Service ('Terms') govern your use of our application and services. By accessing or using [Your App Name], you agree to comply with these Terms. If you do not agree, please refrain from using our app.",
+		"section1": {
+			"title": "1. Eligibility",
+			"description": "You must be at least 13 years old or the minimum legal age in your jurisdiction to use our app. By using [Your App Name], you confirm that you meet this requirement."
+		},
+		"section2": {
+			"title": "2. Account Responsibilities",
+			"description": "You are responsible for maintaining the security of your account credentials and for all activities under your account. Notify us immediately if you suspect any unauthorized access."
+		},
+		"section3": {
+			"title": "3. Acceptable Use",
+			"description": "You agree not to use [Your App Name] for any unlawful activities or to:"
+		},
+		"section3List": {
+			"prohibitedUse": "Engage in activities that violate any applicable laws or regulations.",
+			"unauthorizedAccess": "Attempt to access, interfere with, or disrupt the app's functionality or security.",
+			"inappropriateContent": "Post or share any content that is harmful, offensive, or violates intellectual property rights."
+		},
+		"section4": {
+			"title": "4. User Content",
+			"description": "You retain ownership of the content you create within [Your App Name], such as your to-do list. By using our app, you grant us permission to store and display this content solely to provide the service."
+		},
+		"section5": {
+			"title": "5. Termination",
+			"description": "We reserve the right to suspend or terminate your account if you violate these Terms. Upon termination, your access to the app will be revoked, and your data may be deleted as per our Privacy Policy."
+		},
+		"section6": {
+			"title": "6. Limitation of Liability",
+			"description": "To the extent permitted by law, we are not liable for any damages or losses resulting from your use of [Your App Name], including data loss or service interruptions."
+		},
+		"section7": {
+			"title": "7. Changes to the Terms",
+			"description": "We may update these Terms from time to time. Any changes will be effective immediately upon posting. Continued use of [Your App Name] after changes signifies your acceptance."
+		},
+		"section8": {
+			"title": "8. Governing Law",
+			"description": "These Terms are governed by the laws of [Your Country/Region]. Any disputes will be resolved under the jurisdiction of the courts in [Your Country/Region]."
+		},
+		"section9": {
+			"title": "9. Contact Us",
+			"description": "If you have any questions or concerns about these Terms, please contact us at:",
 			"contactInfo": {
 				"companyName": "[Your Company Name]",
 				"address": "[Your Address]",

@@ -66,8 +66,7 @@
 		"links": {
 			"linkImprint": "Impressum",
 			"linkPrivacy": "Datenschutzrichtlinie",
-			"linkTerms": "Nutzungsbedingungen",
-			"linkContact": "Kontakt"
+			"linkTerms": "Nutzungsbedingungen"
 		},
 		"select": {
 			"selectOpts": {
@@ -189,6 +188,57 @@
 		"section11": {
 			"title": "11. Kontaktieren Sie uns",
 			"description": "Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung oder unseren Datenschutzpraktiken haben, kontaktieren Sie uns bitte unter:",
+			"contactInfo": {
+				"companyName": "[Ihr Firmenname]",
+				"address": "[Ihre Adresse]",
+				"email": "[Ihre E-Mail-Adresse]",
+				"phone": "[Ihre Telefonnummer]"
+			}
+		}
+	},
+	"TermsOfServicePage": {
+		"headerTitle": "Nutzungsbedingungen",
+		"introText": "Willkommen bei [Ihr App-Name]! Diese Nutzungsbedingungen ('Bedingungen') regeln Ihre Nutzung unserer Anwendung und Dienstleistungen. Durch den Zugriff auf oder die Nutzung von [Ihr App-Name] stimmen Sie zu, diese Bedingungen einzuhalten. Wenn Sie nicht einverstanden sind, verzichten Sie bitte auf die Nutzung unserer App.",
+		"section1": {
+			"title": "1. Berechtigung",
+			"description": "Sie müssen mindestens 13 Jahre alt oder das gesetzliche Mindestalter in Ihrer Gerichtsbarkeit erreicht haben, um unsere App zu nutzen. Durch die Nutzung von [Ihr App-Name] bestätigen Sie, dass Sie diese Voraussetzung erfüllen."
+		},
+		"section2": {
+			"title": "2. Verantwortlichkeiten für Konten",
+			"description": "Sie sind dafür verantwortlich, die Sicherheit Ihrer Kontodaten zu gewährleisten und alle Aktivitäten in Ihrem Konto zu überwachen. Benachrichtigen Sie uns umgehend, wenn Sie einen unbefugten Zugriff vermuten."
+		},
+		"section3": {
+			"title": "3. Akzeptable Nutzung",
+			"description": "Sie stimmen zu, [Ihr App-Name] nicht für rechtswidrige Aktivitäten oder für Folgendes zu nutzen:"
+		},
+		"section3List": {
+			"prohibitedUse": "Durchführung von Aktivitäten, die gegen geltende Gesetze oder Vorschriften verstoßen.",
+			"unauthorizedAccess": "Versuch, auf die Funktionalität oder Sicherheit der App unbefugt zuzugreifen, sie zu stören oder zu beeinträchtigen.",
+			"inappropriateContent": "Veröffentlichen oder Teilen von Inhalten, die schädlich, anstößig oder urheberrechtsverletzend sind."
+		},
+		"section4": {
+			"title": "4. Benutzerinhalte",
+			"description": "Sie behalten das Eigentum an den Inhalten, die Sie innerhalb von [Ihr App-Name] erstellen, wie z. B. Ihrer Aufgabenliste. Durch die Nutzung unserer App erteilen Sie uns die Erlaubnis, diese Inhalte ausschließlich zur Bereitstellung des Dienstes zu speichern und anzuzeigen."
+		},
+		"section5": {
+			"title": "5. Kündigung",
+			"description": "Wir behalten uns das Recht vor, Ihr Konto zu sperren oder zu kündigen, wenn Sie gegen diese Bedingungen verstoßen. Nach der Kündigung wird Ihr Zugriff auf die App widerrufen und Ihre Daten können gemäß unserer Datenschutzrichtlinie gelöscht werden."
+		},
+		"section6": {
+			"title": "6. Haftungsbeschränkung",
+			"description": "Soweit gesetzlich zulässig, haften wir nicht für Schäden oder Verluste, die sich aus Ihrer Nutzung von [Ihr App-Name] ergeben, einschließlich Datenverlust oder Dienstunterbrechungen."
+		},
+		"section7": {
+			"title": "7. Änderungen der Bedingungen",
+			"description": "Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Änderungen treten sofort nach der Veröffentlichung in Kraft. Die weitere Nutzung von [Ihr App-Name] nach Änderungen gilt als Zustimmung."
+		},
+		"section8": {
+			"title": "8. Anwendbares Recht",
+			"description": "Diese Bedingungen unterliegen den Gesetzen von [Ihr Land/Ihre Region]. Alle Streitigkeiten werden unter der Zuständigkeit der Gerichte von [Ihr Land/Ihre Region] beigelegt."
+		},
+		"section9": {
+			"title": "9. Kontaktieren Sie uns",
+			"description": "Wenn Sie Fragen oder Bedenken zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter:",
 			"contactInfo": {
 				"companyName": "[Ihr Firmenname]",
 				"address": "[Ihre Adresse]",

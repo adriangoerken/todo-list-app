@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import SettingsPage from './pages/SettingsPage';
 import CookieBanner from './components/atoms/CookieBanner';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfService';
 
 const RouterWrapper = () => {
 	return (
@@ -24,6 +25,10 @@ const RouterWrapper = () => {
 					<Route
 						path="/privacy-policy"
 						element={<PrivacyPolicyPage />}
+					/>
+					<Route
+						path="/terms-of-service"
+						element={<TermsOfServicePage />}
 					/>
 
 					{/* Private routes */}
