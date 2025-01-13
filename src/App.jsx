@@ -10,16 +10,21 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import SettingsPage from './pages/SettingsPage';
 import CookieBanner from './components/atoms/CookieBanner';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 const RouterWrapper = () => {
 	return (
 		<AuthProvider>
 			<Routes>
 				<Route path="/" element={<MainLayout />}>
-					{/* PUblic routes */}
+					{/* Public routes */}
 					<Route index element={<IndexPage />} />
 					<Route path="/signin" element={<SignInPage />} />
 					<Route path="/signup" element={<SignUpPage />} />
+					<Route
+						path="/privacy-policy"
+						element={<PrivacyPolicyPage />}
+					/>
 
 					{/* Private routes */}
 					<Route element={<PrivateRoutes />}>

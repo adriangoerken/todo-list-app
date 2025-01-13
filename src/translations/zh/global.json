@@ -114,6 +114,90 @@
 			"delAccConfirm": "您确定要删除您的账户吗？"
 		}
 	},
+	"PrivacyPolicyPage": {
+		"headerTitle": "隐私政策",
+		"introText": "在[您的公司名称]（‘我们’，‘我们的’，‘我们公司’）我们致力于保护您的隐私，并确保您拥有安全的在线体验。本隐私政策概述了我们如何根据适用的数据保护法律收集、使用和保护您的个人数据，包括通用数据保护条例（GDPR）（EU）2016/679、加利福尼亚州消费者隐私法案（CCPA）以及中国的数据保护法律。",
+		"section1": {
+			"title": "1. 我们收集的信息",
+			"description": "当您使用我们的服务时，我们收集以下类型的信息：",
+			"list": {
+				"emailPassword": "注册时的电子邮件地址和密码。",
+				"todoList": "您的待办事项清单内容，以便保存和显示。",
+				"cookies": "用于语言偏好和会话管理的Cookies。"
+			}
+		},
+		"section2": {
+			"title": "2. 我们如何使用您的信息",
+			"description": "我们将收集的数据用于以下目的：",
+			"list": {
+				"accountManagement": "账户管理，用于创建和维护您的用户账户。",
+				"todoListStorage": "待办事项清单存储，用于保存和显示您的待办事项内容。",
+				"languagePreferences": "语言偏好设置，以提供个性化的用户体验。",
+				"sessionManagement": "会话管理，保持您在使用我们的平台时已登录状态。"
+			}
+		},
+		"section3": {
+			"title": "3. 处理您数据的法律依据",
+			"description": "我们基于以下法律依据处理您的个人数据：",
+			"list": {
+				"consent": "注册时同意提供电子邮件、密码和待办事项清单内容。",
+				"contractualNecessity": "履行您要求的服务所需的合同必要性。",
+				"legitimateInterest": "出于合法利益，用于语言偏好设置和会话管理。"
+			}
+		},
+		"section4": {
+			"title": "4. 共享您的数据",
+			"description": "我们不会与第三方共享任何个人数据。您的个人信息，包括电子邮件、密码和待办事项清单内容，会被安全存储，并仅用于本政策中所述的目的。"
+		},
+		"section5": {
+			"title": "5. 数据保存",
+			"description": "我们仅在必要的时间内保存您的个人数据，以履行其收集目的。如果您选择删除账户，我们会根据适用的法律从系统中删除您的数据。"
+		},
+		"section6": {
+			"title": "6. 您的权利",
+			"description": "根据适用的数据保护法律，您对您的个人数据拥有以下权利：",
+			"list": {
+				"rightOfAccess": "访问权：请求访问我们持有的有关您的个人数据。",
+				"rightToRectification": "更正权：请求更正您个人数据中的不准确之处。",
+				"rightToErasure": "删除权：在特定情况下请求删除您的个人数据。",
+				"rightToRestriction": "处理限制权：请求限制数据的处理。",
+				"rightToPortability": "数据可携带权：请求以机器可读格式获取您的个人数据副本。",
+				"rightToWithdrawConsent": "撤回同意权：撤回您对我们处理数据的同意。"
+			}
+		},
+		"section7": {
+			"title": "7. 数据安全",
+			"description": "我们采取适当的技术和组织措施，保护您的个人数据免受未经授权的访问、篡改、披露或销毁。"
+		},
+		"section8": {
+			"title": "8. Cookies 和跟踪技术",
+			"description": "我们使用Cookies用于以下目的：",
+			"list": {
+				"languagePreferences": "语言偏好设置，用于个性化您的用户体验。",
+				"sessionManagement": "会话管理，用于在您的会话期间保持您登录状态。"
+			},
+			"note": "您可以通过浏览器设置管理或禁用Cookies。禁用Cookies可能会影响某些功能。",
+			"button": "点击此处撤销Cookie同意"
+		},
+		"section9": {
+			"title": "9. 国际数据传输",
+			"description": "您的个人数据存储在欧盟（EU）内。如果您位于欧盟外，您的数据可能会被传输到欧盟并在那里处理，且数据保护法律可能有所不同。"
+		},
+		"section10": {
+			"title": "10. 本隐私政策的变更",
+			"description": "我们可能会不时更新本隐私政策。任何更改将发布在此页面上，并更新生效日期。"
+		},
+		"section11": {
+			"title": "11. 联系我们",
+			"description": "如果您对本隐私政策或我们的数据处理实践有任何问题或疑虑，请通过以下方式联系我们：",
+			"contactInfo": {
+				"companyName": "[您的公司名称]",
+				"address": "[您的地址]",
+				"email": "[您的电子邮件地址]",
+				"phone": "[您的电话号码]"
+			}
+		}
+	},
 	"NotFoundPage": {
 		"message": "404 未找到",
 		"btnBack": "返回"

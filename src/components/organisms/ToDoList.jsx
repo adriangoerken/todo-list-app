@@ -13,7 +13,6 @@ const ToDoList = () => {
 	/* TODO: 
 		- Code refactoring								
 		- Imprint, Privacy Policy, Terms of Service, Cookie Policy,
-		- Cookie banner
 		- Contact form		
 		- Simple AdminPanel
 	*/

@@ -114,6 +114,90 @@
 			"delAccConfirm": "Are you sure you want to delete your account?"
 		}
 	},
+	"PrivacyPolicyPage": {
+		"headerTitle": "Privacy Policy",
+		"introText": "At [Your Company Name] ('we,' 'our,' 'us'), we are committed to protecting your privacy and ensuring a safe online experience. This Privacy Policy outlines how we collect, use, and protect your personal data in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR) (EU) 2016/679 and the California Consumer Privacy Act (CCPA), as well as German data protection laws.",
+		"section1": {
+			"title": "1. Information We Collect",
+			"description": "We collect the following types of information when you use our services:",
+			"list": {
+				"emailPassword": "Email address and password during sign-up.",
+				"todoList": "Contents of your todo list to save and display.",
+				"cookies": "Cookies for language preferences and session management."
+			}
+		},
+		"section2": {
+			"title": "2. How We Use Your Information",
+			"description": "We use the collected data for the following purposes:",
+			"list": {
+				"accountManagement": "Account management to create and maintain your user account.",
+				"todoListStorage": "Todo list storage to save and display your todo list content.",
+				"languagePreferences": "Language preferences to provide a personalized user experience.",
+				"sessionManagement": "Session management to keep you signed in while using our platform."
+			}
+		},
+		"section3": {
+			"title": "3. Legal Basis for Processing Your Data",
+			"description": "We process your personal data based on the following legal grounds:",
+			"list": {
+				"consent": "Consent for email, password, and todo list content during sign-up.",
+				"contractualNecessity": "Contractual necessity to fulfill services requested by you.",
+				"legitimateInterest": "Legitimate interest for language preferences and session management."
+			}
+		},
+		"section4": {
+			"title": "4. Sharing Your Data",
+			"description": "We do not share any personal data with third parties. Your personal information, including email, password, and todo list content, is stored securely and used only for the purposes outlined in this policy."
+		},
+		"section5": {
+			"title": "5. Data Retention",
+			"description": "We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected. If you choose to delete your account, your data will be erased from our system in accordance with applicable laws."
+		},
+		"section6": {
+			"title": "6. Your Rights",
+			"description": "You have the following rights regarding your personal data under applicable data protection laws:",
+			"list": {
+				"rightOfAccess": "Right of Access: Request access to the personal data we hold about you.",
+				"rightToRectification": "Right to Rectification: Request correction of inaccuracies in your personal data.",
+				"rightToErasure": "Right to Erasure: Request deletion of your personal data in certain circumstances.",
+				"rightToRestriction": "Right to Restriction of Processing: Request restriction of processing.",
+				"rightToPortability": "Right to Data Portability: Request a copy of your personal data in a machine-readable format.",
+				"rightToWithdrawConsent": "Right to Withdraw Consent: Withdraw consent for processing of your data."
+			}
+		},
+		"section7": {
+			"title": "7. Data Security",
+			"description": "We take appropriate technical and organizational measures to protect your personal data from unauthorized access, alteration, disclosure, or destruction."
+		},
+		"section8": {
+			"title": "8. Cookies and Tracking Technologies",
+			"description": "We use cookies for the following purposes:",
+			"list": {
+				"languagePreferences": "Language preferences to personalize your user experience.",
+				"sessionManagement": "Session management to keep you logged in during your session."
+			},
+			"note": "You can manage or disable cookies through your browser settings. Disabling cookies may affect functionality.",
+			"button": "Click here to revoke cookie consent"
+		},
+		"section9": {
+			"title": "9. International Data Transfers",
+			"description": "Your personal data is stored within the European Union (EU). If you are located outside the EU, your data may be transferred to and processed in the EU, where data protection laws may differ."
+		},
+		"section10": {
+			"title": "10. Changes to this Privacy Policy",
+			"description": "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date."
+		},
+		"section11": {
+			"title": "11. Contact Us",
+			"description": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:",
+			"contactInfo": {
+				"companyName": "[Your Company Name]",
+				"address": "[Your Address]",
+				"email": "[Your Email Address]",
+				"phone": "[Your Phone Number]"
+			}
+		}
+	},
 	"NotFoundPage": {
 		"message": "404 Not Found",
 		"btnBack": "Go Back"
