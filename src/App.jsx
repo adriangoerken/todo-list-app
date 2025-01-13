@@ -9,6 +9,7 @@ import PrivateRoutes from './components/organisms/PrivateRoutes';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import SettingsPage from './pages/SettingsPage';
+import CookieBanner from './components/atoms/CookieBanner';
 
 const RouterWrapper = () => {
 	return (
@@ -38,6 +39,7 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<RouterWrapper />
+			<CookieBanner />
 		</BrowserRouter>
 	);
 };

@@ -1,6 +1,10 @@
 {
 	"GLOBAL": {
-		"errDefault": "Something went wrong. Please try again."
+		"errDefault": "Something went wrong. Please try again.",
+		"cookieBanner": {
+			"text": "This website uses cookies to enhance the user experience. <1>Learn more</1>",
+			"btnConsent": "I consent"
+		}
 	},
 	"NavBar": {
 		"linkHome": "Home",

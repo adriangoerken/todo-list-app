@@ -68,6 +68,7 @@ const SettingsPage = () => {
 			toast.success(t('SettingsPage.password.changePasswordSuccess'));
 			setLoading(false);
 		} else {
+			// tODO: Set user to udefined like in other and to the same for email
 			setLoading(false);
 
 			if (response.errorType !== 'invalid_refresh_token') {

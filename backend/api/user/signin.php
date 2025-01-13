@@ -37,18 +37,20 @@
 
                     $expiresAt = date('Y-m-d H:i:s', time() + (90 * 24 * 60 *60));
                     $db->query("INSERT INTO refresh_tokens (user_id, token, expires_at) VALUES (:user_id, :token, :expires_at)", [':user_id' => $userId, ':token' => $refreshToken, ':expires_at' => $expiresAt]);                    
-                    setcookie(
-                        'refreshToken', 
-                        $refreshToken, 
-                        [
-                          'expires' => time() + (90 * 24 * 60 * 60),
-                          'path' => '/',
-                          'domain' => '',
-                          'secure' => false,   // Set to true in production
-                          'httponly' => true,
-                          'samesite' => 'Lax' // Remove in production
-                        ]
-                      );
+                    if (isset($_COOKIE['cookieConsent']) && $_COOKIE['cookieConsent'] === 'true') {
+                        setcookie(
+                            'refreshToken', 
+                            $refreshToken, 
+                            [
+                            'expires' => time() + (90 * 24 * 60 * 60),
+                            'path' => '/',
+                            'domain' => '',
+                            'secure' => false,   // Set to true in production
+                            'httponly' => true,
+                            'samesite' => 'Lax' // Remove in production
+                            ]
+                        );
+                    }
 
                     // Response
                     sendResponse(true, 'none', 'none', 'none', 200, [

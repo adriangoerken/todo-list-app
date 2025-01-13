@@ -1,6 +1,10 @@
 {
 	"GLOBAL": {
-		"errDefault": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+		"errDefault": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+		"cookieBanner": {
+			"text": "Diese Website verwendet Cookies, um Ihr Surferlebnis zu verbessern. <1>Mehr erfahren</1>",
+			"btnConsent": "Ich stimme zu"
+		}
 	},
 	"NavBar": {
 		"linkHome": "Startseite",

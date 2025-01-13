@@ -8,7 +8,6 @@ import Button from '../atoms/Button';
 import TextField from '../atoms/TextField';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 import { useTranslation } from 'react-i18next';
-import Select from '../atoms/Select';
 
 const ToDoList = () => {
 	/* TODO: 
@@ -16,6 +15,7 @@ const ToDoList = () => {
 		- Imprint, Privacy Policy, Terms of Service, Cookie Policy,
 		- Cookie banner
 		- Contact form		
+		- Simple AdminPanel
 	*/
 	const { user, setUser } = useAuth();
 	const { setIsSaving } = useSaveStatus();
