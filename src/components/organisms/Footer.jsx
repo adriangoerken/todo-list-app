@@ -52,12 +52,6 @@ const Footer = () => {
 							{t('Footer.links.linkTerms')}
 						</Link>
 						<Link
-							to="/cookie-policy"
-							className="hover:underline break-all"
-						>
-							{t('Footer.links.linkCookies')}
-						</Link>
-						<Link
 							to="/contact"
 							className="hover:underline break-all"
 						>

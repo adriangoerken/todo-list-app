@@ -67,7 +67,6 @@
 			"linkImprint": "Imprint",
 			"linkPrivacy": "Privacy Policy",
 			"linkTerms": "Terms of Service",
-			"linkCookies": "Cookie Policy",
 			"linkContact": "Contact"
 		},
 		"select": {
@@ -174,7 +173,7 @@
 			"description": "We use cookies for the following purposes:",
 			"list": {
 				"languagePreferences": "Language preferences to personalize your user experience.",
-				"sessionManagement": "Session management to keep you logged in during your session."
+				"sessionManagement": "Session management to keep you signed in during your session."
 			},
 			"note": "You can manage or disable cookies through your browser settings. Disabling cookies may affect functionality.",
 			"button": "Click here to revoke cookie consent"
