@@ -12,6 +12,7 @@ import SettingsPage from './pages/SettingsPage';
 import CookieBanner from './components/atoms/CookieBanner';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfService';
+import ImprintPage from './pages/ImprintPage';
 
 const RouterWrapper = () => {
 	return (
@@ -22,6 +23,7 @@ const RouterWrapper = () => {
 					<Route index element={<IndexPage />} />
 					<Route path="/signin" element={<SignInPage />} />
 					<Route path="/signup" element={<SignUpPage />} />
+					<Route path="/imprint" element={<ImprintPage />} />
 					<Route
 						path="/privacy-policy"
 						element={<PrivacyPolicyPage />}

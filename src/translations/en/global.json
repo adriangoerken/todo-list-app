@@ -112,6 +112,48 @@
 			"delAccConfirm": "Are you sure you want to delete your account?"
 		}
 	},
+	"ImprintPage": {
+		"headerTitle": "Imprint",
+		"introText": "This imprint is provided in accordance with Section 5 of the German Telemedia Act (TMG) and other applicable laws.",
+		"section1": {
+			"title": "1. Provider",
+			"description": {
+				"companyName": "[Your Company Name]",
+				"address": "[Your Address, including street, house number, postal code, city, and country]",
+				"email": "[Your Email Address]",
+				"phone": "[Your Phone Number]",
+				"website": "[Your Website URL]"
+			}
+		},
+		"section2": {
+			"title": "2. Legal Representatives",
+			"description": "The following individuals are responsible for the content of this website according to Section 55 paragraph 2 of the German Interstate Broadcasting Treaty (RStV):",
+			"representatives": "[Names of legal representatives or content supervisors]"
+		},
+		"section3": {
+			"title": "3. Registration Information",
+			"description": {
+				"companyRegistration": "Company registration number: [Registration number, if applicable]",
+				"vatId": "VAT identification number according to Section 27a of the German Value Added Tax Act: [VAT ID]"
+			}
+		},
+		"section4": {
+			"title": "4. Dispute Resolution",
+			"description": "We are neither willing nor obligated to participate in dispute resolution proceedings before a consumer arbitration board."
+		},
+		"section5": {
+			"title": "5. Disclaimer",
+			"description": "Despite careful monitoring, we assume no liability for the content of external links. The content of linked pages is the sole responsibility of their operators."
+		},
+		"section6": {
+			"title": "6. Contact Us",
+			"description": "If you have any questions regarding this imprint or the information provided, feel free to contact us at:",
+			"contactInfo": {
+				"email": "[Your Contact Email Address]",
+				"phone": "[Your Contact Phone Number]"
+			}
+		}
+	},
 	"PrivacyPolicyPage": {
 		"headerTitle": "Privacy Policy",
 		"introText": "At [Your Company Name] ('we,' 'our,' 'us'), we are committed to protecting your privacy and ensuring a safe online experience. This Privacy Policy outlines how we collect, use, and protect your personal data in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR) (EU) 2016/679 and the California Consumer Privacy Act (CCPA), as well as German data protection laws.",

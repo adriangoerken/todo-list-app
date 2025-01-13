@@ -51,12 +51,6 @@ const Footer = () => {
 						>
 							{t('Footer.links.linkTerms')}
 						</Link>
-						<Link
-							to="/contact"
-							className="hover:underline break-all"
-						>
-							{t('Footer.links.linkContact')}
-						</Link>
 					</div>
 					<div className="w-full md:w-auto flex justify-center md:justify-end">
 						<Select

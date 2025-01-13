@@ -112,6 +112,48 @@
 			"delAccConfirm": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?"
 		}
 	},
+	"ImprintPage": {
+		"headerTitle": "Impressum",
+		"introText": "Dieses Impressum wird gemäß § 5 des Telemediengesetzes (TMG) und anderer geltender Gesetze bereitgestellt.",
+		"section1": {
+			"title": "1. Anbieter",
+			"description": {
+				"companyName": "[Ihr Firmenname]",
+				"address": "[Ihre Adresse, einschließlich Straße, Hausnummer, Postleitzahl, Stadt und Land]",
+				"email": "[Ihre E-Mail-Adresse]",
+				"phone": "[Ihre Telefonnummer]",
+				"website": "[Ihre Website-URL]"
+			}
+		},
+		"section2": {
+			"title": "2. Verantwortliche Personen",
+			"description": "Die folgenden Personen sind gemäß § 55 Absatz 2 des Rundfunkstaatsvertrags (RStV) für den Inhalt dieser Website verantwortlich:",
+			"representatives": "[Namen der verantwortlichen Personen oder Inhaltsverantwortlichen]"
+		},
+		"section3": {
+			"title": "3. Handelsregisterinformationen",
+			"description": {
+				"companyRegistration": "Handelsregisternummer: [Handelsregisternummer, falls zutreffend]",
+				"vatId": "Umsatzsteuer-Identifikationsnummer gemäß § 27a des Umsatzsteuergesetzes: [USt-ID]"
+			}
+		},
+		"section4": {
+			"title": "4. Streitbeilegung",
+			"description": "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+		},
+		"section5": {
+			"title": "5. Haftungsausschluss",
+			"description": "Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich."
+		},
+		"section6": {
+			"title": "6. Kontakt",
+			"description": "Wenn Sie Fragen zu diesem Impressum oder den bereitgestellten Informationen haben, kontaktieren Sie uns bitte unter:",
+			"contactInfo": {
+				"email": "[Ihre Kontakt-E-Mail-Adresse]",
+				"phone": "[Ihre Kontakt-Telefonnummer]"
+			}
+		}
+	},
 	"PrivacyPolicyPage": {
 		"headerTitle": "Datenschutzerklärung",
 		"introText": "Bei [Ihr Firmenname] ('wir', 'unser', 'uns') setzen wir uns dafür ein, Ihre Privatsphäre zu schützen und ein sicheres Online-Erlebnis zu gewährleisten. Diese Datenschutzerklärung beschreibt, wie wir Ihre persönlichen Daten gemäß den geltenden Datenschutzgesetzen erheben, verwenden und schützen, einschließlich der Allgemeinen Datenschutzverordnung (DSGVO) (EU) 2016/679 und dem kalifornischen Gesetz zum Datenschutz der Verbraucher (CCPA) sowie den deutschen Datenschutzgesetzen.",
