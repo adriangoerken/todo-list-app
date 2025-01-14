@@ -26,7 +26,7 @@ const CredentialsForm = ({
 				</label>
 				<TextField
 					placeholder={t('CredentialsForm.email')}
-					onchange={onEmailChange}
+					onChange={onEmailChange}
 					value={email}
 					autoComplete="email"
 					className={`${
@@ -47,7 +47,7 @@ const CredentialsForm = ({
 				</label>
 				<PasswordField
 					placeholder={t('CredentialsForm.password')}
-					onchange={onPasswordChange}
+					onChange={onPasswordChange}
 					value={password}
 					autoComplete={
 						showError ? 'new-password' : 'current-password'
@@ -66,7 +66,7 @@ const CredentialsForm = ({
 			</div>
 			<Button
 				value={buttonLabel}
-				onclick={onSubmit}
+				onClick={onSubmit}
 				disabled={showError && (!isEmailValid || !isPasswordValid)}
 			/>
 		</form>

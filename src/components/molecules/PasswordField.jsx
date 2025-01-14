@@ -5,7 +5,7 @@ import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
 const PasswordField = ({
 	placeholder,
-	onchange,
+	onChange,
 	value,
 	autoComplete,
 	className,
@@ -19,7 +19,7 @@ const PasswordField = ({
 			<TextField
 				type={showPassword ? 'text' : 'password'}
 				placeholder={placeholder}
-				onchange={onchange}
+				onChange={onChange}
 				value={value}
 				autoComplete={autoComplete}
 				className={`pr-10 ${className}`}
@@ -38,7 +38,7 @@ const PasswordField = ({
 
 PasswordField.propTypes = {
 	placeholder: PropTypes.string.isRequired,
-	onchange: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired,
 	autoComplete: PropTypes.string.isRequired,
 	className: PropTypes.string,

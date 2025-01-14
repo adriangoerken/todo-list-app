@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 
-const Checkbox = ({ checked, onchange }) => {
+const Checkbox = ({ checked, onChange }) => {
 	return (
 		<label className="inline-flex items-center cursor-pointer">
 			<input
 				type="checkbox"
 				checked={checked}
-				onChange={onchange}
+				onChange={onChange}
 				className="hidden"
 			/>
 			{checked ? (
@@ -22,7 +22,7 @@ const Checkbox = ({ checked, onchange }) => {
 
 Checkbox.propTypes = {
 	checked: PropTypes.bool.isRequired,
-	onchange: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default Checkbox;

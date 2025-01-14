@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Task from '../molecules/Task';
 import Loader from '../atoms/Loader';
 import { getData, putData, postData, deleteData } from '../../api/api';
 import { useAuth } from '../../providers/AuthContextProvider';
 import { toast } from 'react-toastify';
-import Button from '../atoms/Button';
-import TextField from '../atoms/TextField';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 import { useTranslation } from 'react-i18next';
+import { handleError } from '../../utils/errorHandler';
+import TaskList from './TaskList';
+import AddTaskForm from '../molecules/AddTaskForm';
 
 const ToDoList = () => {
 	const { user, setUser } = useAuth();
@@ -48,7 +48,7 @@ const ToDoList = () => {
 				setTimeout(() => {
 					setLoading(false);
 					setIsSaving(false);
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -74,7 +74,7 @@ const ToDoList = () => {
 			setTimeout(() => {
 				setLoading(false);
 				setIsSaving(false);
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -122,7 +122,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -143,7 +143,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -164,7 +164,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -201,7 +201,7 @@ const ToDoList = () => {
 			setIsSaving(false);
 		} else {
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -220,39 +220,76 @@ const ToDoList = () => {
 
 	return (
 		<section className="flex flex-col gap-10">
-			<form className="flex gap-2 w-[100%] self-center">
-				<TextField
-					placeholder={t('ToDoList.form.formPlaceholder')}
-					value={newTask}
-					autoComplete="off"
-					onchange={handleInputChange}
-				/>
-				<Button
-					value={t('ToDoList.form.formBtnAdd')}
-					onclick={addTask}
-					disabled={!validTask}
-					className="max-w-fit px-6 cursor-pointer"
-				/>
-			</form>
-			<section className="flex flex-col gap-2">
-				{tasks.map((task, index) => (
-					<Task
-						key={task.id}
-						task={task.task}
-						taskId={task.id}
-						taskOrder={task.task_order}
-						priority={task.priority}
-						isDone={task.is_done === 0 ? false : true}
-						index={index}
-						deleteTask={deleteTask}
-						moveTask={moveTask}
-						updateStatus={updateTaskStatus}
-						updatePriority={updatePriority}
-					/>
-				))}
-			</section>
+			<AddTaskForm
+				value={newTask}
+				onChange={handleInputChange}
+				onSubmit={addTask}
+				disabled={!newTask.trim()}
+				placeholder={t('ToDoList.form.formPlaceholder')}
+				buttonText={t('ToDoList.form.formBtnAdd')}
+			/>
+			<TaskList
+				tasks={tasks}
+				deleteTask={deleteTask}
+				moveTask={moveTask}
+				updateTaskStatus={updateTaskStatus}
+				updatePriority={updatePriority}
+			/>
 		</section>
 	);
 };
 
 export default ToDoList;
+
+/* TODO: New Component
+const ToDoList = () => {
+  const { user, setUser } = useAuth();
+  const { setIsSaving } = useSaveStatus();
+  const [newTask, setNewTask] = useState('');
+  const { t } = useTranslation('global');
+  const { tasks, loading, addTask, deleteTask } = useTasks(user, setUser, t);
+
+  const handleInputChange = (e) => {
+    setNewTask(e.target.value);
+  };
+
+  const handleAddTask = () => {
+    if (newTask.trim()) {
+      setIsSaving(true);
+      addTask(newTask);
+      setNewTask('');
+    }
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
+    <section className="flex flex-col gap-10">
+      <form className="flex gap-2 w-[100%] self-center">
+        <TextField
+          placeholder={t('ToDoList.form.formPlaceholder')}
+          value={newTask}
+          autoComplete="off"
+          onChange={handleInputChange}
+        />
+        <Button
+          value={t('ToDoList.form.formBtnAdd')}
+          onClick={handleAddTask}
+          disabled={!newTask.trim()}
+          className="max-w-fit px-6 cursor-pointer"
+        />
+      </form>
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
+    </section>
+  );
+};
+ */
+/*
+TODO: Additional Improvements
+	Separate UI Components: Extract reusable components like TaskList, TextField, Button, etc.
+	Error Handling: Centralize error handling in a utility or hook.
+	Constants: Store URLs and other constants in a separate constants.js file.
+	Loading and Saving States: Handle states like setIsSaving in hooks or context if they span multiple components.
+ */

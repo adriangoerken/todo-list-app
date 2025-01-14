@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import Card from '../atoms/Card';
 
 const FeatureCard = ({ title, body }) => (
-	<div className="bg-elevation-200 p-6 rounded-lg shadow-md">
+	<Card>
 		<h3 className="text-xl font-semibold mb-2 text-blue-700">{title}</h3>
 		<p>{body}</p>
-	</div>
+	</Card>
 );
 
 FeatureCard.propTypes = {

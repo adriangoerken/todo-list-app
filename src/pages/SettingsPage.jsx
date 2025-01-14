@@ -10,6 +10,7 @@ import { useAuth } from '../providers/AuthContextProvider';
 import { putData } from '../api/api';
 import Loader from '../components/atoms/Loader';
 import { toast } from 'react-toastify';
+import { handleError } from '../utils/errorHandler';
 
 const SettingsPage = () => {
 	const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ const SettingsPage = () => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -68,19 +69,19 @@ const SettingsPage = () => {
 			toast.success(t('SettingsPage.password.changePasswordSuccess'));
 			setLoading(false);
 		} else {
-			// tODO: Set user to udefined like in other and to the same for email
+			// TODO: Set user to udefined like in other and to the same for email
 			setLoading(false);
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
 	};
 
 	const handleSubmitDeleteAccount = async () => {
-		if (confirm(t('SettingsPage.delAccConfirm'))) {
+		if (confirm(t('SettingsPage.account.delAccConfirm'))) {
 			deleteAccount();
 		}
 	};
@@ -108,7 +109,7 @@ const SettingsPage = () => {
 							placeholder={t(
 								'SettingsPage.email.inputEmailPlaceholder'
 							)}
-							onchange={handleEmailChange}
+							onChange={handleEmailChange}
 							value={email}
 							autoComplete="email"
 							className={`${
@@ -125,7 +126,7 @@ const SettingsPage = () => {
 					</div>
 					<Button
 						value={t('SettingsPage.email.btnSaveEmail')}
-						onclick={handleSubmitEmailChange}
+						onClick={handleSubmitEmailChange}
 						disabled={!validEmail}
 					/>
 				</form>
@@ -138,7 +139,7 @@ const SettingsPage = () => {
 							placeholder={t(
 								'SettingsPage.password.inputPasswordPlaceholder'
 							)}
-							onchange={handlePasswordChange}
+							onChange={handlePasswordChange}
 							value={password}
 							autoComplete="new-password"
 							className={`${
@@ -155,7 +156,7 @@ const SettingsPage = () => {
 					</div>
 					<Button
 						value={t('SettingsPage.password.btnSavePassword')}
-						onclick={handleSubmitPasswordChange}
+						onClick={handleSubmitPasswordChange}
 						disabled={!validPassword}
 					/>
 				</form>
@@ -165,7 +166,7 @@ const SettingsPage = () => {
 					<H2 text={t('SettingsPage.account.headerDelAccount')} />
 					<Button
 						value={t('SettingsPage.account.btnDelAcc')}
-						onclick={handleSubmitDeleteAccount}
+						onClick={handleSubmitDeleteAccount}
 						className="bg-red-700 hover:bg-red-800"
 					/>
 				</div>

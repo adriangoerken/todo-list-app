@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ disabled = false, value, className = '', onclick }) => {
+const Button = ({ disabled = false, value, className = '', onClick }) => {
 	const baseClasses =
 		'bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800 transition disabled:opacity-50 w-full';
 
 	return (
 		<button
-			onClick={onclick}
+			onClick={onClick}
 			disabled={disabled}
 			className={`${baseClasses} ${className}`}
 		>
@@ -20,7 +20,7 @@ Button.propTypes = {
 	disabled: PropTypes.bool,
 	value: PropTypes.string.isRequired,
 	className: PropTypes.string,
-	onclick: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

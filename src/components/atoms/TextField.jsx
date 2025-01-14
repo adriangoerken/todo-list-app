@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TextField = ({
 	placeholder,
-	onchange,
+	onChange,
 	value,
 	className,
 	autoComplete,
@@ -15,7 +15,7 @@ const TextField = ({
 			type={type}
 			placeholder={placeholder}
 			value={value}
-			onChange={onchange}
+			onChange={onChange}
 			autoComplete={autoComplete}
 			{...(isRequired && { required: true })}
 			className={`w-full px-4 pt-3 pb-3 p-4 bg-transparent outline-none border-2 rounded-lg border-gray-600 focus:border-blue-700 ${className}`}
@@ -25,7 +25,7 @@ const TextField = ({
 
 TextField.propTypes = {
 	placeholder: PropTypes.string.isRequired,
-	onchange: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired,
 	autoComplete: PropTypes.string.isRequired,
 	className: PropTypes.string,

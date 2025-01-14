@@ -30,6 +30,22 @@ const Task = ({
 	];
 	let initialIndex = index;
 
+	const handleCheckboxChange = (e) => {
+		setChecked((prevChecked) => !prevChecked);
+		updateStatus(taskId, e.target.checked);
+	};
+
+	const handleDeleteTask = () => {
+		if (confirm(t('Task.delTaskConf'))) {
+			deleteTask(taskId, taskOrder);
+		}
+	};
+
+	const handlePriorityChange = (e) => {
+		setSelectValue(e.target.value);
+		updatePriority(taskId, parseInt(e.target.value));
+	};
+
 	const [, drop] = useDrop({
 		accept: 'TASK',
 		hover(item) {
@@ -52,22 +68,6 @@ const Task = ({
 		},
 	});
 
-	const handleCheckboxChange = (e) => {
-		setChecked((prevChecked) => !prevChecked);
-		updateStatus(taskId, e.target.checked);
-	};
-
-	const handleDeleteTask = () => {
-		if (confirm(t('Task.delTaskConf'))) {
-			deleteTask(taskId, taskOrder);
-		}
-	};
-
-	const handlePriorityChange = (e) => {
-		setSelectValue(e.target.value);
-		updatePriority(taskId, parseInt(e.target.value));
-	};
-
 	drag(drop(ref));
 
 	return (
@@ -77,7 +77,7 @@ const Task = ({
 			className="flex items-center justify-between p-4 border-2 rounded-lg font-bold border-gray-600 cursor-move"
 		>
 			<div className="flex items-center flex-grow gap-2 min-w-0">
-				<Checkbox checked={checked} onchange={handleCheckboxChange} />
+				<Checkbox checked={checked} onChange={handleCheckboxChange} />
 				<span
 					className={`break-words flex-grow ${
 						checked ? 'line-through opacity-50' : ''
@@ -88,11 +88,11 @@ const Task = ({
 			</div>
 			<div className="flex items-center gap-2 ml-4">
 				<Select
-					onchange={handlePriorityChange}
+					onChange={handlePriorityChange}
 					value={selectValue}
 					options={priorityOptions}
 				/>
-				<DeleteButton onclick={handleDeleteTask} />
+				<DeleteButton onClick={handleDeleteTask} />
 				<MdDragHandle className="cursor-pointer text-xl" />
 			</div>
 		</div>

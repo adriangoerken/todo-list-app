@@ -4,6 +4,7 @@ import { useAuth } from '../providers/AuthContextProvider';
 import H2 from '../components/atoms/H2';
 import { useNavigate } from 'react-router-dom';
 import { getData } from '../api/api';
+import { handleError } from '../utils/errorHandler';
 
 const AdminPanel = () => {
 	const { user, setUser } = useAuth();
@@ -29,7 +30,7 @@ const AdminPanel = () => {
 			setLoading(false);
 		} else {
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};

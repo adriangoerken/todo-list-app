@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/atoms/Loader';
 import { useTranslation } from 'react-i18next';
+import { handleError } from '../utils/errorHandler';
 
 const AuthContext = createContext();
 
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 		} else {
 			setLoading(false);
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 			setUser(null);
 			setLoading(false);
 			setTimeout(() => {
-				toast.error(response.error || t('GLOBAL.errDefault'));
+				handleError(response.error || t('GLOBAL.errDefault'));
 			}, 1);
 		}
 	};
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }) => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -96,7 +97,7 @@ export const AuthProvider = ({ children }) => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}
@@ -117,7 +118,7 @@ export const AuthProvider = ({ children }) => {
 
 			if (response.errorType !== 'invalid_refresh_token') {
 				setTimeout(() => {
-					toast.error(response.error || t('GLOBAL.errDefault'));
+					handleError(response.error || t('GLOBAL.errDefault'));
 				}, 1);
 			}
 		}

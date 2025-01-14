@@ -54,7 +54,7 @@ const Footer = () => {
 					</div>
 					<div className="w-full md:w-auto flex justify-center md:justify-end">
 						<Select
-							onchange={(e) =>
+							onChange={(e) =>
 								handleChangeLanguage(e.target.value)
 							}
 							value={i18n.language}
