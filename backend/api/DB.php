@@ -3,6 +3,7 @@
         private static $instance = null;
         private $pdo;
 
+        // Load environment variables from .env file
         private static function loadEnv($path) {
             if (!file_exists($path)) {
                 throw new Exception(".env file not found at: $path");
@@ -21,13 +22,14 @@
                 putenv("$key=$value");
             }
         }
-
+        
         private function __construct($host, $dbname, $username, $password) {
             $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
             $this->pdo = new PDO($dsn, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
+        // Singleton pattern
         public static function getInstance() {
             if (self::$instance == null) {
                 self::loadEnv(__DIR__ . '/../.env');                
@@ -37,6 +39,7 @@
             return self::$instance;
         }
 
+        // Query database
         public function query($query, $params = array()) {
             $statement = $this->pdo->prepare($query);            
             $statement->execute($params);

@@ -7,27 +7,17 @@
     
     function addTask() {
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
-        $userId = $decoded->sub;               
+        $userId = $decoded->sub;                       
+        $postData = json_decode(file_get_contents("php://input"), true);
+        $task = sanitizeInput($postData['task']);                       
 
-        try {            
-            $db = DB::getInstance();                             
-
-            $highestOrder = $db->query('SELECT MAX(task_order) as max_order FROM tasks WHERE user_id = :user_id', [':user_id' => $userId]);   
-            $taskOrder = $highestOrder[0]['max_order'] + 1;           
-
-            $postData = json_decode(file_get_contents("php://input"), true);
-            $task = sanitizeInput($postData['task']);                       
-            
-            $db->query('INSERT INTO tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
-
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        // Get highest order number and increment by 1
+        $highestOrder = handleDatabaseQuery('SELECT MAX(task_order) as max_order FROM tasks WHERE user_id = :user_id', [':user_id' => $userId]);   
+        $taskOrder = $highestOrder[0]['max_order'] + 1;                   
+        
+        // Insert task into database
+        handleDatabaseQuery('INSERT INTO tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {                

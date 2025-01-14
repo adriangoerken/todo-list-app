@@ -8,23 +8,13 @@
     function updateStatus() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
         $userId = $decoded->sub;               
-
-        try {
-            $putData = json_decode(file_get_contents("php://input"), true);           
-            $id = $putData['id'];
-            $isDone = $putData['isDone'] === true ? 1 : 0;                            
-
-            $db = DB::getInstance();                                         
-            $db->query('UPDATE tasks SET is_done = :isDone WHERE id = :id AND user_id = :userId', [':isDone' => $isDone, ':id' => $id, ':userId' => $userId]);                      
-            
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        $putData = json_decode(file_get_contents("php://input"), true);           
+        $id = $putData['id'];
+        $isDone = $putData['isDone'] === true ? 1 : 0;                            
+        
+        // Update task status
+        handleDatabaseQuery('UPDATE tasks SET is_done = :isDone WHERE id = :id AND user_id = :userId', [':isDone' => $isDone, ':id' => $id, ':userId' => $userId]);                                  
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                

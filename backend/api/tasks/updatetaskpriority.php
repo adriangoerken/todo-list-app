@@ -7,24 +7,14 @@
     
     function updatePriority() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
-        $userId = $decoded->sub;               
+        $userId = $decoded->sub;                       
+        $putData = json_decode(file_get_contents("php://input"), true);           
+        $id = $putData['id'];
+        $priority = $putData['priority'];                            
 
-        try {
-            $putData = json_decode(file_get_contents("php://input"), true);           
-            $id = $putData['id'];
-            $priority = $putData['priority'];                            
-
-            $db = DB::getInstance();                                         
-            $db->query('UPDATE tasks SET priority = :priority WHERE id = :id AND user_id = :userId', [':priority' => $priority, ':id' => $id, ':userId' => $userId]);                      
-            
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        // Update priority of the task
+        HandleDatabaseQuery('UPDATE tasks SET priority = :priority WHERE id = :id AND user_id = :userId', [':priority' => $priority, ':id' => $id, ':userId' => $userId]);                                  
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                

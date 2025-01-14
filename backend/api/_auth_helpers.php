@@ -8,9 +8,8 @@
         return $_COOKIE['refreshToken'] ?? null;
     }
 
-    function verifyRefreshTokenDB($refreshToken) {
-        $db = DB::getInstance();
-        $result = $db->query('SELECT * FROM refresh_tokens WHERE token = :token AND expires_at > NOW()', [':token' => $refreshToken]);
+    function verifyRefreshTokenDB($refreshToken) {        
+        $result = handleDatabaseQuery('SELECT * FROM refresh_tokens WHERE token = :token AND expires_at > NOW()', [':token' => $refreshToken]);
         return $result ? true : false;
     }    
 
@@ -42,8 +41,7 @@
         } catch (Exception $e) {            
             return false;
         }
-    }
-    
+    }    
 
     function refreshAccessToken() {
         $refreshToken = retrieveRefreshToken();
@@ -98,10 +96,8 @@
         return ['decoded' => $decoded, 'accessToken' => $accessToken];
     }    
 
-    function authorizeAdminRequest($userId) {       
-        $db = DB::getInstance();
-        $result = $db->query('SELECT role FROM users WHERE id = :id', [':id' => $userId]);
-        $result = $db->query('SELECT COUNT(*) AS count FROM users WHERE :id = :id AND role = 0', [':id' => $userId]);
+    function authorizeAdminRequest($userId) {                       
+        $result = handleDatabaseQuery('SELECT COUNT(*) AS count FROM users WHERE :id = :id AND role = 0', [':id' => $userId]);
         
         if (!$result || $result[0]['count'] !== 1) {
             sendResponse(false, 'unauthorized_admin_request', 'Access denied!', 'The user is not authorized to perform this action.', 403);

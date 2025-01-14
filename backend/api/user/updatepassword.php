@@ -7,30 +7,22 @@
     
     function updatePassword() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
-        $userId = $decoded->sub;               
+        $userId = $decoded->sub;                       
+        $putData = json_decode(file_get_contents("php://input"), true);                       
+        $password = $putData['password'];            
 
-        try {
-            $putData = json_decode(file_get_contents("php://input"), true);                       
-            $password = $putData['password'];            
+        // Validate password
+        if (!validPassword($password)) {                
+            echo sendResponse(false, 'invalid_user_input', getLocalizedString('updatepassword.invalid_user_input'), 'Invalid input patterns: Password did not match regex pattern.');
+            return;
+        }
 
-            if (!validPassword($password)) {                
-                echo sendResponse(false, 'invalid_user_input', getLocalizedString('updatepassword.invalid_user_input'), 'Invalid input patterns: Password did not match regex pattern.');
-                return;
-            }
+        // Hash password    
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            $db = DB::getInstance();                                         
-            $db->query('UPDATE users SET password = :password WHERE id = :id', [':password' => $hashedPassword, ':id' => $userId]);                      
-            
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        // Update password in database
+        handleDatabaseQuery('UPDATE users SET password = :password WHERE id = :id', [':password' => $hashedPassword, ':id' => $userId]);                                  
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                

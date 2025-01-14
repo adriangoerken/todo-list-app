@@ -8,27 +8,18 @@
     function updateEmail() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
         $userId = $decoded->sub;               
+        $putData = json_decode(file_get_contents("php://input"), true);                       
+        $email = sanitizeInput($putData['email']);
 
-        try {
-            $putData = json_decode(file_get_contents("php://input"), true);                       
-            $email = sanitizeInput($putData['email']);
-
-            if (!validEmail($email)) {                
-                echo sendResponse(false, 'invalid_user_input', getLocalizedString('updateemail.invalid_user_input'), 'Invalid input patterns: Email did not match regex pattern.');
-                return;
-            }
-
-            $db = DB::getInstance();                                         
-            $db->query('UPDATE users SET email = :email WHERE id = :id', [':email' => $email, ':id' => $userId]);                      
+        // Validate email
+        if (!validEmail($email)) {                
+            echo sendResponse(false, 'invalid_user_input', getLocalizedString('updateemail.invalid_user_input'), 'Invalid input patterns: Email did not match regex pattern.');
+            return;
+        }
             
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        // Update email in database
+        handleDatabaseQuery('UPDATE users SET email = :email WHERE id = :id', [':email' => $email, ':id' => $userId]);                                  
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                

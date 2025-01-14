@@ -47,8 +47,32 @@
         }
     
         return $string;
-    }    
+    }        
 
+    // Handle exceptions
+    function handleException($e) {
+        error_log($e->getMessage());
+        
+        if ($e instanceof PDOException) {
+            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'), $e->getMessage(), 500);
+        } else {
+            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
+        }
+
+        exit();
+    }
+
+    // Handle database queries
+    function handleDatabaseQuery($query, $params = []) {
+        try {
+            $db = DB::getInstance();
+            return $db->query($query, $params);            
+        } catch (Exception $e) {
+            handleException($e);
+        }
+    }
+
+    // Validate email and password
     function validEmail($email) {
         $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
         $emailRegex = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
@@ -75,9 +99,8 @@
         echo genResponse($success, $type, $userMessage, $logMessage, $data);        
     }    
 
-    function retrieveUserInfo($userId) {
-        $db = DB::getInstance();        
-        return $db->query('SELECT email, role from users where id = :id', [':id' => $userId]);
+    function retrieveUserInfo($userId) {        
+        return handleDatabaseQuery('SELECT email, role from users where id = :id', [':id' => $userId]);
     }
 
     function sanitizeInput($data) {

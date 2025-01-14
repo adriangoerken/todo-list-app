@@ -7,34 +7,26 @@
     
     function updateOrder() {                
         list('decoded' => $decoded, 'accessToken' => $accessToken) = authorizeRequest();    
-        $userId = $decoded->sub;               
-
-        try {
-            $putData = json_decode(file_get_contents("php://input"), true);           
+        $userId = $decoded->sub;                       
+        $putData = json_decode(file_get_contents("php://input"), true);           
             
-            // Prepare the SQL statement 
-            $updateOrderQuery = 'UPDATE tasks SET task_order = CASE id '; 
-            
-            foreach ($putData['tasks'] as $index => $task) {
-                $taskId = intval($task['id']); 
-                $taskOrder = intval($index + 1); 
-                $updateOrderQuery .= "WHEN $taskId THEN $taskOrder "; 
-            }
+        // Prepare the SQL statement 
+        $updateOrderQuery = 'UPDATE tasks SET task_order = CASE id '; 
+        
+        // Loop through the tasks and add the task ID and order number to the SQL statement
+        foreach ($putData['tasks'] as $index => $task) {
+            $taskId = intval($task['id']); 
+            $taskOrder = intval($index + 1); 
+            $updateOrderQuery .= "WHEN $taskId THEN $taskOrder "; 
+        }
 
-            $updateOrderQuery .= 'END WHERE id IN (' . implode(',', array_map('intval', array_column($putData['tasks'], 'id'))) . ') AND user_id = :user_id';                        
-            $params = [':user_id' => $userId];           
-
-            $db = DB::getInstance();                                         
-            $db->query($updateOrderQuery, $params);                      
-            
-            sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'),$e->getMessage(), 500);
-        } catch (Exception $e) {            
-            error_log($e->getMessage());            
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }   
+        // Add the user ID to the SQL statement and close the query
+        $updateOrderQuery .= 'END WHERE id IN (' . implode(',', array_map('intval', array_column($putData['tasks'], 'id'))) . ') AND user_id = :user_id';                        
+        $params = [':user_id' => $userId];                   
+        
+        // Execute the SQL statement
+        handleDatabaseQuery($updateOrderQuery, $params);                                  
+        sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {                

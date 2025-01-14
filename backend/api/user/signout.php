@@ -5,32 +5,23 @@
     use \Firebase\JWT\JWT;     
     use \Firebase\JWT\Key;    
 
-    function signOut() {
-        try {
-            // Retrieve the refresh token from the cookie
-            $refreshToken = retrieveRefreshToken();
+    function signOut() {        
+        // Retrieve the refresh token from the cookie
+        $refreshToken = retrieveRefreshToken();
 
-            if ($refreshToken) {
-                $db = DB::getInstance();
+        if ($refreshToken) {
 
-                // Remove the refresh token from the database
-                $db->query("DELETE FROM refresh_tokens WHERE token = :token", [':token' => $refreshToken]);
+            // Remove the refresh token from the database
+            handleDatabaseQuery("DELETE FROM refresh_tokens WHERE token = :token", [':token' => $refreshToken]);
 
-                // Clear the refresh token cookie
-                resetTokenCookie();
+            // Clear the refresh token cookie
+            resetTokenCookie();
 
-                // Respond to the client
-                sendResponse(true, 'none', 'none', 'none');
-            } else {
-                sendResponse(false, 'invalid_refresh_token', getLocalizedString('signout.invalid_refresh_token'), 'The user tried to sign out, but no refresh token was found in the cookies.', 400);
-            }
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "pdo_exception", getLocalizedString('GLOBAL.pdo_exception'), $e->getMessage(), 500);
-        } catch (Exception $e) {
-            error_log($e->getMessage());
-            sendResponse(false, "unknown_exception", getLocalizedString('GLOBAL.unknown_exception'), $e->getMessage(), 500);
-        }
+            // Respond to the client
+            sendResponse(true, 'none', 'none', 'none');
+        } else {
+            sendResponse(false, 'invalid_refresh_token', getLocalizedString('signout.invalid_refresh_token'), 'The user tried to sign out, but no refresh token was found in the cookies.', 400);
+        }        
     }
 
     // Handle the POST request for signing out
