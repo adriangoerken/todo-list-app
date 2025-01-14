@@ -13,6 +13,7 @@ import CookieBanner from './components/atoms/CookieBanner';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfService';
 import ImprintPage from './pages/ImprintPage';
+import AdminPanelPage from './pages/AdminPanelPage';
 
 const RouterWrapper = () => {
 	return (
@@ -37,6 +38,10 @@ const RouterWrapper = () => {
 					<Route element={<PrivateRoutes />}>
 						<Route path="/home" element={<HomePage />} />
 						<Route path="/settings" element={<SettingsPage />} />
+						<Route
+							path="/admin-panel"
+							element={<AdminPanelPage />}
+						/>
 					</Route>
 
 					{/* 404 page */}

@@ -10,10 +10,6 @@ import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 import { useTranslation } from 'react-i18next';
 
 const ToDoList = () => {
-	/* TODO: 
-		- Code refactoring										
-		- Simple AdminPanel
-	*/
 	const { user, setUser } = useAuth();
 	const { setIsSaving } = useSaveStatus();
 	const [loading, setLoading] = useState(true);
@@ -153,6 +149,8 @@ const ToDoList = () => {
 	};
 
 	const updateTaskStatus = async (id, isDone) => {
+		setIsSaving(true);
+
 		const url =
 			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetaskstatus';
 		const response = await putData(url, { id, isDone });
@@ -162,6 +160,8 @@ const ToDoList = () => {
 				...prevUser,
 				accessToken: response.data.accessToken,
 			}));
+
+			setIsSaving(false);
 		} else {
 			setTimeout(() => {
 				toast.error(response.error || t('GLOBAL.errDefault'));
@@ -170,6 +170,8 @@ const ToDoList = () => {
 	};
 
 	const updatePriority = async (id, priority) => {
+		setIsSaving(true);
+
 		const url =
 			'http://localhost/projects/todo-list-app/backend/api/tasks/updatetaskpriority';
 		const response = await putData(url, { id, priority });
@@ -196,6 +198,7 @@ const ToDoList = () => {
 
 				return updatedTasks;
 			});
+			setIsSaving(false);
 		} else {
 			setTimeout(() => {
 				toast.error(response.error || t('GLOBAL.errDefault'));

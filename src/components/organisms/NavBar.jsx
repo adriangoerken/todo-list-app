@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdMenu, MdClose, MdCloudDone, MdSync } from 'react-icons/md';
+import { MdMenu, MdClose, MdCloudDone, MdCloud } from 'react-icons/md';
 import { useAuth } from '../../providers/AuthContextProvider';
 import Container from './Container';
 import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
@@ -23,6 +23,9 @@ const NavBar = () => {
 		? [
 				{ to: '/home', label: t('NavBar.linkHome') },
 				{ to: '/settings', label: t('NavBar.linkSettings') },
+				user.role === '0'
+					? { to: '/admin-panel', label: 'Admin Panel' }
+					: null,
 		  ]
 		: [
 				{ to: '/', label: t('NavBar.linkHome') },
@@ -59,9 +62,12 @@ const NavBar = () => {
 		if (currentPath !== '/home') return null;
 
 		return isSaving ? (
-			<MdSync className="text-white" />
+			<div className="relative flex items-center justify-center">
+				<MdCloud className="text-white text-sm" />
+				<div className="absolute w-7 h-7 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+			</div>
 		) : (
-			<MdCloudDone className="text-white" />
+			<MdCloudDone className="text-white text-lg" />
 		);
 	};
 
@@ -72,7 +78,7 @@ const NavBar = () => {
 					<div className="flex items-center">
 						<Link
 							to="/"
-							className="text-white text-xl font-bold mr-2"
+							className="text-white text-2xl font-bold mr-2"
 						>
 							WorkingTitle
 						</Link>
