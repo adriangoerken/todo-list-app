@@ -11,7 +11,7 @@ import {
 import { toast } from 'react-toastify';
 
 const useTasks = (user, setUser, t, loading, setLoading) => {
-	const { isSaving, setIsSaving } = useSaveStatus();
+	const { setIsSaving } = useSaveStatus();
 	const [tasks, setTasks] = useState([]);
 
 	// Fetch tasks from the database
@@ -32,6 +32,7 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 
 	// Add a new task to the database
 	const addTask = async (newTask) => {
+		setIsSaving(true);
 		const response = await addTaskAPI(newTask, user.accessToken);
 		if (response.success) {
 			toast.success(t('ToDoList.addTaskSuccess'));
@@ -39,6 +40,7 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
 		}
+		setIsSaving(false);
 	};
 
 	// Delete task from the database

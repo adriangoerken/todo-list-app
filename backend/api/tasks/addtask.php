@@ -17,6 +17,7 @@
         
         // Insert task into database
         handleDatabaseQuery('INSERT INTO tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
+        sleep(2);
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 
