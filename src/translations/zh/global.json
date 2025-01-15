@@ -51,7 +51,8 @@
 			"formBtnAdd": "添加"
 		},
 		"addTaskSuccess": "新任务添加成功！",
-		"delTaskSuccess": "任务删除成功！"
+		"delTaskSuccess": "任务删除成功！",
+		"updateTaskStatusSuccess": "任务状态更新成功！"
 	},
 	"Task": {
 		"selectOpts": {

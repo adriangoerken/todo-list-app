@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import TextField from '../atoms/TextField';
 import Button from '../atoms/Button';
+import { useTranslation } from 'react-i18next';
 
-const AddTaskForm = ({
-	value,
-	onChange,
-	onSubmit,
-	disabled,
-	placeholder,
-	buttonText,
-}) => {
+const AddTaskForm = ({ addTask }) => {
+	const [t] = useTranslation('global');
+	const [newTask, setNewTask] = useState('');
+	const [validTask, setValidTask] = useState(false);
+
+	const handleInputChange = (e) => {
+		setNewTask(e.target.value);
+	};
+
+	const handleAddTask = async (e) => {
+		e.preventDefault();
+		addTask(newTask);
+		setNewTask('');
+	};
+
+	useEffect(() => {
+		setValidTask(!!newTask);
+	}, [newTask]);
+
 	return (
 		<form className="flex gap-2 w-[100%] self-center">
 			<TextField
-				placeholder={placeholder}
-				value={value}
+				placeholder={t('ToDoList.form.formPlaceholder')}
+				value={newTask}
 				autoComplete="off"
-				onChange={onChange}
+				onChange={handleInputChange}
 			/>
 			<Button
-				value={buttonText}
-				onClick={onSubmit}
-				disabled={disabled}
+				value={t('ToDoList.form.formBtnAdd')}
+				onClick={handleAddTask}
+				disabled={!validTask}
 				className="max-w-fit px-6 cursor-pointer"
 			/>
 		</form>
@@ -30,12 +42,7 @@ const AddTaskForm = ({
 };
 
 AddTaskForm.propTypes = {
-	value: propTypes.string.isRequired,
-	onChange: propTypes.func.isRequired,
-	onSubmit: propTypes.func.isRequired,
-	disabled: propTypes.bool.isRequired,
-	placeholder: propTypes.string.isRequired,
-	buttonText: propTypes.string.isRequired,
+	addTask: propTypes.func.isRequired,
 };
 
 export default AddTaskForm;

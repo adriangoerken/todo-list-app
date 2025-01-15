@@ -51,7 +51,8 @@
 			"formBtnAdd": "Add"
 		},
 		"addTaskSuccess": "New task added successfully!",
-		"delTaskSuccess": "Task deleted successfully!"
+		"delTaskSuccess": "Task deleted successfully!",
+		"updateTaskStatusSuccess": "Task status updated successfully!"
 	},
 	"Task": {
 		"selectOpts": {

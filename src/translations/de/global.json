@@ -51,7 +51,8 @@
 			"formBtnAdd": "Hinzufügen"
 		},
 		"addTaskSuccess": "Neue Aufgabe erfolgreich hinzugefügt!",
-		"delTaskSuccess": "Aufgabe erfolgreich gelöscht!"
+		"delTaskSuccess": "Aufgabe erfolgreich gelöscht!",
+		"updateTaskStatusSuccess": "Aufgabenstatus erfolgreich aktualisiert!"
 	},
 	"Task": {
 		"selectOpts": {
