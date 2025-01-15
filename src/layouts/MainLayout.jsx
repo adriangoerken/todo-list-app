@@ -9,9 +9,7 @@ import { SaveStatusProvider } from '../providers/SaveStatusContextProvider';
 const MainLayout = () => {
 	return (
 		<div className="flex flex-col min-h-screen">
-			<SaveStatusProvider>
-				<NavBar />
-			</SaveStatusProvider>
+			<NavBar />
 			<div className="flex flex-col flex-grow">
 				<Outlet />
 			</div>

@@ -45,16 +45,19 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 
 	// Delete task from the database
 	const deleteTask = async (id, task_order) => {
+		setIsSaving(true);
 		const response = await deleteTaskAPI(id, task_order, user.accessToken);
 		if (response.success) {
 			fetchTasks();
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
 		}
+		setIsSaving(false);
 	};
 
 	// Reorder tasks locally
 	const moveTask = async (fromIndex, toIndex) => {
+		setIsSaving(true);
 		const updatedTasks = [...tasks];
 		const [movedTask] = updatedTasks.splice(fromIndex, 1);
 
@@ -92,10 +95,12 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
 		}
+		setIsSaving(false);
 	};
 
 	// Update the status of a task
 	const updateTaskStatus = async (id, isDone) => {
+		setIsSaving(true);
 		const response = await updateTaskStatusAPI(
 			id,
 			isDone,
@@ -113,10 +118,12 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
 		}
+		setIsSaving(false);
 	};
 
 	// Update the priority of a task
 	const updatePriority = async (id, priority) => {
+		setIsSaving(true);
 		const response = await updatePriorityAPI(
 			id,
 			priority,
@@ -150,6 +157,7 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
 		}
+		setIsSaving(false);
 	};
 
 	useEffect(() => {

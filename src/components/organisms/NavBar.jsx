@@ -59,7 +59,6 @@ const NavBar = () => {
 	);
 
 	const renderSaveStatus = () => {
-		console.log('Rendering', isSaving);
 		if (currentPath !== '/home') return null;
 
 		return isSaving ? (

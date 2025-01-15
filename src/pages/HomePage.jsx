@@ -9,13 +9,11 @@ import { SaveStatusProvider } from '../providers/SaveStatusContextProvider';
 
 const HomePage = () => {
 	return (
-		<SaveStatusProvider>
-			<Container>
-				<DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
-					<ToDoList />
-				</DndProvider>
-			</Container>
-		</SaveStatusProvider>
+		<Container>
+			<DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
+				<ToDoList />
+			</DndProvider>
+		</Container>
 	);
 };
 

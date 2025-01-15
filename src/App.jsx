@@ -14,40 +14,46 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfService';
 import ImprintPage from './pages/ImprintPage';
 import AdminPanelPage from './pages/AdminPanelPage';
+import { SaveStatusProvider } from './providers/SaveStatusContextProvider';
 
 const RouterWrapper = () => {
 	return (
 		<AuthProvider>
-			<Routes>
-				<Route path="/" element={<MainLayout />}>
-					{/* Public routes */}
-					<Route index element={<IndexPage />} />
-					<Route path="/signin" element={<SignInPage />} />
-					<Route path="/signup" element={<SignUpPage />} />
-					<Route path="/imprint" element={<ImprintPage />} />
-					<Route
-						path="/privacy-policy"
-						element={<PrivacyPolicyPage />}
-					/>
-					<Route
-						path="/terms-of-service"
-						element={<TermsOfServicePage />}
-					/>
-
-					{/* Private routes */}
-					<Route element={<PrivateRoutes />}>
-						<Route path="/home" element={<HomePage />} />
-						<Route path="/settings" element={<SettingsPage />} />
+			<SaveStatusProvider>
+				<Routes>
+					<Route path="/" element={<MainLayout />}>
+						{/* Public routes */}
+						<Route index element={<IndexPage />} />
+						<Route path="/signin" element={<SignInPage />} />
+						<Route path="/signup" element={<SignUpPage />} />
+						<Route path="/imprint" element={<ImprintPage />} />
 						<Route
-							path="/admin-panel"
-							element={<AdminPanelPage />}
+							path="/privacy-policy"
+							element={<PrivacyPolicyPage />}
 						/>
-					</Route>
+						<Route
+							path="/terms-of-service"
+							element={<TermsOfServicePage />}
+						/>
 
-					{/* 404 page */}
-					<Route path="*" element={<NotFoundPage />} />
-				</Route>
-			</Routes>
+						{/* Private routes */}
+						<Route element={<PrivateRoutes />}>
+							<Route path="/home" element={<HomePage />} />
+							<Route
+								path="/settings"
+								element={<SettingsPage />}
+							/>
+							<Route
+								path="/admin-panel"
+								element={<AdminPanelPage />}
+							/>
+						</Route>
+
+						{/* 404 page */}
+						<Route path="*" element={<NotFoundPage />} />
+					</Route>
+				</Routes>
+			</SaveStatusProvider>
 		</AuthProvider>
 	);
 };
