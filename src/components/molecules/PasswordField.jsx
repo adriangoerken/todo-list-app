@@ -12,7 +12,6 @@ const PasswordField = ({
 	isRequired,
 }) => {
 	const [showPassword, setShowPassword] = useState(false);
-	const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
 	return (
 		<div className="relative">
@@ -27,7 +26,7 @@ const PasswordField = ({
 			/>
 			<button
 				type="button"
-				onClick={togglePasswordVisibility}
+				onClick={() => setShowPassword((prev) => !prev)}
 				className="absolute inset-y-0 right-2 px-2 text-gray-400 hover:text-gray-200"
 			>
 				{showPassword ? <MdVisibilityOff /> : <MdVisibility />}

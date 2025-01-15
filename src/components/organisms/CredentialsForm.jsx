@@ -16,7 +16,7 @@ const CredentialsForm = ({
 	isPasswordValid,
 	showError,
 }) => {
-	const [t, n18i] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	return (
 		<form onSubmit={onSubmit} className="space-y-6">

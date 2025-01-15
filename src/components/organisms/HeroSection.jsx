@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 const HeroSection = () => {
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	return (
 		<section className="flex flex-col flex-grow self-center max-w-screen-md mx-auto text-center px-4">

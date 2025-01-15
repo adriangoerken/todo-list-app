@@ -3,18 +3,17 @@ import propTypes from 'prop-types';
 import TextField from '../atoms/TextField';
 import Button from '../atoms/Button';
 import { useTranslation } from 'react-i18next';
+import { useSaveStatus } from '../../providers/SaveStatusContextProvider';
 
 const AddTaskForm = ({ addTask }) => {
 	const [t] = useTranslation('global');
 	const [newTask, setNewTask] = useState('');
 	const [validTask, setValidTask] = useState(false);
-
-	const handleInputChange = (e) => {
-		setNewTask(e.target.value);
-	};
+	const { isSaving, setIsSaving } = useSaveStatus();
 
 	const handleAddTask = async (e) => {
 		e.preventDefault();
+		setIsSaving(true);
 		addTask(newTask);
 		setNewTask('');
 	};
@@ -29,7 +28,7 @@ const AddTaskForm = ({ addTask }) => {
 				placeholder={t('ToDoList.form.formPlaceholder')}
 				value={newTask}
 				autoComplete="off"
-				onChange={handleInputChange}
+				onChange={(e) => setNewTask(e.target.value)}
 			/>
 			<Button
 				value={t('ToDoList.form.formBtnAdd')}

@@ -4,7 +4,7 @@ import Container from '../components/organisms/Container';
 import { useTranslation } from 'react-i18next';
 
 const NotFoundPage = () => {
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	return (
 		<Container className="flex flex-grow justify-center">

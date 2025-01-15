@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 const IndexPage = () => {
 	const navigate = useNavigate();
 	const { user } = useAuth();
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	useEffect(() => {
 		if (user) {

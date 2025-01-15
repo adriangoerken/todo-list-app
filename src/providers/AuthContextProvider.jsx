@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
 	const [user, setUser] = useState(null);
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	useEffect(() => {
 		checkUserStatus();

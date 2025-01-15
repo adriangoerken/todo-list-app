@@ -22,7 +22,7 @@ const Task = ({
 	const ref = useRef(null);
 	const [checked, setChecked] = useState(isDone);
 	const [selectValue, setSelectValue] = useState(priority);
-	const [t, n18i] = useTranslation('global');
+	const [t] = useTranslation('global');
 	const priorityOptions = [
 		{ value: 1, label: t('Task.selectOpts.optHigh') },
 		{ value: 2, label: t('Task.selectOpts.optNormal') },

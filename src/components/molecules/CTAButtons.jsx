@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const CTAButtons = () => {
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 
 	return (
 		<div className="mt-10 space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center">

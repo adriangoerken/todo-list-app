@@ -8,7 +8,7 @@ import { validateEmail, validatePassword } from '../utils/utils';
 
 const SignUpPage = () => {
 	const navigate = useNavigate();
-	const [t, n18i] = useTranslation('global');
+	const [t] = useTranslation('global');
 	const { user, signUp } = useAuth();
 	const [email, setEmail] = useState('');
 	const [validEmail, setValidEmail] = useState(false);

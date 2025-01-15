@@ -9,7 +9,7 @@ import { handleError } from '../utils/errorHandler';
 const SignInPage = () => {
 	const navigate = useNavigate();
 	const { user, signIn } = useAuth();
-	const [t, n18i] = useTranslation('global');
+	const [t] = useTranslation('global');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 

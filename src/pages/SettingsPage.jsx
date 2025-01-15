@@ -15,7 +15,7 @@ import { handleError } from '../utils/errorHandler';
 const SettingsPage = () => {
 	const [loading, setLoading] = useState(false);
 	const { user, setUser, deleteAccount } = useAuth();
-	const [t, i18n] = useTranslation('global');
+	const [t] = useTranslation('global');
 	const [email, setEmail] = useState('');
 	const [validEmail, setValidEmail] = useState(false);
 	const [password, setPassword] = useState('');

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSaveStatus } from '../providers/SaveStatusContextProvider';
 import {
 	fetchTasksAPI,
 	addTaskAPI,
@@ -10,6 +11,7 @@ import {
 import { toast } from 'react-toastify';
 
 const useTasks = (user, setUser, t, loading, setLoading) => {
+	const { isSaving, setIsSaving } = useSaveStatus();
 	const [tasks, setTasks] = useState([]);
 
 	// Fetch tasks from the database
