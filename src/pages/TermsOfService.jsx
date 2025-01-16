@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 const TermsOfServicePage = () => {
 	const [t] = useTranslation('global');
+	const [street, city, country] = t(
+		'TermsOfServicePage.section9.contactInfo.address'
+	).split(',');
 
 	return (
 		<section className="py-10">
@@ -109,16 +112,16 @@ const TermsOfServicePage = () => {
 						<p className="mb-4">
 							{t('TermsOfServicePage.section9.description')}
 						</p>
-						<address className="not-italic">
+						<div className="flex flex-col gap-2">
 							<p>
 								{t(
 									'TermsOfServicePage.section9.contactInfo.companyName'
 								)}
 							</p>
-							<p>
-								{t(
-									'TermsOfServicePage.section9.contactInfo.address'
-								)}
+							<p className="flex flex-col">
+								<span>{street}</span>
+								<span>{city}</span>
+								<span>{country}</span>
 							</p>
 							<p>
 								{t(
@@ -130,7 +133,7 @@ const TermsOfServicePage = () => {
 									'TermsOfServicePage.section9.contactInfo.phone'
 								)}
 							</p>
-						</address>
+						</div>
 					</div>
 				</div>
 			</Container>

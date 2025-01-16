@@ -7,6 +7,9 @@ import { postData } from '../api/api';
 
 const PrivacyPolicyPage = () => {
 	const [t] = useTranslation('global');
+	const [street, city, country] = t(
+		'PrivacyPolicyPage.section11.contactInfo.address'
+	).split(',');
 
 	const handleRevokeConsent = async () => {
 		document.cookie =
@@ -232,30 +235,26 @@ const PrivacyPolicyPage = () => {
 							<p>
 								{t('PrivacyPolicyPage.section11.description')}
 							</p>
-							<div className="space-y-2">
+							<div className="flex flex-col gap-2 mt-2">
 								<p>
 									{t(
 										'PrivacyPolicyPage.section11.contactInfo.companyName'
 									)}
-									: [Your Company Name]
 								</p>
-								<p>
-									{t(
-										'PrivacyPolicyPage.section11.contactInfo.address'
-									)}
-									: [Your Address]
+								<p className="flex flex-col">
+									<span>{street}</span>
+									<span>{city}</span>
+									<span>{country}</span>
 								</p>
 								<p>
 									{t(
 										'PrivacyPolicyPage.section11.contactInfo.email'
 									)}
-									: [Your Email Address]
 								</p>
 								<p>
 									{t(
 										'PrivacyPolicyPage.section11.contactInfo.phone'
 									)}
-									: [Your Phone Number]
 								</p>
 							</div>
 						</div>

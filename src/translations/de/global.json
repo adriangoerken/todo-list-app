@@ -139,70 +139,69 @@
 			}
 		}
 	},
-
 	"PrivacyPolicyPage": {
 		"headerTitle": "Datenschutzerklärung",
-		"introText": "Bei [Ihr Firmenname] ('wir', 'unser', 'uns') setzen wir uns dafür ein, Ihre Privatsphäre zu schützen und ein sicheres Online-Erlebnis zu gewährleisten. Diese Datenschutzerklärung beschreibt, wie wir Ihre persönlichen Daten gemäß den geltenden Datenschutzgesetzen erheben, verwenden und schützen, einschließlich der Allgemeinen Datenschutzverordnung (DSGVO) (EU) 2016/679 und dem kalifornischen Gesetz zum Datenschutz der Verbraucher (CCPA) sowie den deutschen Datenschutzgesetzen.",
+		"introText": "Bei Adrian Goerken ('ich,' 'mein,' 'mir') bin ich bestrebt, Ihre Privatsphäre zu schützen und ein sicheres Online-Erlebnis zu gewährleisten. Diese Datenschutzerklärung erläutert, wie ich Ihre persönlichen Daten gemäß der Datenschutz-Grundverordnung (DSGVO) (EU) 2016/679 und den deutschen Datenschutzgesetzen erfasse, verwende und schütze.",
 		"section1": {
-			"title": "1. Erhobene Informationen",
-			"description": "Wir erheben die folgenden Arten von Informationen, wenn Sie unsere Dienste nutzen:",
+			"title": "1. Informationen, die ich sammle",
+			"description": "Ich sammle die folgenden Arten von Informationen, wenn Sie meine Dienste nutzen:",
 			"list": {
-				"emailPassword": "E-Mail-Adresse und Passwort bei der Registrierung.",
+				"emailPassword": "E-Mail-Adresse und Passwort bei der Anmeldung.",
 				"todoList": "Inhalte Ihrer To-Do-Liste zum Speichern und Anzeigen.",
-				"cookies": "Cookies für Spracheinstellungen und Sitzungsverwaltung."
+				"cookies": "Cookies für Spracheinstellungen und Sitzungsmanagement."
 			}
 		},
 		"section2": {
-			"title": "2. Wie wir Ihre Informationen verwenden",
-			"description": "Wir verwenden die gesammelten Daten zu den folgenden Zwecken:",
+			"title": "2. Wie ich Ihre Informationen verwende",
+			"description": "Ich verwende die gesammelten Daten für die folgenden Zwecke:",
 			"list": {
 				"accountManagement": "Kontoverwaltung zur Erstellung und Pflege Ihres Benutzerkontos.",
-				"todoListStorage": "Speicherung der To-Do-Liste, um die Inhalte zu speichern und anzuzeigen.",
+				"todoListStorage": "To-Do-Listen-Speicherung zur Sicherung und Anzeige Ihrer To-Do-Listen-Inhalte.",
 				"languagePreferences": "Spracheinstellungen zur Bereitstellung eines personalisierten Benutzererlebnisses.",
-				"sessionManagement": "Sitzungsverwaltung, um Sie während der Nutzung unserer Plattform angemeldet zu halten."
+				"sessionManagement": "Sitzungsmanagement, um Sie während der Nutzung meiner Plattform angemeldet zu halten."
 			}
 		},
 		"section3": {
-			"title": "3. Rechtliche Grundlage für die Verarbeitung Ihrer Daten",
-			"description": "Wir verarbeiten Ihre persönlichen Daten auf der Grundlage der folgenden rechtlichen Grundlagen:",
+			"title": "3. Rechtsgrundlage für die Verarbeitung Ihrer Daten",
+			"description": "Ich verarbeite Ihre persönlichen Daten auf der Grundlage der folgenden Rechtsgrundlagen:",
 			"list": {
-				"consent": "Zustimmung für E-Mail, Passwort und Inhalte der To-Do-Liste bei der Registrierung.",
-				"contractualNecessity": "Vertragliche Notwendigkeit zur Erfüllung von von Ihnen angeforderten Dienstleistungen.",
-				"legitimateInterest": "Berechtigtes Interesse an Spracheinstellungen und Sitzungsverwaltung."
+				"consent": "Einwilligung für E-Mail, Passwort und To-Do-Listen-Inhalte bei der Anmeldung.",
+				"contractualNecessity": "Erforderlichkeit zur Vertragserfüllung zur Erbringung der von Ihnen angeforderten Dienstleistungen.",
+				"legitimateInterest": "Berechtigtes Interesse für Spracheinstellungen und Sitzungsmanagement."
 			}
 		},
 		"section4": {
 			"title": "4. Weitergabe Ihrer Daten",
-			"description": "Wir geben keine persönlichen Daten an Dritte weiter. Ihre persönlichen Informationen, einschließlich E-Mail, Passwort und Inhalte der To-Do-Liste, werden sicher gespeichert und nur für die in dieser Erklärung beschriebenen Zwecke verwendet."
+			"description": "Ich gebe keine persönlichen Daten an Dritte weiter. Ihre persönlichen Informationen, einschließlich E-Mail, Passwort und To-Do-Listen-Inhalte, werden sicher gespeichert und nur für die in dieser Richtlinie genannten Zwecke verwendet."
 		},
 		"section5": {
-			"title": "5. Aufbewahrung von Daten",
-			"description": "Wir speichern Ihre persönlichen Daten nur so lange, wie es zur Erfüllung der Zwecke erforderlich ist, für die sie erhoben wurden. Wenn Sie sich entscheiden, Ihr Konto zu löschen, werden Ihre Daten gemäß den geltenden Gesetzen aus unserem System gelöscht."
+			"title": "5. Datenaufbewahrung",
+			"description": "Ich bewahre Ihre persönlichen Daten nur so lange auf, wie es zur Erfüllung der Zwecke, für die sie erhoben wurden, erforderlich ist. Wenn Sie sich entscheiden, Ihr Konto zu löschen, werden Ihre Daten gemäß den geltenden Gesetzen aus meinem System gelöscht."
 		},
 		"section6": {
 			"title": "6. Ihre Rechte",
-			"description": "Sie haben die folgenden Rechte bezüglich Ihrer persönlichen Daten gemäß den geltenden Datenschutzgesetzen:",
+			"description": "Sie haben die folgenden Rechte in Bezug auf Ihre persönlichen Daten gemäß den geltenden Datenschutzgesetzen:",
 			"list": {
-				"rightOfAccess": "Recht auf Auskunft: Fordern Sie Zugang zu den persönlichen Daten an, die wir über Sie gespeichert haben.",
+				"rightOfAccess": "Recht auf Auskunft: Fordern Sie Zugang zu den persönlichen Daten an, die ich über Sie habe.",
 				"rightToRectification": "Recht auf Berichtigung: Fordern Sie die Korrektur von Ungenauigkeiten in Ihren persönlichen Daten an.",
-				"rightToErasure": "Recht auf Löschung: Fordern Sie die Löschung Ihrer persönlichen Daten in bestimmten Fällen an.",
-				"rightToRestriction": "Recht auf Einschränkung der Verarbeitung: Fordern Sie eine Einschränkung der Verarbeitung an.",
+				"rightToErasure": "Recht auf Löschung: Fordern Sie die Löschung Ihrer persönlichen Daten unter bestimmten Umständen an.",
+				"rightToRestriction": "Recht auf Einschränkung der Verarbeitung: Fordern Sie die Einschränkung der Verarbeitung an.",
 				"rightToPortability": "Recht auf Datenübertragbarkeit: Fordern Sie eine Kopie Ihrer persönlichen Daten in einem maschinenlesbaren Format an.",
 				"rightToWithdrawConsent": "Recht auf Widerruf der Einwilligung: Widerrufen Sie Ihre Einwilligung zur Verarbeitung Ihrer Daten."
 			}
 		},
 		"section7": {
 			"title": "7. Datensicherheit",
-			"description": "Wir ergreifen geeignete technische und organisatorische Maßnahmen, um Ihre persönlichen Daten vor unbefugtem Zugriff, Veränderung, Offenlegung oder Zerstörung zu schützen."
+			"description": "Ich ergreife geeignete technische und organisatorische Maßnahmen, um Ihre persönlichen Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen."
 		},
 		"section8": {
 			"title": "8. Cookies und Tracking-Technologien",
-			"description": "Wir verwenden Cookies zu den folgenden Zwecken:",
+			"description": "Ich verwende Cookies für die folgenden Zwecke:",
 			"list": {
 				"languagePreferences": "Spracheinstellungen zur Personalisierung Ihres Benutzererlebnisses.",
-				"sessionManagement": "Sitzungsverwaltung, um Sie während Ihrer Sitzung angemeldet zu halten."
+				"sessionManagement": "Sitzungsmanagement, um Sie während Ihrer Sitzung angemeldet zu halten."
 			},
-			"note": "Sie können Cookies über die Einstellungen Ihres Browsers verwalten oder deaktivieren. Das Deaktivieren von Cookies kann die Funktionalität beeinträchtigen.",
+			"note": "Sie können Cookies über Ihre Browsereinstellungen verwalten oder deaktivieren. Das Deaktivieren von Cookies kann die Funktionalität beeinträchtigen.",
 			"button": "Klicken Sie hier, um die Cookie-Einwilligung zu widerrufen"
 		},
 		"section9": {
@@ -211,70 +210,72 @@
 		},
 		"section10": {
 			"title": "10. Änderungen dieser Datenschutzerklärung",
-			"description": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht."
+			"description": "Ich kann diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Alle Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht."
 		},
 		"section11": {
-			"title": "11. Kontaktieren Sie uns",
-			"description": "Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung oder unseren Datenschutzpraktiken haben, kontaktieren Sie uns bitte unter:",
+			"title": "11. Kontaktieren Sie mich",
+			"description": "Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung oder meinen Datenpraktiken haben, kontaktieren Sie mich bitte unter:",
 			"contactInfo": {
-				"companyName": "[Ihr Firmenname]",
-				"address": "[Ihre Adresse]",
-				"email": "[Ihre E-Mail-Adresse]",
-				"phone": "[Ihre Telefonnummer]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barßel, Deutschland",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},
+
 	"TermsOfServicePage": {
 		"headerTitle": "Nutzungsbedingungen",
-		"introText": "Willkommen bei [Ihr App-Name]! Diese Nutzungsbedingungen ('Bedingungen') regeln Ihre Nutzung unserer Anwendung und Dienstleistungen. Durch den Zugriff auf oder die Nutzung von [Ihr App-Name] stimmen Sie zu, diese Bedingungen einzuhalten. Wenn Sie nicht einverstanden sind, verzichten Sie bitte auf die Nutzung unserer App.",
+		"introText": "Willkommen bei TaskDoneify! Diese Nutzungsbedingungen ('Bedingungen') regeln Ihre Nutzung meiner Anwendung und Dienste. Durch den Zugriff auf oder die Nutzung von [Your App Name] erklären Sie sich mit diesen Bedingungen einverstanden. Wenn Sie nicht einverstanden sind, verwenden Sie die App bitte nicht.",
 		"section1": {
 			"title": "1. Berechtigung",
-			"description": "Sie müssen mindestens 13 Jahre alt oder das gesetzliche Mindestalter in Ihrer Gerichtsbarkeit erreicht haben, um unsere App zu nutzen. Durch die Nutzung von [Ihr App-Name] bestätigen Sie, dass Sie diese Voraussetzung erfüllen."
+			"description": "Sie müssen mindestens 13 Jahre alt oder das gesetzliche Mindestalter in Ihrem Rechtsgebiet erreicht haben, um meine App zu nutzen. Durch die Nutzung von [Your App Name] bestätigen Sie, dass Sie diese Voraussetzung erfüllen."
 		},
 		"section2": {
-			"title": "2. Verantwortlichkeiten für Konten",
-			"description": "Sie sind dafür verantwortlich, die Sicherheit Ihrer Kontodaten zu gewährleisten und alle Aktivitäten in Ihrem Konto zu überwachen. Benachrichtigen Sie uns umgehend, wenn Sie einen unbefugten Zugriff vermuten."
+			"title": "2. Kontoverantwortlichkeiten",
+			"description": "Sie sind für die Sicherheit Ihrer Kontodaten und für alle Aktivitäten unter Ihrem Konto verantwortlich. Benachrichtigen Sie mich sofort, wenn Sie einen unbefugten Zugriff vermuten."
 		},
 		"section3": {
-			"title": "3. Akzeptable Nutzung",
-			"description": "Sie stimmen zu, [Ihr App-Name] nicht für rechtswidrige Aktivitäten oder für Folgendes zu nutzen:"
+			"title": "3. Zulässige Nutzung",
+			"description": "Sie stimmen zu, [Your App Name] nicht für ungesetzliche Aktivitäten zu nutzen oder:"
 		},
 		"section3List": {
-			"prohibitedUse": "Durchführung von Aktivitäten, die gegen geltende Gesetze oder Vorschriften verstoßen.",
-			"unauthorizedAccess": "Versuch, auf die Funktionalität oder Sicherheit der App unbefugt zuzugreifen, sie zu stören oder zu beeinträchtigen.",
-			"inappropriateContent": "Veröffentlichen oder Teilen von Inhalten, die schädlich, anstößig oder urheberrechtsverletzend sind."
+			"prohibitedUse": "Aktivitäten auszuführen, die gegen geltende Gesetze oder Vorschriften verstoßen.",
+			"unauthorizedAccess": "Zu versuchen, auf die Funktionalität oder Sicherheit der App zuzugreifen, diese zu beeinträchtigen oder zu stören.",
+			"inappropriateContent": "Inhalte zu posten oder zu teilen, die schädlich, anstößig oder geistige Eigentumsrechte verletzen."
 		},
 		"section4": {
 			"title": "4. Benutzerinhalte",
-			"description": "Sie behalten das Eigentum an den Inhalten, die Sie innerhalb von [Ihr App-Name] erstellen, wie z. B. Ihrer Aufgabenliste. Durch die Nutzung unserer App erteilen Sie uns die Erlaubnis, diese Inhalte ausschließlich zur Bereitstellung des Dienstes zu speichern und anzuzeigen."
+			"description": "Sie behalten das Eigentum an den Inhalten, die Sie innerhalb von [Your App Name] erstellen, wie beispielsweise Ihre To-Do-Liste. Durch die Nutzung meiner App erteilen Sie mir die Erlaubnis, diese Inhalte ausschließlich zur Bereitstellung des Dienstes zu speichern und anzuzeigen."
 		},
 		"section5": {
 			"title": "5. Kündigung",
-			"description": "Wir behalten uns das Recht vor, Ihr Konto zu sperren oder zu kündigen, wenn Sie gegen diese Bedingungen verstoßen. Nach der Kündigung wird Ihr Zugriff auf die App widerrufen und Ihre Daten können gemäß unserer Datenschutzrichtlinie gelöscht werden."
+			"description": "Ich behalte mir das Recht vor, Ihr Konto zu sperren oder zu kündigen, wenn Sie gegen diese Bedingungen verstoßen. Nach der Kündigung wird Ihr Zugriff auf die App widerrufen und Ihre Daten können gemäß meiner Datenschutzerklärung gelöscht werden."
 		},
 		"section6": {
 			"title": "6. Haftungsbeschränkung",
-			"description": "Soweit gesetzlich zulässig, haften wir nicht für Schäden oder Verluste, die sich aus Ihrer Nutzung von [Ihr App-Name] ergeben, einschließlich Datenverlust oder Dienstunterbrechungen."
+			"description": "Soweit gesetzlich zulässig, hafte ich nicht für Schäden oder Verluste, die sich aus Ihrer Nutzung von [Your App Name] ergeben, einschließlich Datenverlust oder Serviceunterbrechungen."
 		},
 		"section7": {
 			"title": "7. Änderungen der Bedingungen",
-			"description": "Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Änderungen treten sofort nach der Veröffentlichung in Kraft. Die weitere Nutzung von [Ihr App-Name] nach Änderungen gilt als Zustimmung."
+			"description": "Ich kann diese Bedingungen von Zeit zu Zeit aktualisieren. Änderungen werden sofort nach Veröffentlichung wirksam. Die fortgesetzte Nutzung von [Your App Name] nach Änderungen bedeutet Ihre Zustimmung."
 		},
 		"section8": {
 			"title": "8. Anwendbares Recht",
-			"description": "Diese Bedingungen unterliegen den Gesetzen von [Ihr Land/Ihre Region]. Alle Streitigkeiten werden unter der Zuständigkeit der Gerichte von [Ihr Land/Ihre Region] beigelegt."
+			"description": "Diese Bedingungen unterliegen den Gesetzen Deutschlands. Alle Streitigkeiten werden unter der Zuständigkeit der Gerichte in Deutschland beigelegt."
 		},
 		"section9": {
-			"title": "9. Kontaktieren Sie uns",
-			"description": "Wenn Sie Fragen oder Bedenken zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter:",
+			"title": "9. Kontaktieren Sie mich",
+			"description": "Wenn Sie Fragen oder Bedenken zu diesen Bedingungen haben, kontaktieren Sie mich bitte unter:",
 			"contactInfo": {
-				"companyName": "[Ihr Firmenname]",
-				"address": "[Ihre Adresse]",
-				"email": "[Ihre E-Mail-Adresse]",
-				"phone": "[Ihre Telefonnummer]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barßel, Deutschland",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},
+
 	"NotFoundPage": {
 		"message": "404 Nicht gefunden",
 		"btnBack": "Zurück"

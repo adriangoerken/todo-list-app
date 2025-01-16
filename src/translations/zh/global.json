@@ -141,139 +141,141 @@
 	},
 	"PrivacyPolicyPage": {
 		"headerTitle": "隐私政策",
-		"introText": "在[您的公司名称]（‘我们’，‘我们的’，‘我们公司’）我们致力于保护您的隐私，并确保您拥有安全的在线体验。本隐私政策概述了我们如何根据适用的数据保护法律收集、使用和保护您的个人数据，包括通用数据保护条例（GDPR）（EU）2016/679、加利福尼亚州消费者隐私法案（CCPA）以及中国的数据保护法律。",
+		"introText": "在 Adrian Goerken ('我,' '我的,' '我自己')，我致力于保护您的隐私并确保安全的在线体验。本隐私政策概述了我如何根据《通用数据保护条例》（GDPR）（EU）2016/679和德国数据保护法收集、使用和保护您的个人数据。",
 		"section1": {
-			"title": "1. 我们收集的信息",
-			"description": "当您使用我们的服务时，我们收集以下类型的信息：",
+			"title": "1. 我收集的信息",
+			"description": "当您使用我的服务时，我会收集以下类型的信息：",
 			"list": {
 				"emailPassword": "注册时的电子邮件地址和密码。",
-				"todoList": "您的待办事项清单内容，以便保存和显示。",
-				"cookies": "用于语言偏好和会话管理的Cookies。"
+				"todoList": "保存和显示的待办事项列表内容。",
+				"cookies": "用于语言偏好和会话管理的Cookie。"
 			}
 		},
 		"section2": {
-			"title": "2. 我们如何使用您的信息",
-			"description": "我们将收集的数据用于以下目的：",
+			"title": "2. 我如何使用您的信息",
+			"description": "我将收集的数据用于以下目的：",
 			"list": {
-				"accountManagement": "账户管理，用于创建和维护您的用户账户。",
-				"todoListStorage": "待办事项清单存储，用于保存和显示您的待办事项内容。",
-				"languagePreferences": "语言偏好设置，以提供个性化的用户体验。",
-				"sessionManagement": "会话管理，保持您在使用我们的平台时已登录状态。"
+				"accountManagement": "账户管理以创建和维护您的用户账户。",
+				"todoListStorage": "待办事项列表存储以保存和显示您的待办事项内容。",
+				"languagePreferences": "语言偏好以提供个性化的用户体验。",
+				"sessionManagement": "会话管理以保持您在使用我的平台时的登录状态。"
 			}
 		},
 		"section3": {
 			"title": "3. 处理您数据的法律依据",
-			"description": "我们基于以下法律依据处理您的个人数据：",
+			"description": "我基于以下法律依据处理您的个人数据：",
 			"list": {
-				"consent": "注册时同意提供电子邮件、密码和待办事项清单内容。",
-				"contractualNecessity": "履行您要求的服务所需的合同必要性。",
-				"legitimateInterest": "出于合法利益，用于语言偏好设置和会话管理。"
+				"consent": "注册时的电子邮件、密码和待办事项内容的同意。",
+				"contractualNecessity": "履行您所要求的服务的合同必要性。",
+				"legitimateInterest": "用于语言偏好和会话管理的合法利益。"
 			}
 		},
 		"section4": {
 			"title": "4. 共享您的数据",
-			"description": "我们不会与第三方共享任何个人数据。您的个人信息，包括电子邮件、密码和待办事项清单内容，会被安全存储，并仅用于本政策中所述的目的。"
+			"description": "我不与第三方共享任何个人数据。您的个人信息，包括电子邮件、密码和待办事项内容，都会安全存储，仅用于本政策中概述的目的。"
 		},
 		"section5": {
-			"title": "5. 数据保存",
-			"description": "我们仅在必要的时间内保存您的个人数据，以履行其收集目的。如果您选择删除账户，我们会根据适用的法律从系统中删除您的数据。"
+			"title": "5. 数据保留",
+			"description": "我仅在为实现收集目的所需的时间内保留您的个人数据。如果您选择删除您的账户，您的数据将根据适用法律从我的系统中删除。"
 		},
 		"section6": {
 			"title": "6. 您的权利",
-			"description": "根据适用的数据保护法律，您对您的个人数据拥有以下权利：",
+			"description": "根据适用的数据保护法律，您对您的个人数据享有以下权利：",
 			"list": {
-				"rightOfAccess": "访问权：请求访问我们持有的有关您的个人数据。",
+				"rightOfAccess": "访问权：请求访问我所持有的关于您的个人数据。",
 				"rightToRectification": "更正权：请求更正您个人数据中的不准确之处。",
-				"rightToErasure": "删除权：在特定情况下请求删除您的个人数据。",
-				"rightToRestriction": "处理限制权：请求限制数据的处理。",
-				"rightToPortability": "数据可携带权：请求以机器可读格式获取您的个人数据副本。",
-				"rightToWithdrawConsent": "撤回同意权：撤回您对我们处理数据的同意。"
+				"rightToErasure": "删除权：在某些情况下，请求删除您的个人数据。",
+				"rightToRestriction": "限制处理权：请求限制处理。",
+				"rightToPortability": "数据可移植性权：请求以机器可读的格式获取您的个人数据副本。",
+				"rightToWithdrawConsent": "撤回同意权：撤回对处理您数据的同意。"
 			}
 		},
 		"section7": {
 			"title": "7. 数据安全",
-			"description": "我们采取适当的技术和组织措施，保护您的个人数据免受未经授权的访问、篡改、披露或销毁。"
+			"description": "我采取适当的技术和组织措施，以保护您的个人数据免遭未经授权的访问、更改、披露或破坏。"
 		},
 		"section8": {
-			"title": "8. Cookies 和跟踪技术",
-			"description": "我们使用Cookies用于以下目的：",
+			"title": "8. Cookie和追踪技术",
+			"description": "我使用Cookie的目的如下：",
 			"list": {
-				"languagePreferences": "语言偏好设置，用于个性化您的用户体验。",
-				"sessionManagement": "会话管理，用于在您的会话期间保持您登录状态。"
+				"languagePreferences": "语言偏好以个性化您的用户体验。",
+				"sessionManagement": "会话管理以在您的会话期间保持登录状态。"
 			},
-			"note": "您可以通过浏览器设置管理或禁用Cookies。禁用Cookies可能会影响某些功能。",
-			"button": "点击此处撤销Cookie同意"
+			"note": "您可以通过浏览器设置管理或禁用Cookie。禁用Cookie可能会影响功能。",
+			"button": "点击这里撤销Cookie同意"
 		},
 		"section9": {
 			"title": "9. 国际数据传输",
-			"description": "您的个人数据存储在欧盟（EU）内。如果您位于欧盟外，您的数据可能会被传输到欧盟并在那里处理，且数据保护法律可能有所不同。"
+			"description": "您的个人数据存储在欧盟（EU）内。如果您位于欧盟以外，您的数据可能会被传输到欧盟并在欧盟进行处理，那里数据保护法律可能有所不同。"
 		},
 		"section10": {
 			"title": "10. 本隐私政策的变更",
-			"description": "我们可能会不时更新本隐私政策。任何更改将发布在此页面上，并更新生效日期。"
+			"description": "我可能会不时更新本隐私政策。任何更改将在本页面上发布，并附有更新的生效日期。"
 		},
 		"section11": {
-			"title": "11. 联系我们",
-			"description": "如果您对本隐私政策或我们的数据处理实践有任何问题或疑虑，请通过以下方式联系我们：",
+			"title": "11. 联系我",
+			"description": "如果您对本隐私政策或我的数据实践有任何问题或疑虑，请通过以下方式联系我：",
 			"contactInfo": {
-				"companyName": "[您的公司名称]",
-				"address": "[您的地址]",
-				"email": "[您的电子邮件地址]",
-				"phone": "[您的电话号码]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barß尔, 德国",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},
+
 	"TermsOfServicePage": {
 		"headerTitle": "服务条款",
-		"introText": "欢迎使用[您的应用名称]！本服务条款（“条款”）规范您对我们应用程序和服务的使用。通过访问或使用[您的应用名称]，您同意遵守这些条款。如果您不同意，请不要使用我们的应用。",
+		"introText": "欢迎使用 TaskDoneify! 这些服务条款 ('条款') 规范您对我的应用程序和服务的使用。通过访问或使用 [Your App Name]，您同意遵守这些条款。如果您不同意，请勿使用该应用程序。",
 		"section1": {
-			"title": "1. 使用资格",
-			"description": "您必须年满13岁或达到您所在司法管辖区的最低法定年龄才能使用我们的应用。通过使用[您的应用名称]，您确认满足此要求。"
+			"title": "1. 资格",
+			"description": "您必须年满13岁或达到您所在司法辖区的法定最低年龄，才能使用我的应用程序。通过使用 [Your App Name]，您确认您符合此要求。"
 		},
 		"section2": {
 			"title": "2. 账户责任",
-			"description": "您有责任维护您的账户凭据的安全，并对您的账户下的所有活动负责。如果您怀疑有未经授权的访问，请立即通知我们。"
+			"description": "您有责任维护您的账户凭证的安全，并对您的账户下的所有活动负责。如果您怀疑有未经授权的访问，请立即通知我。"
 		},
 		"section3": {
-			"title": "3. 可接受的使用",
-			"description": "您同意不将[您的应用名称]用于任何违法活动或以下行为："
+			"title": "3. 合理使用",
+			"description": "您同意不将 [Your App Name] 用于任何非法活动，或："
 		},
 		"section3List": {
-			"prohibitedUse": "从事违反适用法律或法规的活动。",
-			"unauthorizedAccess": "试图访问、干扰或破坏应用的功能或安全性。",
-			"inappropriateContent": "发布或共享任何有害、冒犯或侵犯知识产权的内容。"
+			"prohibitedUse": "从事违反任何适用法律或法规的活动。",
+			"unauthorizedAccess": "企图访问、干扰或破坏应用程序的功能或安全性。",
+			"inappropriateContent": "发布或分享任何有害、冒犯或侵犯知识产权的内容。"
 		},
 		"section4": {
 			"title": "4. 用户内容",
-			"description": "您保留在[您的应用名称]内创建的内容（例如您的待办事项列表）的所有权。通过使用我们的应用，您授予我们存储和显示此内容的权限，仅用于提供服务。"
+			"description": "您保留在 [Your App Name] 中创建的内容（如您的待办事项列表）的所有权。通过使用我的应用程序，您授予我存储和显示此内容的权限，专用于提供服务。"
 		},
 		"section5": {
 			"title": "5. 终止",
-			"description": "如果您违反这些条款，我们保留暂停或终止您的账户的权利。账户终止后，您对应用的访问将被撤销，您的数据可能根据我们的隐私政策被删除。"
+			"description": "如果您违反这些条款，我保留暂停或终止您的账户的权利。终止后，您对该应用程序的访问将被撤销，您的数据可能会根据我的隐私政策删除。"
 		},
 		"section6": {
 			"title": "6. 责任限制",
-			"description": "在法律允许的范围内，我们对因您使用[您的应用名称]导致的任何损害或损失（包括数据丢失或服务中断）概不负责。"
+			"description": "在法律允许的范围内，我不对因您使用 [Your App Name] 而导致的任何损害或损失承担责任，包括数据丢失或服务中断。"
 		},
 		"section7": {
-			"title": "7. 条款变更",
-			"description": "我们可能会不时更新这些条款。任何更改将在发布后立即生效。更改后继续使用[您的应用名称]表示您接受这些更改。"
+			"title": "7. 条款的变更",
+			"description": "我可能会不时更新这些条款。任何变更将立即生效。变更后继续使用 [Your App Name] 表示您接受这些变更。"
 		},
 		"section8": {
 			"title": "8. 适用法律",
-			"description": "本条款受[您的国家/地区]法律管辖。所有争议将在[您的国家/地区]法院的管辖范围内解决。"
+			"description": "这些条款受德国法律管辖。任何争议将由德国法院裁决。"
 		},
 		"section9": {
-			"title": "9. 联系我们",
-			"description": "如果您对这些条款有任何疑问或担忧，请通过以下方式联系我们：",
+			"title": "9. 联系我",
+			"description": "如果您对这些条款有任何问题或疑虑，请通过以下方式联系我：",
 			"contactInfo": {
-				"companyName": "[您的公司名称]",
-				"address": "[您的地址]",
-				"email": "[您的电子邮件地址]",
-				"phone": "[您的电话号码]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 巴瑟尔, 德国",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},
+
 	"NotFoundPage": {
 		"message": "404 未找到",
 		"btnBack": "返回"
