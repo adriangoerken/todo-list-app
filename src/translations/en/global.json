@@ -14,7 +14,7 @@
 		"linkSignOut": "Sign Out"
 	},
 	"HeroSection": {
-		"heading": "Welcome to <1 /> <2>WorkingTitle</2>!",
+		"heading": "Welcome to <1 /> <2>TaskDoneify</2>!",
 		"subHeading": "Organize your tasks with ease. Create multiple lists, prioritize, mark as done, and drag-and-drop to reorder your tasks seamlessly."
 	},
 	"FeatureCard": {
@@ -119,39 +119,23 @@
 		"section1": {
 			"title": "1. Provider",
 			"description": {
-				"companyName": "[Your Company Name]",
-				"address": "[Your Address, including street, house number, postal code, city, and country]",
-				"email": "[Your Email Address]",
-				"phone": "[Your Phone Number]",
-				"website": "[Your Website URL]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barßel, Germany",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956",
+				"website": "portfolio.site"
 			}
 		},
 		"section2": {
-			"title": "2. Legal Representatives",
-			"description": "The following individuals are responsible for the content of this website according to Section 55 paragraph 2 of the German Interstate Broadcasting Treaty (RStV):",
-			"representatives": "[Names of legal representatives or content supervisors]"
+			"title": "2. Disclaimer",
+			"description": "Despite careful monitoring, I assume no liability for the content of external links. The content of linked pages is the sole responsibility of their operators."
 		},
 		"section3": {
-			"title": "3. Registration Information",
-			"description": {
-				"companyRegistration": "Company registration number: [Registration number, if applicable]",
-				"vatId": "VAT identification number according to Section 27a of the German Value Added Tax Act: [VAT ID]"
-			}
-		},
-		"section4": {
-			"title": "4. Dispute Resolution",
-			"description": "We are neither willing nor obligated to participate in dispute resolution proceedings before a consumer arbitration board."
-		},
-		"section5": {
-			"title": "5. Disclaimer",
-			"description": "Despite careful monitoring, we assume no liability for the content of external links. The content of linked pages is the sole responsibility of their operators."
-		},
-		"section6": {
-			"title": "6. Contact Us",
-			"description": "If you have any questions regarding this imprint or the information provided, feel free to contact us at:",
+			"title": "3. Contact Us",
+			"description": "If you have any questions regarding this imprint or the information provided, feel free to contact me at:",
 			"contactInfo": {
-				"email": "[Your Contact Email Address]",
-				"phone": "[Your Contact Phone Number]"
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},

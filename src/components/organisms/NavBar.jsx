@@ -80,7 +80,7 @@ const NavBar = () => {
 							to="/"
 							className="text-white text-2xl font-bold mr-2"
 						>
-							WorkingTitle
+							TaskDoneify
 						</Link>
 						{renderSaveStatus()}
 					</div>

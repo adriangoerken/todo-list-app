@@ -14,7 +14,7 @@
 		"linkSignOut": "登出"
 	},
 	"HeroSection": {
-		"heading": "欢迎来到 <1 /> <2>WorkingTitle</2>!",
+		"heading": "欢迎来到 <1 /> <2>TaskDoneify</2>!",
 		"subHeading": "轻松组织您的任务。创建多个列表，设定优先级，标记完成，并通过拖放轻松重新排列任务。"
 	},
 	"FeatureCard": {
@@ -114,44 +114,28 @@
 		}
 	},
 	"ImprintPage": {
-		"headerTitle": "法律声明",
-		"introText": "本法律声明根据德国《电信媒体法》（TMG）第5条及其他相关法律提供。",
+		"headerTitle": "网站说明",
+		"introText": "本网站说明根据德国《电信媒体法》(TMG)第5条和其他适用法律提供。",
 		"section1": {
-			"title": "1. 提供方",
+			"title": "1. 提供者",
 			"description": {
-				"companyName": "[您的公司名称]",
-				"address": "[您的地址，包括街道、门牌号、邮政编码、城市和国家]",
-				"email": "[您的电子邮箱地址]",
-				"phone": "[您的电话号码]",
-				"website": "[您的网站链接]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barß尔, 德国",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956",
+				"website": "portfolio.site"
 			}
 		},
 		"section2": {
-			"title": "2. 法律责任人",
-			"description": "以下人员根据德国《州际广播条约》（RStV）第55条第2款对本网站内容负责：",
-			"representatives": "[法律责任人或内容负责人姓名]"
+			"title": "2. 免责声明",
+			"description": "尽管进行仔细监控，我对外部链接内容不承担任何责任。链接页面的内容由其运营商全权负责。"
 		},
 		"section3": {
-			"title": "3. 注册信息",
-			"description": {
-				"companyRegistration": "公司注册号： [注册号（如适用）]",
-				"vatId": "根据德国《增值税法》第27a条的增值税识别号： [增值税识别号]"
-			}
-		},
-		"section4": {
-			"title": "4. 争议解决",
-			"description": "我们既不愿意也没有义务参与消费者仲裁机构的争议解决程序。"
-		},
-		"section5": {
-			"title": "5. 免责声明",
-			"description": "尽管我们进行了仔细检查，但对于外部链接的内容，我们不承担任何责任。外部链接的内容由其运营者全权负责。"
-		},
-		"section6": {
-			"title": "6. 联系我们",
-			"description": "如果您对本法律声明或所提供的信息有任何疑问，请通过以下方式联系我们：",
+			"title": "3. 联系",
+			"description": "如果您对本网站说明或提供的信息有任何疑问，请随时通过以下方式联系我：",
 			"contactInfo": {
-				"email": "[您的联系电子邮箱地址]",
-				"phone": "[您的联系电话号码]"
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},

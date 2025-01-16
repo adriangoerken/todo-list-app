@@ -14,7 +14,7 @@
 		"linkSignOut": "Abmelden"
 	},
 	"HeroSection": {
-		"heading": "Willkommen bei <1 /> <2>WorkingTitle</2>!",
+		"heading": "Willkommen bei <1 /> <2>TaskDoneify</2>!",
 		"subHeading": "Organisieren Sie Ihre Aufgaben mit Leichtigkeit. Erstellen Sie mehrere Listen, priorisieren Sie, markieren Sie als erledigt und ziehen Sie Aufgaben zur Umsortierung per Drag-and-Drop."
 	},
 	"FeatureCard": {
@@ -115,46 +115,31 @@
 	},
 	"ImprintPage": {
 		"headerTitle": "Impressum",
-		"introText": "Dieses Impressum wird gemäß § 5 des Telemediengesetzes (TMG) und anderer geltender Gesetze bereitgestellt.",
+		"introText": "Dieses Impressum wird gemäß § 5 des deutschen Telemediengesetzes (TMG) und anderen anwendbaren Gesetzen bereitgestellt.",
 		"section1": {
 			"title": "1. Anbieter",
 			"description": {
-				"companyName": "[Ihr Firmenname]",
-				"address": "[Ihre Adresse, einschließlich Straße, Hausnummer, Postleitzahl, Stadt und Land]",
-				"email": "[Ihre E-Mail-Adresse]",
-				"phone": "[Ihre Telefonnummer]",
-				"website": "[Ihre Website-URL]"
+				"companyName": "Adrian Goerken",
+				"address": "Wollgrasweg 3, 26676 Barßel, Deutschland",
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956",
+				"website": "portfolio.site"
 			}
 		},
 		"section2": {
-			"title": "2. Verantwortliche Personen",
-			"description": "Die folgenden Personen sind gemäß § 55 Absatz 2 des Rundfunkstaatsvertrags (RStV) für den Inhalt dieser Website verantwortlich:",
-			"representatives": "[Namen der verantwortlichen Personen oder Inhaltsverantwortlichen]"
+			"title": "2. Haftungsausschluss",
+			"description": "Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich."
 		},
 		"section3": {
-			"title": "3. Handelsregisterinformationen",
-			"description": {
-				"companyRegistration": "Handelsregisternummer: [Handelsregisternummer, falls zutreffend]",
-				"vatId": "Umsatzsteuer-Identifikationsnummer gemäß § 27a des Umsatzsteuergesetzes: [USt-ID]"
-			}
-		},
-		"section4": {
-			"title": "4. Streitbeilegung",
-			"description": "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
-		},
-		"section5": {
-			"title": "5. Haftungsausschluss",
-			"description": "Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich."
-		},
-		"section6": {
-			"title": "6. Kontakt",
-			"description": "Wenn Sie Fragen zu diesem Impressum oder den bereitgestellten Informationen haben, kontaktieren Sie uns bitte unter:",
+			"title": "3. Kontakt",
+			"description": "Wenn Sie Fragen zu diesem Impressum oder den bereitgestellten Informationen haben, kontaktieren Sie mich gerne unter:",
 			"contactInfo": {
-				"email": "[Ihre Kontakt-E-Mail-Adresse]",
-				"phone": "[Ihre Kontakt-Telefonnummer]"
+				"email": "adrian.goerken@proton.me",
+				"phone": "+49 152 03304956"
 			}
 		}
 	},
+
 	"PrivacyPolicyPage": {
 		"headerTitle": "Datenschutzerklärung",
 		"introText": "Bei [Ihr Firmenname] ('wir', 'unser', 'uns') setzen wir uns dafür ein, Ihre Privatsphäre zu schützen und ein sicheres Online-Erlebnis zu gewährleisten. Diese Datenschutzerklärung beschreibt, wie wir Ihre persönlichen Daten gemäß den geltenden Datenschutzgesetzen erheben, verwenden und schützen, einschließlich der Allgemeinen Datenschutzverordnung (DSGVO) (EU) 2016/679 und dem kalifornischen Gesetz zum Datenschutz der Verbraucher (CCPA) sowie den deutschen Datenschutzgesetzen.",

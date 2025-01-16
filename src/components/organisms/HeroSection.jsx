@@ -10,7 +10,7 @@ const HeroSection = () => {
 				<Trans i18nKey={'HeroSection.heading'} t={t}>
 					Welcome to
 					<br />
-					<span className="text-blue-700">WorkingTitle</span>!
+					<span className="text-blue-700">TaskDoneify</span>!
 				</Trans>
 			</h1>
 			<p className="text-lg md:text-xl mb-8">
