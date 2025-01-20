@@ -9,9 +9,13 @@ const CookieBanner = () => {
 		<CookieConsent
 			location="bottom"
 			buttonText={t('GLOBAL.cookieBanner.btnConsent')}
+			declineButtonText={t('GLOBAL.cookieBanner.btnDecline')}
 			cookieName="cookieConsent"
 			buttonStyle={{ color: '#4e503b', fontSize: '13px' }}
+			declineButtonStyle={{ fontSize: '13px' }}
+			enableDeclineButton
 			expires={365}
+			setDeclineCookie={false}
 		>
 			<Trans i18nKey="GLOBAL.cookieBanner.text" t={t}>
 				This website uses cookies to enhance the user experience.

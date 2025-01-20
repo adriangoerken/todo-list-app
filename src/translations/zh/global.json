@@ -3,7 +3,8 @@
 		"errDefault": "出了些问题。请再试一次。",
 		"cookieBanner": {
 			"text": "本网站使用cookie以提升用户体验。<1>了解更多</1>",
-			"btnConsent": "我同意"
+			"btnConsent": "我同意",
+			"btnDecline": "我拒绝"
 		}
 	},
 	"NavBar": {

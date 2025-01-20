@@ -3,7 +3,8 @@
 		"errDefault": "Something went wrong. Please try again.",
 		"cookieBanner": {
 			"text": "This website uses cookies to enhance the user experience. <1>Learn more</1>",
-			"btnConsent": "I consent"
+			"btnConsent": "I consent",
+			"btnDecline": "I decline"
 		}
 	},
 	"NavBar": {

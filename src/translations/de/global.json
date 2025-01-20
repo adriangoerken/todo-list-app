@@ -3,7 +3,8 @@
 		"errDefault": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
 		"cookieBanner": {
 			"text": "Diese Website verwendet Cookies, um Ihr Surferlebnis zu verbessern. <1>Mehr erfahren</1>",
-			"btnConsent": "Ich stimme zu"
+			"btnConsent": "Ich stimme zu",
+			"btnDecline": "Ich lehne ab"
 		}
 	},
 	"NavBar": {
