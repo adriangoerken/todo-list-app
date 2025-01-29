@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const NavBar = () => {
 	const { user, signOut } = useAuth();
 	const { isSaving } = useSaveStatus();
-	const [t] = useTranslation('global');
+	const [t, i18n] = useTranslation('global');
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const location = useLocation();
@@ -70,6 +70,8 @@ const NavBar = () => {
 			<MdCloudDone className="text-white text-lg" />
 		);
 	};
+
+	document.title = `TaskDoneify | ${t('GLOBAL.title')}`;
 
 	return (
 		<Container>

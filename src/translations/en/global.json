@@ -5,7 +5,8 @@
 			"text": "This website uses cookies to enhance the user experience. <1>Learn more</1>",
 			"btnConsent": "I consent",
 			"btnDecline": "I decline"
-		}
+		},
+		"title": "Simple and Efficient To-Do List"
 	},
 	"NavBar": {
 		"linkHome": "Home",
