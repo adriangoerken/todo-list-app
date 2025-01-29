@@ -11,7 +11,7 @@ Built with **React** and styled with a modern UI, this app ensures both function
 
 -   **Add, Edit, and Delete Tasks** effortlessly.
 -   **Mark tasks as completed** to stay on track.
--   **Intuitive drag-and-drop interface** (coming soon).
+-   **Intuitive drag-and-drop interface**.
 -   **Responsive Design** to work seamlessly across devices.
 
 ## Installation and Usage
@@ -91,9 +91,7 @@ I welcome contributions to improve this app! Here's how you can contribute:
 
 ## Known Issues
 
--   Drag-and-drop functionality is under development.
--   Currently, there is no support for task prioritization.
--   White mode theme (planned for future updates).
+-   Currently there is now support for creating multiple lists (planned in the future).
 
 ## Support the Project 💖
 
