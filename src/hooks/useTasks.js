@@ -48,6 +48,7 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 		setIsSaving(true);
 		const response = await deleteTaskAPI(id, task_order, user.accessToken);
 		if (response.success) {
+			toast.success(t('ToDoList.delTaskSuccess'));
 			fetchTasks();
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
@@ -90,7 +91,6 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 				accessToken: response.data.accessToken,
 			}));
 
-			toast.success(t('ToDoList.updateTaskOrderSuccess'));
 			fetchTasks();
 		} else {
 			handleError(response.error || t('GLOBAL.errDefault'));
@@ -136,7 +136,6 @@ const useTasks = (user, setUser, t, loading, setLoading) => {
 				accessToken: response.data.accessToken,
 			}));
 
-			toast.success(t('ToDoList.updatePrioritySuccess'));
 			setTasks((prevTasks) => {
 				// Update the priority of the task
 				const updatedTasks = prevTasks.map((task) =>

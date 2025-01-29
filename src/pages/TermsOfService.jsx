@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../components/organisms/Container';
 import { useTranslation } from 'react-i18next';
+import SectionCard from '../components/molecules/SectionCard';
 
 const TermsOfServicePage = () => {
 	const [t] = useTranslation('global');
@@ -9,7 +10,7 @@ const TermsOfServicePage = () => {
 	).split(',');
 
 	return (
-		<section className="py-10">
+		<section>
 			<Container>
 				{/* Page Title */}
 				<h1 className="text-3xl font-bold mb-6">
@@ -22,26 +23,17 @@ const TermsOfServicePage = () => {
 				{/* Sections */}
 				<div className="space-y-8">
 					{/* Section 1 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section1.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section1.title')}>
 						<p>{t('TermsOfServicePage.section1.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 2 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section2.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section2.title')}>
 						<p>{t('TermsOfServicePage.section2.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 3 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section3.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section3.title')}>
 						<p className="mb-4">
 							{t('TermsOfServicePage.section3.description')}
 						</p>
@@ -62,53 +54,35 @@ const TermsOfServicePage = () => {
 								)}
 							</li>
 						</ul>
-					</div>
+					</SectionCard>
 
 					{/* Section 4 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section4.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section4.title')}>
 						<p>{t('TermsOfServicePage.section4.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 5 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section5.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section5.title')}>
 						<p>{t('TermsOfServicePage.section5.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 6 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section6.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section6.title')}>
 						<p>{t('TermsOfServicePage.section6.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 7 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section7.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section7.title')}>
 						<p>{t('TermsOfServicePage.section7.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 8 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section8.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section8.title')}>
 						<p>{t('TermsOfServicePage.section8.description')}</p>
-					</div>
+					</SectionCard>
 
 					{/* Section 9 */}
-					<div>
-						<h2 className="text-xl font-semibold mb-2">
-							{t('TermsOfServicePage.section9.title')}
-						</h2>
+					<SectionCard title={t('TermsOfServicePage.section9.title')}>
 						<p className="mb-4">
 							{t('TermsOfServicePage.section9.description')}
 						</p>
@@ -134,7 +108,7 @@ const TermsOfServicePage = () => {
 								)}
 							</p>
 						</div>
-					</div>
+					</SectionCard>
 				</div>
 			</Container>
 		</section>

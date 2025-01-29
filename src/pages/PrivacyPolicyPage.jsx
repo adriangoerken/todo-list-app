@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { setCookie } from '../utils/utils';
 import { postData } from '../api/api';
+import SectionCard from '../components/molecules/SectionCard';
 
 const PrivacyPolicyPage = () => {
 	const [t] = useTranslation('global');
@@ -37,10 +38,9 @@ const PrivacyPolicyPage = () => {
 
 					<div className="space-y-6">
 						{/* Section 1 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section1.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section1.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section1.description')}</p>
 							<ul className="list-disc pl-6">
 								<li>
@@ -59,13 +59,12 @@ const PrivacyPolicyPage = () => {
 									)}
 								</li>
 							</ul>
-						</div>
+						</SectionCard>
 
 						{/* Section 2 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section2.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section2.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section2.description')}</p>
 							<ul className="list-disc pl-6">
 								<li>
@@ -89,13 +88,12 @@ const PrivacyPolicyPage = () => {
 									)}
 								</li>
 							</ul>
-						</div>
+						</SectionCard>
 
 						{/* Section 3 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section3.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section3.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section3.description')}</p>
 							<ul className="list-disc pl-6">
 								<li>
@@ -114,29 +112,26 @@ const PrivacyPolicyPage = () => {
 									)}
 								</li>
 							</ul>
-						</div>
+						</SectionCard>
 
 						{/* Section 4 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section4.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section4.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section4.description')}</p>
-						</div>
+						</SectionCard>
 
 						{/* Section 5 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section5.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section5.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section5.description')}</p>
-						</div>
+						</SectionCard>
 
 						{/* Section 6 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section6.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section6.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section6.description')}</p>
 							<ul className="list-disc pl-6">
 								<li>
@@ -170,21 +165,19 @@ const PrivacyPolicyPage = () => {
 									)}
 								</li>
 							</ul>
-						</div>
+						</SectionCard>
 
 						{/* Section 7 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section7.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section7.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section7.description')}</p>
-						</div>
+						</SectionCard>
 
 						{/* Section 8 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section8.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section8.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section8.description')}</p>
 							<ul className="list-disc pl-6">
 								<li>
@@ -207,31 +200,28 @@ const PrivacyPolicyPage = () => {
 							>
 								{t('PrivacyPolicyPage.section8.button')}
 							</button>
-						</div>
+						</SectionCard>
 
 						{/* Section 9 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section9.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section9.title')}
+						>
 							<p>{t('PrivacyPolicyPage.section9.description')}</p>
-						</div>
+						</SectionCard>
 
 						{/* Section 10 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section10.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section10.title')}
+						>
 							<p>
 								{t('PrivacyPolicyPage.section10.description')}
 							</p>
-						</div>
+						</SectionCard>
 
 						{/* Section 11 */}
-						<div>
-							<h2 className="text-2xl font-semibold">
-								{t('PrivacyPolicyPage.section11.title')}
-							</h2>
+						<SectionCard
+							title={t('PrivacyPolicyPage.section11.title')}
+						>
 							<p>
 								{t('PrivacyPolicyPage.section11.description')}
 							</p>
@@ -257,7 +247,7 @@ const PrivacyPolicyPage = () => {
 									)}
 								</p>
 							</div>
-						</div>
+						</SectionCard>
 					</div>
 				</div>
 			</Container>

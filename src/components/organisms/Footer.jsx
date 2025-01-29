@@ -32,7 +32,7 @@ const Footer = () => {
 							&copy; {year}, {t('Footer.copyright')}
 						</p>
 					</div>
-					<div className="flex flex-col md:flex-row flex-wrap gap-x-4 gap-y-2 md:gap-y-0 text-center md:text-left flex-1">
+					<div className="flex flex-col md:flex-row flex-wrap gap-x-4 gap-y-2 md:gap-y-0 text-center flex-1 justify-center">
 						<Link
 							to="/imprint"
 							className="hover:underline break-all"

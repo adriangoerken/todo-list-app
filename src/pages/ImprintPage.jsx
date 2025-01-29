@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../components/organisms/Container';
 import { useTranslation } from 'react-i18next';
+import SectionCard from '../components/molecules/SectionCard';
 
 const ImprintPage = () => {
 	const [t] = useTranslation('global');
@@ -10,17 +11,14 @@ const ImprintPage = () => {
 
 	return (
 		<section>
-			<Container>
+			<Container className="space-y-6">
 				<h1 className="text-3xl font-bold mb-6">
 					{t('ImprintPage.headerTitle')}
 				</h1>
 				<p className="mb-4">{t('ImprintPage.introText')}</p>
 
 				{/* Section 1: Provider */}
-				<div className="mb-6">
-					<h2 className="text-2xl font-semibold mb-2">
-						{t('ImprintPage.section1.title')}
-					</h2>
+				<SectionCard title={t('ImprintPage.section1.title')}>
 					<div className="flex flex-col gap-2">
 						<span>
 							{t('ImprintPage.section1.description.companyName')}
@@ -40,21 +38,15 @@ const ImprintPage = () => {
 							{t('ImprintPage.section1.description.website')}
 						</span>
 					</div>
-				</div>
+				</SectionCard>
 
 				{/* Section 2: Disclaimer */}
-				<div className="mb-6">
-					<h2 className="text-2xl font-semibold mb-2">
-						{t('ImprintPage.section2.title')}
-					</h2>
+				<SectionCard title={t('ImprintPage.section2.title')}>
 					<p>{t('ImprintPage.section2.description')}</p>
-				</div>
+				</SectionCard>
 
 				{/* Section 3: Contact */}
-				<div className="mb-6">
-					<h2 className="text-2xl font-semibold mb-2">
-						{t('ImprintPage.section3.title')}
-					</h2>
+				<SectionCard title={t('ImprintPage.section3.title')}>
 					<p>{t('ImprintPage.section3.description')}</p>
 					<div className="flex flex-col mt-2">
 						<span>
@@ -64,7 +56,7 @@ const ImprintPage = () => {
 							{t('ImprintPage.section3.contactInfo.phone')}
 						</span>
 					</div>
-				</div>
+				</SectionCard>
 			</Container>
 		</section>
 	);

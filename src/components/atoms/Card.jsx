@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Card = ({ children, className }) => {
 	return (
 		<div
-			className={`bg-elevation-200 p-6 rounded-lg shadow-md ${className}`}
+			className={`bg-elevation-300 p-4 rounded-lg ${className}`}
 		>
 			{children}
 		</div>
