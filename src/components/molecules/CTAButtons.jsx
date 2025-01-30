@@ -6,7 +6,7 @@ const CTAButtons = () => {
 	const [t] = useTranslation('global');
 
 	return (
-		<div className="mt-10 space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center">
+		<div className="flex flex-col md:flex-row mt-10 gap-6 justify-center">
 			<Link
 				to="signin"
 				className="border border-blue-700 hover:border-blue-800 hover:bg-gray-700 text-white font-medium px-6 py-3 rounded-md transition-all"

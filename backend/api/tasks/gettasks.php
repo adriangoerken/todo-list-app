@@ -11,6 +11,12 @@
         
         // Get tasks from database
         $result = handleDatabaseQuery('SELECT id, task, task_order, priority, is_done, created_at FROM taskdoneify_tasks WHERE user_id = :user_id ORDER BY priority ASC, task_order ASC', [':user_id' => $userId]);              
+        
+        foreach ($result as &$res) {
+            $res['task'] = htmlspecialchars_decode($res['task'], ENT_QUOTES);                
+        }
+
+        unset($res);
         sendResponse(true, 'none', 'none', 'none', 200, ['tasks' => $result, 'accessToken' => $accessToken]);    
     }    
 

@@ -37,7 +37,11 @@ const NavBar = () => {
 		<>
 			{menuLinks.map(({ to, label }) => (
 				<li key={to}>
-					<Link to={to} onClick={menuOpen ? toggleMenu : undefined}>
+					<Link
+						to={to}
+						onClick={menuOpen ? toggleMenu : undefined}
+						className="hover:underline"
+					>
 						{label}
 					</Link>
 				</li>
