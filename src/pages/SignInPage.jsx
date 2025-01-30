@@ -4,7 +4,7 @@ import { useAuth } from '../providers/AuthContextProvider';
 import Container from '../components/organisms/Container';
 import CredentialsForm from '../components/organisms/CredentialsForm';
 import { useTranslation } from 'react-i18next';
-import { handleError } from '../utils/errorHandler';
+import { getCookie } from '../utils/utils';
 
 const SignInPage = () => {
 	const navigate = useNavigate();
@@ -19,7 +19,10 @@ const SignInPage = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const userInput = { email, password };
+		const cookieConsent = getCookie('cookieConsent');
+		console.log(cookieConsent);
+		console.log(typeof cookieConsent);
+		const userInput = { email, password, cookieConsent };
 		await signIn({ userInput });
 	};
 

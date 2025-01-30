@@ -12,7 +12,7 @@
         if ($refreshToken) {
 
             // Remove the refresh token from the database
-            handleDatabaseQuery("DELETE FROM refresh_tokens WHERE token = :token", [':token' => $refreshToken]);
+            handleDatabaseQuery("DELETE FROM taskdoneify_refresh_tokens WHERE token = :token", [':token' => $refreshToken]);
 
             // Clear the refresh token cookie
             resetTokenCookie();

@@ -12,11 +12,11 @@
         $task = sanitizeInput($postData['task']);                       
 
         // Get highest order number and increment by 1
-        $highestOrder = handleDatabaseQuery('SELECT MAX(task_order) as max_order FROM tasks WHERE user_id = :user_id', [':user_id' => $userId]);   
+        $highestOrder = handleDatabaseQuery('SELECT MAX(task_order) as max_order FROM taskdoneify_tasks WHERE user_id = :user_id', [':user_id' => $userId]);   
         $taskOrder = $highestOrder[0]['max_order'] + 1;                   
         
         // Insert task into database
-        handleDatabaseQuery('INSERT INTO tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
+        handleDatabaseQuery('INSERT INTO taskdoneify_tasks (user_id, task, task_order) VALUES (:user_id, :task, :task_order)', [':user_id' => $userId, ':task' => $task, ':task_order' => $taskOrder]);
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 

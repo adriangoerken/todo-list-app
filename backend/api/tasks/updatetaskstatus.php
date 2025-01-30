@@ -13,7 +13,7 @@
         $isDone = $putData['isDone'] === true ? 1 : 0;                            
         
         // Update task status
-        handleDatabaseQuery('UPDATE tasks SET is_done = :isDone WHERE id = :id AND user_id = :userId', [':isDone' => $isDone, ':id' => $id, ':userId' => $userId]);                                  
+        handleDatabaseQuery('UPDATE taskdoneify_tasks SET is_done = :isDone WHERE id = :id AND user_id = :userId', [':isDone' => $isDone, ':id' => $id, ':userId' => $userId]);                                  
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 

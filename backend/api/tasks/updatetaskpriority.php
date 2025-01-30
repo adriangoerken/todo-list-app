@@ -13,7 +13,7 @@
         $priority = $putData['priority'];                            
 
         // Update priority of the task
-        HandleDatabaseQuery('UPDATE tasks SET priority = :priority WHERE id = :id AND user_id = :userId', [':priority' => $priority, ':id' => $id, ':userId' => $userId]);                                  
+        HandleDatabaseQuery('UPDATE taskdoneify_tasks SET priority = :priority WHERE id = :id AND user_id = :userId', [':priority' => $priority, ':id' => $id, ':userId' => $userId]);                                  
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);                    
     }
 

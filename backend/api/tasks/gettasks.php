@@ -10,7 +10,7 @@
         $userId = $decoded->sub;                  
         
         // Get tasks from database
-        $result = handleDatabaseQuery('SELECT id, task, task_order, priority, is_done, created_at FROM tasks WHERE user_id = :user_id ORDER BY priority ASC, task_order ASC', [':user_id' => $userId]);              
+        $result = handleDatabaseQuery('SELECT id, task, task_order, priority, is_done, created_at FROM taskdoneify_tasks WHERE user_id = :user_id ORDER BY priority ASC, task_order ASC', [':user_id' => $userId]);              
         sendResponse(true, 'none', 'none', 'none', 200, ['tasks' => $result, 'accessToken' => $accessToken]);    
     }    
 

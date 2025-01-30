@@ -10,9 +10,10 @@
         $postData = json_decode(file_get_contents("php://input"), true);
         $email = $postData['email'];
         $password = $postData['password'];    
+        $cookieConsent = $postData['cookieConsent'];    
         
         // Check if email exists
-        $result = handleDatabaseQuery("SELECT id, email, password, role FROM users WHERE email = :email", [':email' => $email]);            
+        $result = handleDatabaseQuery("SELECT id, email, password, role FROM taskdoneify_users WHERE email = :email", [':email' => $email]);            
     
         if (count($result) === 1) {                
             if (password_verify($password, $result[0]['password'])) {                    
@@ -37,17 +38,17 @@
                 $expiresAt = date('Y-m-d H:i:s', time() + (90 * 24 * 60 *60));
 
                 // Store refresh token in database
-                handleDatabaseQuery("INSERT INTO refresh_tokens (user_id, token, expires_at) VALUES (:user_id, :token, :expires_at)", [':user_id' => $userId, ':token' => $refreshToken, ':expires_at' => $expiresAt]);                    
+                handleDatabaseQuery("INSERT INTO taskdoneify_refresh_tokens (user_id, token, expires_at) VALUES (:user_id, :token, :expires_at)", [':user_id' => $userId, ':token' => $refreshToken, ':expires_at' => $expiresAt]);                    
                 
                 // Set refresh token as cookie
-                if (isset($_COOKIE['cookieConsent']) && $_COOKIE['cookieConsent'] === 'true') {
+                if (isset($cookieConsent) && $cookieConsent === 'true') {                    
                     setcookie(
-                        'refreshToken', 
+                        'taskdoneify_refreshToken', 
                         $refreshToken, 
                         [
                         'expires' => time() + (90 * 24 * 60 * 60),
                         'path' => '/',
-                        'domain' => 'taskdoneify.pages.dev',
+                        'domain' => 'adriangoerken.de',
                         'secure' => true,   // Set to true in production
                         'httponly' => true,
                         'samesite' => 'None' // Remove in production

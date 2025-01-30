@@ -11,7 +11,7 @@
         $putData = json_decode(file_get_contents("php://input"), true);           
             
         // Prepare the SQL statement 
-        $updateOrderQuery = 'UPDATE tasks SET task_order = CASE id '; 
+        $updateOrderQuery = 'UPDATE taskdoneify_tasks SET task_order = CASE id '; 
         
         // Loop through the tasks and add the task ID and order number to the SQL statement
         foreach ($putData['tasks'] as $index => $task) {

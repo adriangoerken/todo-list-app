@@ -5,11 +5,11 @@
     use \Firebase\JWT\Key;    
     
     function retrieveRefreshToken() {
-        return $_COOKIE['refreshToken'] ?? null;
+        return $_COOKIE['taskdoneify_refreshToken'] ?? null;
     }
 
     function verifyRefreshTokenDB($refreshToken) {        
-        $result = handleDatabaseQuery('SELECT * FROM refresh_tokens WHERE token = :token AND expires_at > NOW()', [':token' => $refreshToken]);
+        $result = handleDatabaseQuery('SELECT * FROM taskdoneify_refresh_tokens WHERE token = :token AND expires_at > NOW()', [':token' => $refreshToken]);
         return $result ? true : false;
     }    
 
@@ -20,12 +20,12 @@
 
     function resetTokenCookie() { 
         setcookie(
-            'refreshToken',
+            'taskdoneify_refreshToken',
             '',
             [
                 'expires' => time() - 3600,
                 'path' => '/',
-                'domain' => 'taskdoneify.pages.dev',
+                'domain' => 'adriangoerken.de',
                 'secure' => true, // Set to true in production
                 'httponly' => true,
                 'samesite' => 'None' // Set to Strict in production
@@ -97,7 +97,7 @@
     }    
 
     function authorizeAdminRequest($userId) {                       
-        $result = handleDatabaseQuery('SELECT COUNT(*) AS count FROM users WHERE :id = :id AND role = 0', [':id' => $userId]);
+        $result = handleDatabaseQuery('SELECT COUNT(*) AS count FROM taskdoneify_users WHERE :id = :id AND role = 0', [':id' => $userId]);
         
         if (!$result || $result[0]['count'] !== 1) {
             sendResponse(false, 'unauthorized_admin_request', 'Access denied!', 'The user is not authorized to perform this action.', 403);

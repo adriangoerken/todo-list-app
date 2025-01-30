@@ -10,7 +10,7 @@
         $userId = $decoded->sub;
         authorizeAdminRequest($userId);               
         
-        $result = handleDatabaseQuery('SELECT (SELECT COUNT(*) FROM users) AS user_count, email, id, role, signup_date, signup_number FROM users ORDER BY signup_number ASC');
+        $result = handleDatabaseQuery('SELECT (SELECT COUNT(*) FROM taskdoneify_users) AS user_count, email, id, role, signup_date, signup_number FROM taskdoneify_users ORDER BY signup_number ASC');
         sendResponse(true, 'none', 'none', 'none', 200, ['users' => $result, 'accessToken' => $accessToken]);        
     }
     

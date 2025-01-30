@@ -21,7 +21,7 @@
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Update password in database
-        handleDatabaseQuery('UPDATE users SET password = :password WHERE id = :id', [':password' => $hashedPassword, ':id' => $userId]);                                  
+        handleDatabaseQuery('UPDATE taskdoneify_users SET password = :password WHERE id = :id', [':password' => $hashedPassword, ':id' => $userId]);                                  
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 

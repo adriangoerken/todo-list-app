@@ -13,7 +13,7 @@
         }
 
         // Check if email already exists
-        $user = handleDatabaseQuery('SELECT * FROM users WHERE email = :email', [':email' => $email]);
+        $user = handleDatabaseQuery('SELECT * FROM taskdoneify_users WHERE email = :email', [':email' => $email]);
 
         if ($user) {                
             sendResponse(false, 'duplicate_entry', getLocalizedString('user.signup.duplicate_entry'), 'The email address is already in use.', 409);
@@ -24,7 +24,7 @@
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $id = bin2hex(random_bytes(16));
 
-        handleDatabaseQuery('INSERT INTO users (id, email, password) VALUES(:id, :email, :password)', [
+        handleDatabaseQuery('INSERT INTO taskdoneify_users (id, email, password) VALUES(:id, :email, :password)', [
             ':id' => $id, 
             ':email' => $email, 
             ':password' => $hashedPassword

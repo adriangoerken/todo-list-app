@@ -14,13 +14,13 @@
             $db->beginTransaction(); 
 
             // Remove the refresh token from the database                 
-            $db->query("DELETE FROM refresh_tokens WHERE user_id = :user_id", [':user_id' => $userId]); 
+            $db->query("DELETE FROM taskdoneify_refresh_tokens WHERE user_id = :user_id", [':user_id' => $userId]); 
                 
             // Remove user tasks from the database 
-            $db->query("DELETE FROM tasks WHERE user_id = :user_id", [':user_id' => $userId]); 
+            $db->query("DELETE FROM taskdoneify_tasks WHERE user_id = :user_id", [':user_id' => $userId]); 
                 
             // Remove user 
-            $db->query("DELETE FROM users WHERE id = :id", [':id' => $userId]); 
+            $db->query("DELETE FROM taskdoneify_users WHERE id = :id", [':id' => $userId]); 
             $db->commit(); // Commit transaction 
                 
             // Clear the refresh token cookie 

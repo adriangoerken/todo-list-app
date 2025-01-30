@@ -18,7 +18,7 @@
         }
             
         // Update email in database
-        handleDatabaseQuery('UPDATE users SET email = :email WHERE id = :id', [':email' => $email, ':id' => $userId]);                                  
+        handleDatabaseQuery('UPDATE taskdoneify_users SET email = :email WHERE id = :id', [':email' => $email, ':id' => $userId]);                                  
         sendResponse(true, 'none', 'none', 'none', 200, ['accessToken' => $accessToken]);            
     }
 

@@ -12,12 +12,12 @@
         $deletedTaskOrder = sanitizeInput($_GET['task_order']);                       
         
         // Delete task from database
-        $affectedRows = handleDatabaseQuery('DELETE FROM tasks WHERE id = :task_id AND user_id = :user_id', [':task_id' => $taskId, ':user_id' => $userId]);
+        $affectedRows = handleDatabaseQuery('DELETE FROM taskdoneify_tasks WHERE id = :task_id AND user_id = :user_id', [':task_id' => $taskId, ':user_id' => $userId]);
 
         if ($affectedRows === 1) {               
             // Update task order for remaining tasks
             $updateOrderQuery = '
-            UPDATE tasks 
+            UPDATE taskdoneify_tasks 
             SET task_order = task_order - 1 
             WHERE task_order > :deleted_task_order 
             AND user_id = :user_id

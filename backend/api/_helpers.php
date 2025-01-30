@@ -100,7 +100,7 @@
     }    
 
     function retrieveUserInfo($userId) {        
-        return handleDatabaseQuery('SELECT email, role from users where id = :id', [':id' => $userId]);
+        return handleDatabaseQuery('SELECT email, role FROM taskdoneify_users where id = :id', [':id' => $userId]);
     }
 
     function sanitizeInput($data) {
