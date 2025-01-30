@@ -47,10 +47,10 @@
                         [
                         'expires' => time() + (90 * 24 * 60 * 60),
                         'path' => '/',
-                        'domain' => '',
-                        'secure' => false,   // Set to true in production
+                        'domain' => 'taskdoneify.pages.dev',
+                        'secure' => true,   // Set to true in production
                         'httponly' => true,
-                        'samesite' => 'Lax' // Remove in production
+                        'samesite' => 'None' // Remove in production
                         ]
                     );
                 }

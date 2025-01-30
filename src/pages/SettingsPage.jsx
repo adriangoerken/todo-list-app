@@ -29,7 +29,7 @@ const SettingsPage = () => {
 		setLoading(true);
 
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/updateemail';
+			'https://api.adriangoerken.de/taskdoneify/api/user/updateemail';
 		const response = await putData(url, { email }, user.accessToken);
 
 		if (response.success) {
@@ -57,7 +57,7 @@ const SettingsPage = () => {
 		setLoading(true);
 
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/updatepassword';
+			'https://api.adriangoerken.de/taskdoneify/api/user/updatepassword';
 		const response = await putData(url, { password }, user.accessToken);
 
 		if (response.success) {

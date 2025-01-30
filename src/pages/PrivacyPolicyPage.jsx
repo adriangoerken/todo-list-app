@@ -19,7 +19,7 @@ const PrivacyPolicyPage = () => {
 			'cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
 
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/revokecookieconsent';
+			'https://api.adriangoerken.de/taskdoneify//api/user/revokecookieconsent';
 		const response = await postData(url);
 
 		if (response.success) {

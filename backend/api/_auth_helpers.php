@@ -25,10 +25,10 @@
             [
                 'expires' => time() - 3600,
                 'path' => '/',
-                'domain' => '',
-                'secure' => false, // Set to true in production
+                'domain' => 'taskdoneify.pages.dev',
+                'secure' => true, // Set to true in production
                 'httponly' => true,
-                'samesite' => 'Lax' // Set to Strict in production
+                'samesite' => 'None' // Set to Strict in production
             ]
         );
     }

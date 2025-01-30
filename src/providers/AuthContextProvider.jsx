@@ -19,8 +19,7 @@ export const AuthProvider = ({ children }) => {
 	}, []);
 
 	const signUp = async (newUser) => {
-		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/signup';
+		const url = 'https://api.adriangoerken.de/taskdoneify/api/user/signup';
 		setLoading(true);
 
 		const response = await postData(url, newUser);
@@ -38,8 +37,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const signIn = async ({ userInput }) => {
-		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/signin';
+		const url = 'https://api.adriangoerken.de/taskdoneify/api/user/signin';
 		setLoading(true);
 
 		const response = await postData(url, userInput);
@@ -57,8 +55,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const signOut = async () => {
-		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/signout';
+		const url = 'https://api.adriangoerken.de/taskdoneify/api/user/signout';
 		setLoading(true);
 		const response = await deleteData(url, { action: 'signout' });
 
@@ -82,7 +79,7 @@ export const AuthProvider = ({ children }) => {
 	const deleteAccount = async () => {
 		setLoading(true);
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/deleteaccount';
+			'https://api.adriangoerken.de/taskdoneify/api/user/deleteaccount';
 		const response = await deleteData(url);
 
 		if (response.success) {
@@ -106,7 +103,7 @@ export const AuthProvider = ({ children }) => {
 	const checkUserStatus = async () => {
 		setLoading(true);
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/user/signinstate';
+			'https://api.adriangoerken.de/taskdoneify/api/user/signinstate';
 		const response = await postData(url);
 
 		if (response.success) {

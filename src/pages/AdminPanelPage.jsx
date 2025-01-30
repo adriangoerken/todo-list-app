@@ -16,7 +16,7 @@ const AdminPanel = () => {
 		setLoading(true);
 
 		const url =
-			'http://localhost/projects/todo-list-app/backend/api/admin/getallusers';
+			'https://api.adriangoerken.de/taskdoneify//api/admin/getallusers';
 
 		const response = await getData(url, user.accessToken);
 
