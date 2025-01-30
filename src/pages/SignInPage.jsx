@@ -20,8 +20,6 @@ const SignInPage = () => {
 		e.preventDefault();
 
 		const cookieConsent = getCookie('cookieConsent');
-		console.log(cookieConsent);
-		console.log(typeof cookieConsent);
 		const userInput = { email, password, cookieConsent };
 		await signIn({ userInput });
 	};
