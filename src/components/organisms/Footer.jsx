@@ -26,7 +26,7 @@ const Footer = () => {
 				<div className="flex flex-col md:flex-row md:flex-wrap justify-between items-center gap-y-4 md:gap-y-0">
 					<div className="text-center md:text-left mr-4">
 						<h3 className="text-lg font-bold break-all">
-							TaskDoneify
+							Adrian Goerken
 						</h3>
 						<p className="break-all">
 							&copy; {year}, {t('Footer.copyright')}
