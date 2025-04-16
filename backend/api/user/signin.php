@@ -10,7 +10,7 @@
         $postData = json_decode(file_get_contents("php://input"), true);
         $email = $postData['email'];
         $password = $postData['password'];    
-        $cookieConsent = $postData['cookieConsent'];    
+        $cookieConsent = $postData['cookieConsent'] ?? false;    
         
         // Check if email exists
         $result = handleDatabaseQuery("SELECT id, email, password, role FROM taskdoneify_users WHERE email = :email", [':email' => $email]);            
